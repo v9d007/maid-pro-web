@@ -46,8 +46,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className="antialiased min-h-screen flex flex-col bg-[#fffbfa] text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 transition-colors duration-200">
+        <Providers>{children}</Providers>
+
         {/* Google Analytics Tag from Live Site */}
         <Script
           strategy="afterInteractive"
@@ -83,9 +85,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className="antialiased min-h-screen flex flex-col bg-[#fffbfa] text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 transition-colors duration-200">
-        <Providers>{children}</Providers>
       </body>
     </html>
   );
