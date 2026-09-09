@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: #191c1e;
+    background-color: #f7f9fb;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    @apply antialiased text-on-surface bg-surface selection:bg-primary-fixed selection:text-primary;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Lexend', sans-serif;
+  }
+}
+
+/* Stitch Design System Custom Effects */
+.glint-top {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8), transparent) 1;
+}
+
+.hover-card-elevation {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-card-elevation:hover {
+  box-shadow: 0 12px 24px -4px rgba(15, 118, 110, 0.09), 0 4px 10px -2px rgba(15, 118, 110, 0.04);
+  transform: translateY(-2px);
+}
+
+.glass-panel {
+  background: rgba(247, 249, 251, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Continuous Infinite Marquee Animations for Testimonials */
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex !important;
+  width: max-content !important;
+  animation: marquee-left 36s linear infinite !important;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex !important;
+  width: max-content !important;
+  animation: marquee-right 36s linear infinite !important;
+  will-change: transform;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused !important;
+}
