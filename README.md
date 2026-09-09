@@ -1,67 +1,97 @@
-# Maid Pro Solution 4 You — Official Web Portal
+# MaidPro Web Application
 
-> Modern, high-performance web platform for **Maid Pro Solution 4 You** (House Cleaning & Domestic Help in Agra, Uttar Pradesh). Built with **Next.js 15, React 19, TypeScript, and Tailwind CSS** following the **Pure Nordic Minimalist** design system.
+A modern, high-performance web platform for home cleaning and domestic help services. Built with **Next.js 15, React 19, TypeScript, and Tailwind CSS**.
 
 ---
 
-## 🚀 Quick Start
+## ✨ Features
 
-### 1. Run Development Server
-```bash
-npm run dev
+- **Responsive Design**: Fully responsive layout optimized for mobile, tablet, and desktop screens.
+- **Bilingual Support**: Instant toggle between English and Hindi.
+- **Theme Modes**: Seamless Dark and Light theme switching.
+- **Service Catalog**: Categorized services with transparent pricing slabs and feature lists.
+- **Interactive Enquiry**: Real-time validated callback enquiry modal.
+- **Infinite Testimonials Marquee**: Smooth, auto-scrolling customer review marquee.
+- **FAQ Accordion**: Categorized frequently asked questions.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ or 20+
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo-name>.git
+   cd <your-repo-name>
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
+
+---
+
+## 🏗️ Project Structure
+
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+├── app/
+│   ├── layout.tsx              # Root layout & SEO metadata
+│   ├── page.tsx                # Home page layout
+│   └── globals.css             # Global styles and Tailwind directives
+├── components/
+│   ├── Navbar.tsx              # Navigation bar with language & theme controls
+│   ├── Hero.tsx                # Hero banner & key value propositions
+│   ├── ServicesGrid.tsx        # Service catalog cards & category filters
+│   ├── BookingModal.tsx        # Enquiry & callback request modal
+│   ├── Testimonials.tsx        # Infinite auto-scrolling reviews
+│   ├── FAQSection.tsx          # FAQ accordion
+│   └── Footer.tsx              # Footer navigation and links
+├── context/
+│   ├── LanguageContext.tsx     # Internationalization state (EN / HI)
+│   └── ThemeContext.tsx        # Theme state (Light / Dark)
+├── data/
+│   ├── services.ts             # Service catalog definitions
+│   ├── testimonials.ts         # Testimonials dataset
+│   └── faqs.ts                 # FAQs dataset
+└── utils/
+    └── whatsapp.ts             # Communication helper utilities
+```
 
-### 2. Build for Production
+---
+
+## 📦 Build & Deployment
+
+### Production Build
+
 ```bash
 npm run build
 npm run start
 ```
 
----
+### Deploy to Vercel
 
-## 📁 Project Architecture
+The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new).
 
-```
-/Users/vinod/Documents/Maids Pro
-├── app/
-│   ├── layout.tsx              # Root HTML, SEO Metadata, OpenGraph & Viewport
-│   ├── page.tsx                # Main Landing Page & State Controller
-│   └── globals.css             # Nordic Minimalist CSS & Tailwind utilities
-├── components/
-│   ├── Navbar.tsx              # 24/7 Status Header, Contact CTA & Mobile Menu
-│   ├── Hero.tsx                # Hero Banner with Instant Cost Estimator
-│   ├── TrustBadges.tsx         # 4 Safety & Guarantee Pillars
-│   ├── ServicesGrid.tsx        # Transparent Pricing Cards for all 7 Services
-│   ├── BookingModal.tsx        # Multi-Step Interactive Estimator & WhatsApp Checkout
-│   ├── WhyChooseUs.tsx         # Comparison: Maid Pro vs Unverified Maids
-│   ├── HowItWorks.tsx          # 3-Step Simple Process
-│   ├── Testimonials.tsx        # Agra Customer Reviews (Khandari, Bodla, Dayalbagh)
-│   ├── FAQSection.tsx          # Interactive Category-Filtered Accordion
-│   ├── MobileStickyBar.tsx     # Mobile Bottom Action Bar (Call, Quote, WhatsApp)
-│   └── Footer.tsx              # Business Address, Hours, Localities & Map Link
-├── data/
-│   ├── services.ts             # Service Catalog, Pricing, and Localities
-│   ├── testimonials.ts         # Customer Testimonials Dataset
-│   └── faqs.ts                 # FAQs Dataset
-└── utils/
-    └── whatsapp.ts             # WhatsApp Pre-filled Payload Generator
-```
+1. Push code to your Git repository.
+2. Import the project into Vercel.
+3. Deploy with zero configuration.
 
 ---
 
-## 🛠️ How to Customize
+## 📄 License
 
-### Updating Pricing or Services
-Edit [`data/services.ts`](file:///Users/vinod/Documents/Maids%20Pro/data/services.ts) to update service names, descriptions, or hourly/monthly rates.
-
-### Updating Phone / WhatsApp Number
-Edit [`utils/whatsapp.ts`](file:///Users/vinod/Documents/Maids%20Pro/utils/whatsapp.ts):
-```ts
-export const PHONE_NUMBER = "919321034262";
-export const FORMATTED_PHONE = "+91 9321034262";
-```
-
-### Deploying to Vercel / Cloudflare
-1. Push this folder to your GitHub Organization (e.g. `github.com/YourOrg/maidpro-web`).
-2. Connect your repository on [Vercel](https://vercel.com) — zero configuration required!
+This project is licensed under the MIT License.
