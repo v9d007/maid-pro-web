@@ -11,32 +11,42 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Maid Pro Solution 4 You - House Cleaning Service in Khandari, Agra",
+  title: "Maid Pro Solution 4 You | 100% Verified Maids & Deep Cleaning in Agra",
   description:
-    "The aim of 'Maid Pro Solution for You' is to offer housemaids work opportunities and organize this industry with trust and security in Agra. Committed to providing verified housemaids, babysitters, cooks, and deep cleaning.",
+    "Agra's trusted domestic help & cleaning agency. 100% Police-verified housemaids, cooks, babysitters, elderly caregivers & deep cleaning experts. Transparent monthly salary slabs & instant free replacement across Khandari, Dayalbagh, Kamla Nagar, Sanjay Place & Bodla.",
   keywords: [
-    "Maid Service Agra",
-    "House Cleaning Khandari",
-    "Deep Cleaning Agra",
-    "Housemaid in Bodla Agra",
-    "Cook in Dayalbagh",
-    "Babysitter Agra",
+    "Maid Service in Agra",
+    "House Cleaning Agra",
+    "Deep House Cleaning Khandari",
+    "Housemaid in Dayalbagh Agra",
+    "Cook in Kamla Nagar",
+    "Babysitter in Agra",
     "Elderly Care Agra",
+    "24 Hour Live in Maid Agra",
+    "Japa Maid Agra",
     "Maid Pro Solution 4 You",
   ],
   authors: [{ name: "Maid Pro Solution 4 You" }],
-  metadataBase: new URL("https://maid-pro-solution4-you.grexa.site"),
+  metadataBase: new URL("https://maidprosolution4you.in"),
   alternates: {
-    canonical: "https://maid-pro-solution4-you.grexa.site",
+    canonical: "https://maidprosolution4you.in",
   },
   openGraph: {
-    title: "Maid pro solution4 you - House Cleaning Service in Khandari, Agra",
+    title: "Maid Pro Solution 4 You | Verified Domestic Staff & Cleaning in Agra",
     description:
-      "Aadhaar & Police-verified housemaids, cooks, babysitters & deep cleaning experts in Agra. 24/7 service with instant free replacement.",
-    url: "https://maid-pro-solution4-you.grexa.site",
+      "100% Police-verified housemaids, cooks, babysitters & deep cleaning in Agra. Instant free replacement & transparent pricing.",
+    url: "https://maidprosolution4you.in",
     siteName: "Maid Pro Solution 4 You",
     locale: "en_IN",
     type: "website",
+  },
+  icons: {
+    icon: [
+      { url: "/icon", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
