@@ -43,37 +43,37 @@ export const Navbar: React.FC<NavbarProps> = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="flex justify-between items-center h-16 md:h-20 relative">
             
-            {/* Left Group: Brand Wordmark & Aligned Desktop Navigation Menu */}
-            <div className="flex items-center gap-8 lg:gap-12">
+            {/* Left: Brand Wordmark */}
+            <div className="flex items-center flex-shrink-0">
               <BrandLogo />
-
-              {/* Desktop Navigation Links */}
-              <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
-                <Link
-                  href="#services"
-                  className="text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-emerald-400 font-semibold transition"
-                >
-                  {t.nav.homeServices}
-                </Link>
-                <Link
-                  href="#about"
-                  className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
-                >
-                  {t.nav.aboutUs}
-                </Link>
-                <Link
-                  href="#faqs"
-                  className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
-                >
-                  {t.nav.faqs}
-                </Link>
-              </nav>
             </div>
 
+            {/* Center: Desktop Navigation Menu Links */}
+            <nav className="hidden md:flex items-center gap-8 text-sm font-medium absolute left-1/2 -translate-x-1/2">
+              <Link
+                href="#services"
+                className="text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-emerald-400 font-semibold transition"
+              >
+                {t.nav.homeServices}
+              </Link>
+              <Link
+                href="#about"
+                className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
+              >
+                {t.nav.aboutUs}
+              </Link>
+              <Link
+                href="#faqs"
+                className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
+              >
+                {t.nav.faqs}
+              </Link>
+            </nav>
+
             {/* Desktop Right Action Area: Language & Theme Features */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3 flex-shrink-0">
               
               {/* Theme Toggle Button */}
               <button
