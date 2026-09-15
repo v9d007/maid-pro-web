@@ -13,32 +13,21 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 20,
-          background: 'linear-gradient(135deg, #004842 0%, #005c55 100%)',
+          fontSize: 16,
+          background: 'linear-gradient(135deg, #003833 0%, #005c55 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
-          borderRadius: '8px',
+          color: '#FFFFFF',
+          borderRadius: '7px',
           fontWeight: 900,
-          fontFamily: 'sans-serif',
-          position: 'relative',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          letterSpacing: '-0.05em',
         }}
       >
-        <span style={{ transform: 'translateY(-1px)' }}>M</span>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '5px',
-            right: '5px',
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            backgroundColor: '#f59e0b',
-          }}
-        />
+        <span>MP</span>
       </div>
     ),
     {
