@@ -85,6 +85,59 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Local Business JSON-LD Schema for Google Search & Maps Rich Snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HomeAndConstructionBusiness",
+              "name": "Maid Pro Solution 4 You",
+              "description": "Aadhaar & Police-verified housemaids, cooks, babysitters & deep cleaning experts in Agra. 24/7 service with instant free replacement.",
+              "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80",
+              "telephone": "+919321034262",
+              "email": "maidprosolution@gmail.com",
+              "url": "https://maidprosolution4you.in",
+              "priceRange": "₹₹",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Khandari Crossing / Sanjay Place",
+                "addressLocality": "Agra",
+                "addressRegion": "Uttar Pradesh",
+                "postalCode": "282002",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "27.1767",
+                "longitude": "78.0081"
+              },
+              "areaServed": [
+                { "@type": "City", "name": "Agra" },
+                { "@type": "AdministrativeArea", "name": "Khandari, Agra" },
+                { "@type": "AdministrativeArea", "name": "Dayalbagh, Agra" },
+                { "@type": "AdministrativeArea", "name": "Kamla Nagar, Agra" },
+                { "@type": "AdministrativeArea", "name": "Sanjay Place, Agra" },
+                { "@type": "AdministrativeArea", "name": "Sikandra, Agra" },
+                { "@type": "AdministrativeArea", "name": "Fatehabad Road, Agra" }
+              ],
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                  "opens": "07:00",
+                  "closes": "21:00"
+                }
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "128"
+              }
+            }),
+          }}
+        />
       </body>
     </html>
   );
