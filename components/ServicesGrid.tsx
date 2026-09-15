@@ -46,7 +46,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
       return ["deep-clean", "moving-cleaning", "office-cleaning", "standard-cleaning", "window-cleaning", "mattress-cleaning", "upholstery-cleaning"].includes(service.id);
     }
     if (filterCategory === "maid_care") {
-      return ["general-housekeeping", "house-maid-hourly", "caregiver-combined", "live-in-maid-care"].includes(service.id);
+      return ["general-housekeeping", "house-maid-hourly", "caregiver-combined"].includes(service.id);
     }
     return true;
   });
@@ -84,7 +84,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
                   : "bg-white dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700"
               }`}
             >
-              {t.services.allServices} ({SERVICES_CATALOG.length})
+              {t.services.allServices} (10)
             </button>
             <button
               type="button"
@@ -112,7 +112,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
                   : "bg-white dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-700"
               }`}
             >
-              {t.services.maidCleaning} & {t.services.elderlyCare} (4)
+              {t.services.maidCleaning} & {t.services.elderlyCare} (3)
             </button>
           </div>
         </div>
