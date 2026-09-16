@@ -63,51 +63,49 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Col 4: Contact & Office Hub (Spans full width on mobile, 3 cols on desktop) */}
-            <div className="col-span-2 lg:col-span-3">
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#111c24] border border-slate-200/80 dark:border-slate-800 shadow-2xs space-y-3">
-                <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-slate-100 font-heading">
-                  {t.footer.contact}
-                </h4>
-                
-                <div className="space-y-2.5 text-xs">
-                  <div className="flex items-start gap-2.5">
-                    <MapPin className="w-4 h-4 text-primary dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-                    <a
-                      href="https://www.google.com/maps/place/?q=place_id:ChIJVc9fl4x3dDkRTMItenDGfAE"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-primary dark:hover:text-emerald-400 transition"
-                    >
-                      <span className="leading-snug block">{BUSINESS_ADDRESS}</span>
-                      <span className="text-[10px] text-primary dark:text-emerald-400 font-bold block mt-0.5 underline">
-                        {language === "hi" ? "दिशा-निर्देश देखें →" : "Get Directions →"}
-                      </span>
-                    </a>
-                  </div>
+            <div className="col-span-2 lg:col-span-3 space-y-2.5">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-slate-100 font-heading">
+                {t.footer.contact}
+              </h4>
+              
+              <div className="space-y-2.5 text-xs">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-primary dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <a
+                    href="https://www.google.com/maps/place/?q=place_id:ChIJVc9fl4x3dDkRTMItenDGfAE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary dark:hover:text-emerald-400 transition"
+                  >
+                    <span className="leading-snug block">{BUSINESS_ADDRESS}</span>
+                    <span className="text-[10px] text-primary dark:text-emerald-400 font-bold block mt-0.5 underline">
+                      {language === "hi" ? "दिशा-निर्देश देखें →" : "Get Directions →"}
+                    </span>
+                  </a>
+                </div>
 
-                  <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-primary dark:text-emerald-400 flex-shrink-0" />
-                    <a href="tel:+919321034262" className="hover:text-primary dark:hover:text-emerald-400 font-bold transition text-slate-900 dark:text-slate-100">
-                      {FORMATTED_PHONE}
-                    </a>
-                  </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone className="w-4 h-4 text-primary dark:text-emerald-400 flex-shrink-0" />
+                  <a href="tel:+919321034262" className="hover:text-primary dark:hover:text-emerald-400 font-bold transition text-slate-900 dark:text-slate-100">
+                    {FORMATTED_PHONE}
+                  </a>
+                </div>
 
-                  <div className="flex items-center gap-2.5 text-[11px] text-slate-600 dark:text-slate-400">
-                    <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                    <span>{language === "hi" ? "24 घंटे खुला • सोमवार - रविवार" : "Open 24 Hours • Mon - Sun"}</span>
-                  </div>
+                <div className="flex items-center gap-2.5 text-[11px] text-slate-600 dark:text-slate-400">
+                  <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                  <span>{language === "hi" ? "24 घंटे खुला • सोमवार - रविवार" : "Open 24 Hours • Mon - Sun"}</span>
+                </div>
 
-                  <div className="pt-1">
-                    <a
-                      href={getDirectWhatsAppChatLink()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-sm"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5" />
-                      <span>{language === "hi" ? "व्हाट्सएप पर बात करें" : "WhatsApp Agra Help"}</span>
-                    </a>
-                  </div>
+                <div className="pt-1.5">
+                  <a
+                    href={getDirectWhatsAppChatLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-2xs"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>{language === "hi" ? "व्हाट्सएप पर बात करें" : "WhatsApp Agra Help"}</span>
+                  </a>
                 </div>
               </div>
             </div>

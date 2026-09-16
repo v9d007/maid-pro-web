@@ -13,7 +13,7 @@ export const Testimonials: React.FC = () => {
   const row2 = [...TESTIMONIALS_ROW_2, ...TESTIMONIALS_ROW_2];
 
   return (
-    <section id="reviews" className="py-16 sm:py-24 bg-transparent relative overflow-hidden transition-colors duration-200">
+    <section id="reviews" className="py-16 sm:py-24 bg-[#fffbfa]/70 dark:bg-[#0e171e]/70 relative overflow-hidden transition-colors duration-200">
       
       {/* Decorative ambient background radial lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary/5 dark:bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -35,8 +35,8 @@ export const Testimonials: React.FC = () => {
         <div className="relative w-full overflow-hidden space-y-4 sm:space-y-5 py-2">
           
           {/* Left & Right Soft Fade Edge Gradients */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-5 sm:w-10 md:w-14 bg-gradient-to-r from-white dark:from-[#0b1318] via-white/90 dark:via-[#0b1318]/90 to-transparent z-20"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-5 sm:w-10 md:w-14 bg-gradient-to-l from-white dark:from-[#0b1318] via-white/90 dark:via-[#0b1318]/90 to-transparent z-20"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-5 sm:w-10 md:w-14 bg-gradient-to-r from-[#fffbfa] dark:from-[#0e171e] via-[#fffbfa]/90 dark:via-[#0e171e]/90 to-transparent z-20"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-5 sm:w-10 md:w-14 bg-gradient-to-l from-[#fffbfa] dark:from-[#0e171e] via-[#fffbfa]/90 dark:via-[#0e171e]/90 to-transparent z-20"></div>
 
           {/* ROW 1: Scrolls to the Left */}
           <div className="flex gap-4 sm:gap-5 animate-marquee-left hover:[animation-play-state:paused] cursor-pointer w-max">
