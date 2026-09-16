@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ServicesGrid } from "@/components/ServicesGrid";
@@ -8,7 +9,11 @@ import { Testimonials } from "@/components/Testimonials";
 import { AboutSection } from "@/components/AboutSection";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
-import { BookingModal } from "@/components/BookingModal";
+
+const BookingModal = dynamic(
+  () => import("@/components/BookingModal").then((mod) => mod.BookingModal),
+  { ssr: false }
+);
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);

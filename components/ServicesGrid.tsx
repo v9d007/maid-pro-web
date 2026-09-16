@@ -164,20 +164,20 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
                       </h3>
                     </div>
 
-                    <p className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-3 line-clamp-2 sm:line-clamp-none">
+                    <p className="text-[10px] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed mb-3 line-clamp-2 sm:line-clamp-none">
                       {details.shortDesc}
                     </p>
 
                     {/* Special Hourly Salary Slabs Display */}
                     {details.salarySlab && (
                       <div className="mb-3 p-2 sm:p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 space-y-1">
-                        <span className="text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block">
+                        <span className="text-[9px] sm:text-[10px] font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider block">
                           {language === "hi" ? "मासिक वेतन स्लैब:" : "Monthly Salary Slabs:"}
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-[9px] sm:text-[11px]">
                           {details.salarySlab.map((slab, sIdx) => (
                             <div key={sIdx} className="bg-white dark:bg-slate-900 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded border border-slate-200/60 dark:border-slate-800 flex justify-between items-center">
-                              <span className="text-slate-600 dark:text-slate-400 font-medium truncate">{slab.hours}:</span>
+                              <span className="text-slate-700 dark:text-slate-300 font-medium truncate">{slab.hours}:</span>
                               <span className="font-bold text-primary dark:text-emerald-400 ml-1">{slab.rate}</span>
                             </div>
                           ))}

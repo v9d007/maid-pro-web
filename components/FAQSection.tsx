@@ -26,7 +26,7 @@ export const FAQSection: React.FC = () => {
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-50 font-heading tracking-tight">
             {t.faqs.title}
           </h2>
-          <p className="text-xs sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-700 dark:text-slate-200 max-w-xl mx-auto leading-relaxed">
             {t.faqs.subtitle}
           </p>
         </div>
@@ -55,7 +55,7 @@ export const FAQSection: React.FC = () => {
                     className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
                       isOpen
                         ? "rotate-180 bg-primary/10 dark:bg-emerald-500/20 text-primary dark:text-emerald-400"
-                        : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                        : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -63,7 +63,7 @@ export const FAQSection: React.FC = () => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800">
+                  <div className="px-5 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed border-t border-slate-100 dark:border-slate-800">
                     {details.answer}
                   </div>
                 )}

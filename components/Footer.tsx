@@ -22,12 +22,12 @@ export const Footer: React.FC = () => {
             <div className="col-span-2 lg:col-span-4 space-y-3">
               <BrandLogo />
 
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm">
+              <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed max-w-sm">
                 {t.footer.tagline}
               </p>
 
-              <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold text-xs pt-0.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+              <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-semibold text-xs pt-0.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-700 dark:text-emerald-400 flex-shrink-0" />
                 <span>{language === "hi" ? "100% पुलिस-सत्यापित घरेलू स्टाफ" : "100% Background-Checked Staff in Agra"}</span>
               </div>
             </div>
@@ -37,13 +37,13 @@ export const Footer: React.FC = () => {
               <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-slate-100 font-heading">
                 {t.footer.services}
               </h4>
-              <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs">
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-400 transition">{language === "hi" ? "डीप हाउस क्लीनिंग" : "Deep House Cleaning"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-400 transition">{language === "hi" ? "दैनिक मेड व झाड़ू-पोछा" : "Daily Maid & Housekeeping"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-400 transition">{language === "hi" ? "किचन सैनिटाइजेशन व कुक" : "Kitchen Sanitization & Cook"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-400 transition">{language === "hi" ? "सोफा व कारपेट शैंपूइंग" : "Sofa & Upholstery Shampooing"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-400 transition">{language === "hi" ? "बेबीसिटर व नानी केयर" : "Babysitter & Nanny Care"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-400 transition">{language === "hi" ? "बुजुर्ग व पेशेंट केयर" : "Elderly & Patient Care"}</Link></li>
+              <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-700 dark:text-slate-300">
+                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "डीप हाउस क्लीनिंग" : "Deep House Cleaning"}</Link></li>
+                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "दैनिक मेड व झाड़ू-पोछा" : "Daily Maid & Housekeeping"}</Link></li>
+                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "किचन सैनिटाइजेशन व कुक" : "Kitchen Sanitization & Cook"}</Link></li>
+                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "सोफा व कारपेट शैंपूइंग" : "Sofa & Upholstery Shampooing"}</Link></li>
+                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बेबीसिटर व नानी केयर" : "Babysitter & Nanny Care"}</Link></li>
+                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बुजुर्ग व पेशेंट केयर" : "Elderly & Patient Care"}</Link></li>
               </ul>
             </div>
 
@@ -54,8 +54,8 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-1 sm:space-y-1.5 text-[11px]">
                 {AGRA_LOCALITIES.slice(0, 8).map((loc, idx) => (
-                  <li key={idx} className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 dark:bg-emerald-400/60 flex-shrink-0"></span>
+                  <li key={idx} className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>
                     <span className="truncate">{loc}</span>
                   </li>
                 ))}
@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
                     rel="noopener noreferrer"
                     className="hover:text-primary dark:hover:text-emerald-400 transition"
                   >
-                    <span className="leading-snug block">{BUSINESS_ADDRESS}</span>
+                    <span className="leading-snug block text-slate-700 dark:text-slate-300">{BUSINESS_ADDRESS}</span>
                     <span className="text-[10px] text-primary dark:text-emerald-400 font-bold block mt-0.5 underline">
                       {language === "hi" ? "दिशा-निर्देश देखें →" : "Get Directions →"}
                     </span>
@@ -91,8 +91,8 @@ export const Footer: React.FC = () => {
                   </a>
                 </div>
 
-                <div className="flex items-center gap-2.5 text-[11px] text-slate-600 dark:text-slate-400">
-                  <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <div className="flex items-center gap-2.5 text-[11px] text-slate-700 dark:text-slate-300">
+                  <Clock className="w-4 h-4 text-emerald-700 dark:text-emerald-400 flex-shrink-0" />
                   <span>{language === "hi" ? "24 घंटे खुला • सोमवार - रविवार" : "Open 24 Hours • Mon - Sun"}</span>
                 </div>
 
@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Bottom Copyright */}
-          <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-slate-500 dark:text-slate-500 text-[11px]">
+          <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-slate-600 dark:text-slate-400 text-[11px]">
             <div>
               © {new Date().getFullYear()} Maid Pro Solution 4 You. {t.footer.allRightsReserved}
             </div>

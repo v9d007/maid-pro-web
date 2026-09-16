@@ -120,7 +120,7 @@ export const AboutSection: React.FC = () => {
                 )}
               </h2>
 
-              <div className="space-y-3 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+              <div className="space-y-3 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed">
                 <p>
                   {language === "hi"
                     ? "MaidPro Solution 4 You की स्थापना आगरा में घरेलू सहायता क्षेत्र में सुरक्षा, पारदर्शिता और पेशेवर विश्वसनीयता लाने के उद्देश्य से की गई थी। पारंपरिक रूप से घरेलू सहायकों की नियुक्ति केवल मौखिक सिफारिशों पर निर्भर थी — जिसमें न तो कोई पुलिस सत्यापन होता था और न सुरक्षा की गारंटी।"
@@ -144,7 +144,7 @@ export const AboutSection: React.FC = () => {
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "सत्यापित सहायक" : "Police-Verified Staff"}
                 </div>
-                <p className="hidden sm:block text-[11px] text-slate-500 dark:text-slate-400">
+                <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
                   {language === "hi" ? "आधार व पुलिस क्लियरेंस" : "Background checked"}
                 </p>
               </div>
@@ -156,20 +156,20 @@ export const AboutSection: React.FC = () => {
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "आगरा परिवार" : "Agra Homes Served"}
                 </div>
-                <p className="hidden sm:block text-[11px] text-slate-500 dark:text-slate-400">
+                <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
                   {language === "hi" ? "आगरा की प्रमुख कॉलोनियों में" : "Across Agra"}
                 </p>
               </div>
 
               <div className="space-y-0.5">
-                <div className="text-2xl sm:text-3xl font-extrabold text-amber-500 font-heading tracking-tight flex items-center justify-center sm:justify-start gap-1">
+                <div className="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-heading tracking-tight flex items-center justify-center sm:justify-start gap-1">
                   <span>4.9</span>
                   <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400" />
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "ग्राहक रेटिंग" : "Satisfaction Rating"}
                 </div>
-                <p className="hidden sm:block text-[11px] text-slate-500 dark:text-slate-400">
+                <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
                   {language === "hi" ? "1,200+ समीक्षाएं" : "From 1,200+ reviews"}
                 </p>
               </div>
@@ -183,7 +183,7 @@ export const AboutSection: React.FC = () => {
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary dark:text-emerald-400 shrink-0" />
                     <span>{std.title}</span>
                   </div>
-                  <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 leading-relaxed pl-5">
+                  <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed pl-5">
                     {std.desc}
                   </p>
                 </div>
@@ -219,7 +219,7 @@ export const AboutSection: React.FC = () => {
                     <h3 className="text-sm font-bold text-slate-900 dark:text-slate-50 font-heading leading-snug">
                       {p.title}
                     </h3>
-                    <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p className="text-[11px] text-slate-700 dark:text-slate-200 leading-relaxed">
                       {p.desc}
                     </p>
                   </div>

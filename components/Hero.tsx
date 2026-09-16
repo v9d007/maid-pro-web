@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ShieldCheck, ThumbsUp, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -29,23 +30,23 @@ export const Hero: React.FC<HeroProps> = () => {
             </h1>
 
             {/* Clear, Airy Subtitle */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 font-normal max-w-2xl leading-relaxed">
               {t.hero.subtitle}
             </p>
 
             {/* Minimalist Trust Pill Badges */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-xs">
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                 <span>{t.hero.verifiedStaff}</span>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-xs">
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-xs">
                 <ThumbsUp className="w-4 h-4 text-primary dark:text-teal-400 flex-shrink-0" />
                 <span>{t.hero.satisfactionGuaranteed}</span>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-xs">
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-xs">
                 <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                 <span>{t.hero.payAfterWork}</span>
               </div>
@@ -55,11 +56,14 @@ export const Hero: React.FC<HeroProps> = () => {
 
           {/* Right Column: Clean, Pristine Living Room Visual Card */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-3xl lg:rounded-[32px] overflow-hidden border border-slate-200/80 dark:border-slate-700 shadow-sm bg-slate-50 dark:bg-slate-800">
-              <img
-                src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&auto=format&fit=crop&q=90"
-                alt="Spotless, serene living room in Agra"
-                className="w-full h-80 sm:h-96 lg:h-[440px] object-cover"
+            <div className="relative rounded-3xl lg:rounded-[32px] overflow-hidden border border-slate-200/80 dark:border-slate-700 shadow-sm bg-slate-50 dark:bg-slate-800 w-full h-80 sm:h-96 lg:h-[440px]">
+              <Image
+                src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&auto=format&fit=crop&q=80"
+                alt="Spotless, serene living room in Agra - Maid Pro Solution 4 You"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 520px"
+                className="object-cover"
               />
             </div>
           </div>

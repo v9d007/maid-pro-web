@@ -1,7 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Inter, Lexend } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lexend",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -56,18 +69,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="antialiased min-h-screen flex flex-col bg-white text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 transition-colors duration-200">
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${lexend.variable}`} suppressHydrationWarning>
+      <body className="antialiased min-h-screen flex flex-col bg-white text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 font-sans transition-colors duration-200">
         <Providers>{children}</Providers>
 
         {/* Google Analytics Tag from Live Site */}
         <Script
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=G-0KSQDBWGNG"
         />
         <Script
           id="google-analytics"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -81,7 +94,7 @@ export default function RootLayout({
         {/* Microsoft Clarity Tracking from Live Site */}
         <Script
           id="microsoft-clarity"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               (function (c, l, a, r, i, t, y) {
@@ -96,55 +109,98 @@ export default function RootLayout({
           }}
         />
 
-        {/* Local Business JSON-LD Schema for Google Search & Maps Rich Snippets */}
+        {/* Local Business & Service JSON-LD Schema for Google Search, Maps & AI Crawlers */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "HomeAndConstructionBusiness",
-              "name": "Maid Pro Solution 4 You",
-              "description": "Aadhaar & Police-verified housemaids, cooks, babysitters & deep cleaning experts in Agra. 24/7 service with instant free replacement.",
-              "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80",
-              "telephone": "+919321034262",
-              "email": "maidprosolution@gmail.com",
-              "url": "https://maidprosolution4you.in",
-              "priceRange": "₹₹",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Khandari Crossing / Sanjay Place",
-                "addressLocality": "Agra",
-                "addressRegion": "Uttar Pradesh",
-                "postalCode": "282002",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "27.1767",
-                "longitude": "78.0081"
-              },
-              "areaServed": [
-                { "@type": "City", "name": "Agra" },
-                { "@type": "AdministrativeArea", "name": "Khandari, Agra" },
-                { "@type": "AdministrativeArea", "name": "Dayalbagh, Agra" },
-                { "@type": "AdministrativeArea", "name": "Kamla Nagar, Agra" },
-                { "@type": "AdministrativeArea", "name": "Sanjay Place, Agra" },
-                { "@type": "AdministrativeArea", "name": "Sikandra, Agra" },
-                { "@type": "AdministrativeArea", "name": "Fatehabad Road, Agra" }
-              ],
-              "openingHoursSpecification": [
+              "@graph": [
                 {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                  "opens": "07:00",
-                  "closes": "21:00"
+                  "@type": "HomeAndConstructionBusiness",
+                  "@id": "https://maidprosolution4you.in/#business",
+                  "name": "Maid Pro Solution 4 You",
+                  "description": "Aadhaar & Police-verified housemaids, cooks, babysitters & deep cleaning experts in Agra. 24/7 service with instant free replacement and transparent rates.",
+                  "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80",
+                  "telephone": "+919321034262",
+                  "email": "maidprosolution@gmail.com",
+                  "url": "https://maidprosolution4you.in",
+                  "priceRange": "₹₹",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Khandari Crossing / Sanjay Place",
+                    "addressLocality": "Agra",
+                    "addressRegion": "Uttar Pradesh",
+                    "postalCode": "282002",
+                    "addressCountry": "IN"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "27.1767",
+                    "longitude": "78.0081"
+                  },
+                  "areaServed": [
+                    { "@type": "City", "name": "Agra" },
+                    { "@type": "AdministrativeArea", "name": "Khandari, Agra" },
+                    { "@type": "AdministrativeArea", "name": "Dayalbagh, Agra" },
+                    { "@type": "AdministrativeArea", "name": "Kamla Nagar, Agra" },
+                    { "@type": "AdministrativeArea", "name": "Sanjay Place, Agra" },
+                    { "@type": "AdministrativeArea", "name": "Sikandra, Agra" },
+                    { "@type": "AdministrativeArea", "name": "Fatehabad Road, Agra" }
+                  ],
+                  "openingHoursSpecification": [
+                    {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                      "opens": "07:00",
+                      "closes": "21:00"
+                    }
+                  ],
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "reviewCount": "128"
+                  },
+                  "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Agra Domestic Services & Deep Cleaning",
+                    "itemListElement": [
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Deep House Cleaning in Agra",
+                          "description": "Complete sanitization and intensive cleaning for apartments and independent villas in Agra."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Verified House Maid & Daily Housekeeping",
+                          "description": "100% Police & Aadhaar verified daily domestic maids with transparent hourly and monthly salary slabs."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Cook & Kitchen Sanitization",
+                          "description": "Hygienic vegetarian and custom home cooks in Agra."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Babysitter & Elderly Caregiver",
+                          "description": "Trained and caring babysitters and senior care attendants for Agra families."
+                        }
+                      }
+                    ]
+                  }
                 }
-              ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "128"
-              }
+              ]
             }),
           }}
         />
