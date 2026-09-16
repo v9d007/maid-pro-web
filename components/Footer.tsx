@@ -23,12 +23,14 @@ export const Footer: React.FC = () => {
               <BrandLogo />
 
               <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed max-w-sm">
-                {t.footer.tagline}
+                {language === "hi"
+                  ? "आगरा में घरेलू सहायता, हाउसकीपिंग और डीप क्लीनिंग के लिए आपका विश्वसनीय स्थानीय मंच।"
+                  : "Agra's trusted local platform for verified domestic helpers, housekeeping, and professional deep cleaning."}
               </p>
 
               <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-semibold text-xs pt-0.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-700 dark:text-emerald-400 flex-shrink-0" />
-                <span>{language === "hi" ? "100% पुलिस-सत्यापित घरेलू स्टाफ" : "100% Background-Checked Staff in Agra"}</span>
+                <span>{language === "hi" ? "पुलिस-सत्यापित व प्रशिक्षित स्टाफ" : "Police-Verified & Trained Staff in Agra"}</span>
               </div>
             </div>
 
@@ -115,7 +117,7 @@ export const Footer: React.FC = () => {
           {/* Bottom Copyright */}
           <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-slate-600 dark:text-slate-400 text-[11px]">
             <div>
-              © {new Date().getFullYear()} Maid Pro Solution 4 You. {t.footer.allRightsReserved}
+              © {new Date().getFullYear()} MaidPro. {t.footer.allRightsReserved}
             </div>
 
             <div className="flex items-center gap-4">

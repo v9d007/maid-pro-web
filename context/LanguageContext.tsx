@@ -166,7 +166,7 @@ const translations: Record<Language, Translations> = {
       badge: "Our Mission & Standards",
       title: "Redefining Home Care in Agra with Trust & Safety",
       story1:
-        "MaidPro Solution 4 You was founded to bring professional security, police verification, and fair wages to Agra's domestic service sector.",
+        "MaidPro was founded to bring professional security, police verification, and fair wages to Agra's domestic service sector.",
       story2:
         "Every housekeeper, cook, and caregiver is thoroughly background-checked with Aadhaar & Police ID verification, trained in hygiene and polite etiquette.",
       stat1Label: "Verified Helpers",
@@ -189,7 +189,7 @@ const translations: Record<Language, Translations> = {
       badge: "Common Questions",
       title: "Frequently Asked Questions",
       subtitle:
-        "Everything you need to know about police verification, replacement guarantees, and fair pricing.",
+        "Everything you need to know about background verification, replacement guarantees, and transparent pricing.",
       allCategory: "All Questions",
       safetyCategory: "Safety & Verification",
       pricingCategory: "Pricing & Billing",
@@ -197,15 +197,15 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline:
-        "Agra's #1 trusted domestic helper and home cleaning service. 100% police-verified staff, free instant replacements, and pay-after-service transparency.",
+        "Agra's trusted local platform for verified domestic helpers, housekeeping, and professional deep cleaning.",
       quickLinks: "Quick Navigation",
       services: "Popular Services",
       contact: "Contact & Office Hub",
-      addressLabel: "Shop No. 12, Khandari Crossing, Near St. Peter's School, Agra, UP - 282002",
-      phoneLabel: "+91 98765 43210",
-      emailLabel: "contact@maidproagra.in",
+      addressLabel: "Bodla, Khandari Crossing, Sanjay Place, Agra, UP - 282002",
+      phoneLabel: "+91 93210 34262",
+      emailLabel: "maidprosolution@gmail.com",
       serviceAreas: "Serving Bodla, Khandari, Dayalbagh, Kamla Nagar, Sanjay Place & All Agra",
-      allRightsReserved: "All rights reserved. Maid Pro Solution 4 You.",
+      allRightsReserved: "All rights reserved. MaidPro.",
     },
     booking: {
       modalTitle: "Enquire for Home Service",
@@ -283,7 +283,7 @@ const translations: Record<Language, Translations> = {
       badge: "हमारा उद्देश्य और सुरक्षा मानक",
       title: "आगरा में घरेलू सहायता को सुरक्षा और सम्मान के साथ जोड़ना",
       story1:
-        "MaidPro Solution 4 You की शुरुआत आगरा में घरेलू सहायकों की भर्ती में सुरक्षा और पारदर्शिता लाने के उद्देश्य से की गई थी।",
+        "MaidPro की शुरुआत आगरा में घरेलू सहायकों की भर्ती में सुरक्षा और पारदर्शिता लाने के उद्देश्य से की गई थी।",
       story2:
         "प्रत्येक मेड, रसोइया और केयरगिवर का आधार कार्ड व पुलिस सत्यापन अनिवार्य रूप से किया जाता है तथा स्वच्छता व शिष्टाचार का प्रशिक्षण दिया जाता है।",
       stat1Label: "सत्यापित सहायक",
@@ -306,7 +306,7 @@ const translations: Record<Language, Translations> = {
       badge: "सामान्य प्रश्न",
       title: "अक्सर पूछे जाने वाले सवाल",
       subtitle:
-        "पुलिस वेरिफिकेशन, रिप्लेसमेंट गारंटी और दरों से जुड़े आपके सभी सवालों के जवाब।",
+        "पृष्ठभूमि सत्यापन, रिप्लेसमेंट गारंटी और दरों से जुड़े आपके सभी सवालों के जवाब।",
       allCategory: "सभी प्रश्न",
       safetyCategory: "सुरक्षा व सत्यापन",
       pricingCategory: "कीमत व भुगतान",
@@ -314,15 +314,15 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline:
-        "आगरा का #1 विश्वसनीय घरेलू सहायक और होम क्लीनिंग नेटवर्क। 100% पुलिस-सत्यापित स्टाफ, मुफ्त तत्काल रिप्लेसमेंट और काम के बाद भुगतान।",
+        "आगरा में घरेलू सहायता, हाउसकीपिंग और डीप क्लीनिंग के लिए आपका विश्वसनीय स्थानीय मंच।",
       quickLinks: "महत्वपूर्ण लिंक्स",
       services: "लोकप्रिय सेवाएं",
       contact: "कार्यालय व संपर्क",
-      addressLabel: "दुकान नं. 12, खंदारी चौराहा, सेंट पीटर्स स्कूल के पास, आगरा, यूपी - 282002",
-      phoneLabel: "+91 98765 43210",
-      emailLabel: "contact@maidproagra.in",
+      addressLabel: "बोदला, खंदारी चौराहा, संजय प्लेस, आगरा, यूपी - 282002",
+      phoneLabel: "+91 93210 34262",
+      emailLabel: "maidprosolution@gmail.com",
       serviceAreas: "बोदला, खंदारी, दयालबाग, कमला नगर, संजय प्लेस और पूरे आगरा में सेवा उपलब्ध",
-      allRightsReserved: "सर्वाधिकार सुरक्षित। Maid Pro Solution 4 You.",
+      allRightsReserved: "सर्वाधिकार सुरक्षित। MaidPro.",
     },
     booking: {
       modalTitle: "घरेलू सेवा के लिए पूछताछ",

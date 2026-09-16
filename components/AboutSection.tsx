@@ -10,28 +10,28 @@ export const AboutSection: React.FC = () => {
   const principles = [
     {
       num: "01",
-      icon: ShieldCheck,
+      icon: Clock,
       iconColor: "text-emerald-600 dark:text-emerald-400 bg-emerald-100/80 dark:bg-emerald-500/20 border-emerald-200 dark:border-emerald-700/60",
       cardGradient: "bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/60 dark:from-emerald-950/40 dark:via-[#111c24] dark:to-teal-950/30 border-emerald-200/80 dark:border-emerald-800/60 shadow-emerald-900/5",
-      title: language === "hi" ? "100% पुलिस व आधार सत्यापन" : "100% Police & ID Verified",
+      title: language === "hi" ? "त्वरित मुफ्त रिप्लेसमेंट" : "Free Instant Replacement",
       desc:
         language === "hi"
-          ? "आधार और यूपी पुलिस रिकॉर्ड की अनिवार्य जांच।"
-          : "UIDAI Aadhaar and UP Police background clearance.",
-      badge: language === "hi" ? "सत्यापित" : "Verified",
+          ? "यदि सहायक अनुपस्थित या अस्वस्थ हो, तो 24 घंटे में दूसरा सहायक।"
+          : "Backup replacement helper matched within 24 hours if maid takes leave.",
+      badge: language === "hi" ? "24h गारंटी" : "24h Guarantee",
       badgeColor: "text-emerald-700 dark:text-emerald-300 bg-emerald-100/80 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800/60",
       position: "sm:-rotate-2 sm:translate-x-2 sm:translate-y-0",
     },
     {
       num: "02",
-      icon: Clock,
+      icon: ShieldCheck,
       iconColor: "text-amber-600 dark:text-amber-400 bg-amber-100/80 dark:bg-amber-500/20 border-amber-200 dark:border-amber-700/60",
       cardGradient: "bg-gradient-to-br from-amber-50/90 via-white to-orange-50/60 dark:from-amber-950/40 dark:via-[#111c24] dark:to-orange-950/30 border-amber-200/80 dark:border-amber-800/60 shadow-amber-900/5",
-      title: language === "hi" ? "₹0 एडवांस • संतुष्टि पर भुगतान" : "Zero Advance • Pay After Work",
+      title: language === "hi" ? "संतुष्टि पर सुरक्षित भुगतान" : "Post-Service Payment",
       desc:
         language === "hi"
-          ? "काम पसंद आने पर ही भुगतान, साथ में तुरंत रिप्लेसमेंट।"
-          : "Pay only when satisfied. Free instant replacement.",
+          ? "पहले काम की गुणवत्ता देखें, पूर्ण संतुष्टि के बाद ही भुगतान करें।"
+          : "Inspect the work first. Pay securely only after 100% satisfaction.",
       badge: language === "hi" ? "जीरो रिस्क" : "Zero Risk",
       badgeColor: "text-amber-700 dark:text-amber-300 bg-amber-100/80 dark:bg-amber-900/40 border-amber-200 dark:border-amber-800/60",
       position: "sm:rotate-2 sm:translate-y-4 sm:ml-auto sm:-translate-x-2",
@@ -41,12 +41,12 @@ export const AboutSection: React.FC = () => {
       icon: HeartHandshake,
       iconColor: "text-rose-600 dark:text-rose-400 bg-rose-100/80 dark:bg-rose-500/20 border-rose-200 dark:border-rose-700/60",
       cardGradient: "bg-gradient-to-br from-rose-50/90 via-white to-pink-50/60 dark:from-rose-950/40 dark:via-[#111c24] dark:to-pink-950/30 border-rose-200/80 dark:border-rose-800/60 shadow-rose-900/5",
-      title: language === "hi" ? "उचित वेतन व सम्मान" : "Fair Pay & Worker Dignity",
+      title: language === "hi" ? "उचित वेतन व शून्य कमीशन" : "Fair Wages & Dignity",
       desc:
         language === "hi"
-          ? "बिना किसी दलाली के 100% पारदर्शी और सीधा भुगतान।"
-          : "Direct on-time pay with zero broker commission.",
-      badge: language === "hi" ? "सम्मान" : "Dignity",
+          ? "सहायकों को बिना किसी दलाली के 100% पारदर्शी व समय पर वेतन।"
+          : "Zero broker cuts. Domestic workers receive full on-time living wages.",
+      badge: language === "hi" ? "पारदर्शिता" : "Fair Pay",
       badgeColor: "text-rose-700 dark:text-rose-300 bg-rose-100/80 dark:bg-rose-900/40 border-rose-200 dark:border-rose-800/60",
       position: "sm:-rotate-1 sm:-translate-y-2 sm:ml-8 sm:translate-x-4",
     },
@@ -54,11 +54,11 @@ export const AboutSection: React.FC = () => {
 
   const operationalStandards = [
     {
-      title: language === "hi" ? "कड़ा 3-चरणीय सत्यापन" : "Strict 3-Step Verification",
+      title: language === "hi" ? "3-चरणीय पृष्ठभूमि सत्यापन" : "Triple Background Check",
       desc:
         language === "hi"
-          ? "हर सहायक के स्थायी पते, सरकारी फोटो पहचान पत्र और स्थानीय पुलिस रिकॉर्ड की जांच।"
-          : "Every helper's identity, permanent address, and police record are formally vetted.",
+          ? "आधार प्रमाणीकरण, स्थायी पते की जांच और स्थानीय पुलिस रिकॉर्ड क्लीयरेंस।"
+          : "UIDAI Aadhaar authentication, permanent address check & police vetting.",
     },
     {
       title: language === "hi" ? "स्वच्छता व शिष्टाचार" : "Hygiene & Etiquette",
@@ -68,11 +68,11 @@ export const AboutSection: React.FC = () => {
           : "Practical training in modern sanitization, punctuality, and polite household manners.",
     },
     {
-      title: language === "hi" ? "स्थानीय आगरा सहायता" : "Local Agra Support",
+      title: language === "hi" ? "स्थानीय आगरा सहायता टीम" : "Local Agra Operations",
       desc:
         language === "hi"
-          ? "आगरा में हमारी स्थानीय टीम द्वारा किसी भी प्रतिस्थापन का त्वरित समाधान।"
-          : "Dedicated local support team in Agra for prompt replacement assistance.",
+          ? "आगरा में हमारी स्थानीय टीम सप्ताह के सातों दिन आपकी सुविधा के लिए तत्पर है।"
+          : "Dedicated on-ground Agra team available 7 days a week for immediate coordination.",
     },
   ];
 
@@ -123,14 +123,14 @@ export const AboutSection: React.FC = () => {
               <div className="space-y-3 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed">
                 <p>
                   {language === "hi"
-                    ? "MaidPro Solution 4 You की स्थापना आगरा में घरेलू सहायता क्षेत्र में सुरक्षा, पारदर्शिता और पेशेवर विश्वसनीयता लाने के उद्देश्य से की गई थी। पारंपरिक रूप से घरेलू सहायकों की नियुक्ति केवल मौखिक सिफारिशों पर निर्भर थी — जिसमें न तो कोई पुलिस सत्यापन होता था और न सुरक्षा की गारंटी।"
-                    : "MaidPro Solution 4 You was founded to bring professional security, transparency, and structure to Agra's domestic service sector. Traditionally, hiring domestic help meant relying on unverified word-of-mouth references with zero police background checks and unpredictable attendance."}
+                    ? "MaidPro की स्थापना आगरा में घरेलू सहायता क्षेत्र में सुरक्षा, पारदर्शिता और पेशेवर विश्वसनीयता लाने के उद्देश्य से की गई थी। पारंपरिक रूप से घरेलू सहायकों की नियुक्ति केवल मौखिक सिफारिशों पर निर्भर थी — जिसमें न तो कोई पुलिस सत्यापन होता था और न सुरक्षा की गारंटी।"
+                    : "MaidPro was founded to bring professional security, transparency, and structure to Agra's domestic service sector. Traditionally, hiring domestic help meant relying on unverified word-of-mouth references with zero background checks and unpredictable attendance."}
                 </p>
 
                 <p>
                   {language === "hi"
-                    ? "हमने इस व्यवस्था को पूरी तरह बदलकर एक ऐसा मंच तैयार किया है जहां आगरा के परिवारों को 100% पुलिस-सत्यापित, स्वच्छता-प्रशिक्षित सहायक मिलते हैं — बिना किसी अग्रिम शुल्क के। साथ ही, हम अपने कार्यकर्ताओं को उचित वेतन और सम्मानजनक माहौल सुनिश्चित करते हैं।"
-                    : "We transformed this informal ecosystem into an organized platform where Agra families receive thoroughly vetted, police-verified, and etiquette-trained helpers with zero advance fee, while ensuring domestic workers receive fair living wages, on-time pay, and dignity."}
+                    ? "हमने इस व्यवस्था को एक संगठित मंच में बदलकर आगरा के परिवारों को प्रशिक्षित, पृष्ठभूमि-सत्यापित सहायक उपलब्ध कराए हैं — बिना किसी अग्रिम शुल्क के। साथ ही, हम अपने सहायकों को निष्पक्ष वेतन और सम्मानजनक माहौल सुनिश्चित करते हैं।"
+                    : "We transformed this informal ecosystem into an organized platform where Agra families receive thoroughly vetted, etiquette-trained helpers with zero advance fee, while ensuring domestic workers receive fair living wages, on-time pay, and dignity."}
                 </p>
               </div>
             </div>
