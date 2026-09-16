@@ -38,8 +38,8 @@ export const Navbar: React.FC<NavbarProps> = () => {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 dark:bg-[#0e171e]/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 shadow-xs"
-            : "bg-[#fffbfa]/95 dark:bg-[#0b1318]/95 backdrop-blur-sm border-b border-slate-200/60 dark:border-slate-800/80"
+            ? "bg-white/95 dark:bg-[#0b1318]/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 shadow-2xs"
+            : "bg-white/80 dark:bg-[#0b1318]/80 backdrop-blur-sm border-b border-slate-100/80 dark:border-slate-800/50"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
             </div>
 
             {/* Center: Desktop Navigation Menu Links */}
-            <nav className="hidden md:flex items-center gap-8 text-sm font-medium absolute left-1/2 -translate-x-1/2">
+            <nav className="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium absolute left-1/2 -translate-x-1/2">
               <Link
                 href="#services"
                 className="text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-emerald-400 font-semibold transition"
@@ -69,6 +69,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
               >
                 {t.nav.faqs}
+              </Link>
+              <Link
+                href="#contact"
+                className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
+              >
+                {t.nav.contact}
               </Link>
             </nav>
 
@@ -177,6 +183,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 className="px-3 py-2.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
               >
                 {t.nav.faqs}
+              </Link>
+              <Link
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
+              >
+                {t.nav.contact}
               </Link>
             </div>
 

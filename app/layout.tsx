@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="antialiased min-h-screen flex flex-col bg-[#fffbfa] text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 transition-colors duration-200">
+      <body className="antialiased min-h-screen flex flex-col bg-white text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 transition-colors duration-200">
         <Providers>{children}</Providers>
 
         {/* Google Analytics Tag from Live Site */}

@@ -9,11 +9,10 @@ import { AboutSection } from "@/components/AboutSection";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
-import { MobileStickyBar } from "@/components/MobileStickyBar";
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<string>("Deep House Cleaning");
+  const [selectedService, setSelectedService] = useState<string>("Deep Clean");
 
   const handleOpenBooking = (serviceName?: string) => {
     if (serviceName) {
@@ -27,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex-1 flex flex-col pb-16 sm:pb-0">
+    <main className="flex-1 flex flex-col">
       {/* 1. Header & Navigation */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
@@ -55,9 +54,6 @@ export default function Home() {
         onClose={handleCloseBooking}
         initialService={selectedService}
       />
-
-      {/* 10. Persistent Mobile Bottom Action Bar */}
-      <MobileStickyBar onOpenBooking={() => handleOpenBooking()} />
     </main>
   );
 }

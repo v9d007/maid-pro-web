@@ -9,6 +9,7 @@ export interface Translations {
     homeServices: string;
     aboutUs: string;
     faqs: string;
+    contact: string;
     themeLight: string;
     themeDark: string;
     selectLanguage: string;
@@ -119,6 +120,7 @@ const translations: Record<Language, Translations> = {
       homeServices: "Home Services",
       aboutUs: "About Us",
       faqs: "FAQs",
+      contact: "Contact",
       themeLight: "Light Mode",
       themeDark: "Dark Mode",
       selectLanguage: "Language",
@@ -235,6 +237,7 @@ const translations: Record<Language, Translations> = {
       homeServices: "घरेलू सेवाएं",
       aboutUs: "हमारे बारे में",
       faqs: "अक्सर पूछे जाने वाले सवाल",
+      contact: "संपर्क",
       themeLight: "लाइट मोड",
       themeDark: "डार्क मोड",
       selectLanguage: "भाषा चुनें",

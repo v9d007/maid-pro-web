@@ -54,7 +54,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
   const displayedServices = showAll ? filteredServices : filteredServices.slice(0, 6);
 
   return (
-    <section id="services" className="py-16 sm:py-24 bg-slate-50/50 dark:bg-[#0b1318] border-t border-slate-200/60 dark:border-slate-800 transition-colors duration-200">
+    <section id="services" className="py-16 sm:py-24 bg-transparent relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -126,28 +126,24 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
             return (
               <div
                 key={service.id}
+                role="button"
+                tabIndex={0}
                 onClick={() => onOpenBooking(details.title)}
-                className="bg-white dark:bg-[#111c24] rounded-2xl sm:rounded-[22px] border border-slate-200/80 dark:border-slate-800 overflow-hidden hover-card-elevation transition-all flex flex-col justify-between group relative shadow-xs sm:shadow-sm cursor-pointer"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onOpenBooking(details.title);
+                  }
+                }}
+                className="bg-white dark:bg-[#111c24] rounded-2xl sm:rounded-[22px] border border-slate-200/80 dark:border-slate-800 overflow-hidden hover-card-elevation transition-all flex flex-col justify-between group relative shadow-xs sm:shadow-sm cursor-pointer active:scale-[0.99] text-left"
               >
                 <div>
-                  {/* Top Image Banner with Floating Badges */}
+                  {/* Top Image Banner */}
                   <div
                     className="bg-cover bg-center w-full h-32 sm:h-48 relative transition-transform duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url('${service.image}')` }}
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                    {/* Step Number Badge */}
-                    <div className="absolute top-2.5 left-2.5 sm:top-3.5 sm:left-3.5 flex items-center gap-1.5 sm:gap-2">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md text-primary dark:text-emerald-400 font-heading font-extrabold text-[10px] sm:text-xs flex items-center justify-center border border-slate-200/80 dark:border-slate-700 shadow-sm">
-                        {service.stepNumber}
-                      </div>
-                      {details.badge && (
-                        <span className="hidden sm:inline-block px-2.5 py-0.5 bg-primary dark:bg-emerald-600 text-white text-[10px] font-bold rounded-full shadow-sm">
-                          {details.badge}
-                        </span>
-                      )}
-                    </div>
 
                     {/* Price Pill Floating at Bottom of Image */}
                     <div className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-3.5">
@@ -201,18 +197,18 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
                   </div>
                 </div>
 
-                {/* Card Footer: Subtle, Refined Action that Doesn't Overpower the Card */}
-                <div className="p-3 sm:p-4 pt-0 border-t border-slate-100 dark:border-slate-800/80 bg-white dark:bg-[#111c24]">
+                {/* Card Footer: Refined Action with proper breathing room and mobile proportion */}
+                <div className="px-3 pb-3 pt-2.5 sm:px-4 sm:pb-4 sm:pt-3 border-t border-slate-100 dark:border-slate-800/80 bg-white dark:bg-[#111c24] mt-auto">
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       onOpenBooking(details.title);
                     }}
-                    className="w-full py-2.5 sm:py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-slate-800/70 hover:bg-primary hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white border border-slate-200/80 dark:border-slate-700/80 transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-98 group-hover:border-primary/40 dark:group-hover:border-emerald-500/40 cursor-pointer shadow-2xs"
+                    className="w-full py-2 sm:py-2.5 px-2.5 sm:px-3.5 rounded-xl text-[11px] sm:text-xs font-bold text-primary dark:text-emerald-400 bg-primary/5 dark:bg-emerald-500/10 hover:bg-primary hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white border border-primary/20 dark:border-emerald-500/25 hover:border-primary transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-95 cursor-pointer shadow-2xs"
                   >
                     <span>{t.services.bookService}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-primary dark:text-emerald-400 group-hover:translate-x-1 transition-transform group-hover:text-inherit" />
+                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </button>
                 </div>
 
