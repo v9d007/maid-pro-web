@@ -1,20 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter, Lexend } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const lexend = Lexend({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-lexend",
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -69,8 +56,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable} ${lexend.variable}`} suppressHydrationWarning>
-      <body className="antialiased min-h-screen flex flex-col bg-white text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 font-sans transition-colors duration-200">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className="antialiased min-h-screen flex flex-col bg-white text-slate-900 dark:bg-[#0b1318] dark:text-slate-100 transition-colors duration-200">
         <Providers>{children}</Providers>
 
         {/* Google Analytics Tag from Live Site */}
