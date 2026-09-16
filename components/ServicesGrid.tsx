@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Sparkles,
   Truck,
@@ -138,15 +139,20 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking }) => 
                 className="bg-white dark:bg-[#111c24] rounded-2xl sm:rounded-[22px] border border-slate-200/80 dark:border-slate-800 overflow-hidden hover-card-elevation transition-all flex flex-col justify-between group relative shadow-xs sm:shadow-sm cursor-pointer active:scale-[0.99] text-left"
               >
                 <div>
-                  {/* Top Image Banner */}
-                  <div
-                    className="bg-cover bg-center w-full h-32 sm:h-48 relative transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${service.image}')` }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  {/* Top Image Banner with Next.js Responsive Image & Lazy Loading */}
+                  <div className="relative w-full h-32 sm:h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+                    <Image
+                      src={service.image}
+                      alt={details.title}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 380px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-10" />
 
                     {/* Price Pill Floating at Bottom of Image */}
-                    <div className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-3.5">
+                    <div className="absolute bottom-2 left-2.5 sm:bottom-3 sm:left-3.5 z-20">
                       <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur-md text-primary dark:text-emerald-400 font-extrabold text-[11px] sm:text-xs shadow-xs border border-slate-200/80 dark:border-slate-700">
                         {details.priceTag}
                       </span>
