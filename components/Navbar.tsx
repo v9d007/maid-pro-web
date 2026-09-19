@@ -13,17 +13,54 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("services");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
 
+  const navLinks = [
+    { id: "services", label: t.nav.homeServices },
+    { id: "about", label: t.nav.aboutUs },
+    { id: "faqs", label: t.nav.faqs },
+    { id: "contact", label: t.nav.contact },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 15);
+
+      const sectionIds = ["services", "about", "faqs", "contact"];
+      const scrollPosition = window.scrollY + 180;
+
+      // Bottom of page check - activate contact if scrolled near bottom
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 100
+      ) {
+        setActiveSection("contact");
+        return;
+      }
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(id);
+            return;
+          }
+        }
+      }
+
+      // Default to services if above first section
+      setActiveSection("services");
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -50,32 +87,27 @@ export const Navbar: React.FC<NavbarProps> = () => {
               <BrandLogo />
             </div>
 
-            {/* Center: Desktop Navigation Menu Links */}
-            <nav className="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium absolute left-1/2 -translate-x-1/2">
-              <Link
-                href="#services"
-                className="text-slate-900 dark:text-slate-100 hover:text-primary dark:hover:text-emerald-400 font-semibold transition"
-              >
-                {t.nav.homeServices}
-              </Link>
-              <Link
-                href="#about"
-                className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
-              >
-                {t.nav.aboutUs}
-              </Link>
-              <Link
-                href="#faqs"
-                className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
-              >
-                {t.nav.faqs}
-              </Link>
-              <Link
-                href="#contact"
-                className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
-              >
-                {t.nav.contact}
-              </Link>
+            {/* Center: Desktop Navigation Menu Links with Dynamic Active Indicator */}
+            <nav className="hidden md:flex items-center gap-7 lg:gap-8 text-sm absolute left-1/2 -translate-x-1/2">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <Link
+                    key={link.id}
+                    href={`#${link.id}`}
+                    className={`transition-colors duration-200 relative py-1 ${
+                      isActive
+                        ? "text-primary dark:text-emerald-400 font-bold"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 font-medium"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-primary dark:bg-emerald-400 rounded-full animate-in fade-in duration-200" />
+                    )}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Desktop Right Action Area: Language & Theme Features */}
@@ -163,34 +195,23 @@ export const Navbar: React.FC<NavbarProps> = () => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 px-4 pt-3 pb-5 space-y-4 shadow-high animate-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col space-y-1">
-              <Link
-                href="#services"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-xl text-xs font-bold text-primary dark:text-emerald-400 bg-primary/5 dark:bg-emerald-500/10 flex items-center justify-between"
-              >
-                <span>{t.nav.homeServices}</span>
-              </Link>
-              <Link
-                href="#about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
-              >
-                {t.nav.aboutUs}
-              </Link>
-              <Link
-                href="#faqs"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
-              >
-                {t.nav.faqs}
-              </Link>
-              <Link
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition"
-              >
-                {t.nav.contact}
-              </Link>
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <Link
+                    key={link.id}
+                    href={`#${link.id}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-3.5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between transition-colors ${
+                      isActive
+                        ? "text-primary dark:text-emerald-400 bg-primary/10 dark:bg-emerald-500/15 font-bold"
+                        : "text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Mobile Language Toggle */}
