@@ -87,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
               <BrandLogo />
             </div>
 
-            {/* Center: Desktop Navigation Menu Links with Dynamic Active Indicator */}
+            {/* Center: Desktop Navigation Menu Links with Dynamic Active Color */}
             <nav className="hidden md:flex items-center gap-7 lg:gap-8 text-sm absolute left-1/2 -translate-x-1/2">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
@@ -95,16 +95,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
                   <Link
                     key={link.id}
                     href={`#${link.id}`}
-                    className={`transition-colors duration-200 relative py-1 ${
+                    className={`transition-colors duration-200 py-1 ${
                       isActive
                         ? "text-primary dark:text-emerald-400 font-bold"
-                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 font-medium"
+                        : "text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 font-medium"
                     }`}
                   >
                     <span>{link.label}</span>
-                    {isActive && (
-                      <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-primary dark:bg-emerald-400 rounded-full animate-in fade-in duration-200" />
-                    )}
                   </Link>
                 );
               })}
