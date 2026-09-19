@@ -80,7 +80,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                     handleCardClick(service, details.title);
                   }
                 }}
-                className="bg-white dark:bg-[#111c24] rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between group relative shadow-xs cursor-pointer active:scale-[0.99] text-left"
+                className="bg-white dark:bg-[#111c24] rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between relative shadow-xs cursor-pointer active:scale-[0.99] text-left"
               >
                 <div>
                   {/* Image Banner */}
@@ -91,7 +91,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                       fill
                       loading="lazy"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none z-10" />
                   </div>
@@ -102,7 +102,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                       <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-3.5 h-3.5" />
                       </div>
-                      <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100 font-heading leading-snug group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition">
+                      <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100 font-heading leading-snug">
                         {details.title}
                       </h3>
                     </div>
@@ -131,10 +131,10 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                       e.stopPropagation();
                       handleCardClick(service, details.title);
                     }}
-                    className="w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-[#f4f7f6] dark:bg-slate-800/70 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-800 dark:hover:text-emerald-300 border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-300 dark:hover:border-emerald-600 transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-98 cursor-pointer"
+                    className="w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-[#f4f7f6] dark:bg-slate-800/70 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white border border-slate-200/80 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-98 cursor-pointer"
                   >
                     <span>{language === "hi" ? "विवरण व दरें देखें" : "View Inclusions & Pricing"}</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform" />
                   </button>
                 </div>
 
