@@ -30,6 +30,26 @@ export function getDirectWhatsAppChatLink(): string {
   return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
+export function generateServiceBookingWhatsAppLink({
+  serviceName,
+  planType,
+  slabRate,
+  locality,
+}: {
+  serviceName: string;
+  planType?: string;
+  slabRate?: string;
+  locality?: string;
+}): string {
+  const parts: string[] = [`Service: ${serviceName}`];
+  if (planType && slabRate) parts.push(`Selected Plan: ${planType} (${slabRate})`);
+  if (locality) parts.push(`Area: ${locality}, Agra`);
+
+  const message = `Hi Maid Pro! I want to book:\n• ${parts.join("\n• ")}\n\nPlease share helper availability & confirm my booking in Agra.`;
+  return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 export function getDirectPhoneCallLink(): string {
   return `tel:+${PHONE_NUMBER}`;
 }
+

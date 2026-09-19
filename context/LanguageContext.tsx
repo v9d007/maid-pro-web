@@ -187,7 +187,7 @@ const translations: Record<Language, Translations> = {
     },
     faqs: {
       badge: "Common Questions",
-      title: "Frequently Asked Questions",
+      title: "FAQs",
       subtitle:
         "Everything you need to know about background verification, replacement guarantees, and transparent pricing.",
       allCategory: "All Questions",
@@ -236,7 +236,7 @@ const translations: Record<Language, Translations> = {
     nav: {
       homeServices: "घरेलू सेवाएं",
       aboutUs: "हमारे बारे में",
-      faqs: "अक्सर पूछे जाने वाले सवाल",
+      faqs: "FAQs",
       contact: "संपर्क",
       themeLight: "लाइट मोड",
       themeDark: "डार्क मोड",
@@ -304,7 +304,7 @@ const translations: Record<Language, Translations> = {
     },
     faqs: {
       badge: "सामान्य प्रश्न",
-      title: "अक्सर पूछे जाने वाले सवाल",
+      title: "FAQs (अक्सर पूछे जाने वाले सवाल)",
       subtitle:
         "पृष्ठभूमि सत्यापन, रिप्लेसमेंट गारंटी और दरों से जुड़े आपके सभी सवालों के जवाब।",
       allCategory: "सभी प्रश्न",

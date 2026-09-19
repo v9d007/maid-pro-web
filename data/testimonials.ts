@@ -112,14 +112,14 @@ export const TESTIMONIALS_ROW_2: TestimonialItem[] = [
     id: "r2-1",
     name: "Sunil & Neha Saxena",
     location: "Sikandra, Agra",
-    serviceUsed: "Sofa & Upholstery",
+    serviceUsed: "Deep Cleaning",
     rating: 5,
-    comment: "Our fabric sofa had tough water and tea stains. Their deep foam wash made it look brand new within 2 hours. Very professional staff!",
+    comment: "Our 3BHK flat was cleaned thoroughly before Diwali. Their team scrubbed tiles, chimney, and balconies spotless within 4 hours. Very professional staff!",
     verified: true,
     hi: {
       location: "सिकंदरा, आगरा",
-      serviceUsed: "सोफा व अपहोल्स्ट्री",
-      comment: "हमारे फैब्रिक सोफे पर चाय और पानी के गहरे दाग थे। इनकी डीप फोम वॉश ने इसे 2 घंटे में बिल्कुल नया बना दिया। बहुत ही पेशेवर स्टाफ!",
+      serviceUsed: "डीप क्लीनिंग",
+      comment: "दिवाली से पहले हमारे 3BHK फ्लैट की बहुत अच्छे से सफाई की। इनकी टीम ने टाइल्स, चिमनी और बालकनी 4 घंटे में चमका दी। बहुत ही पेशेवर स्टाफ!",
     },
   },
   {

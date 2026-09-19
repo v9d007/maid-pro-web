@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
                 <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "डीप हाउस क्लीनिंग" : "Deep House Cleaning"}</Link></li>
                 <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "दैनिक मेड व झाड़ू-पोछा" : "Daily Maid & Housekeeping"}</Link></li>
                 <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "किचन सैनिटाइजेशन व कुक" : "Kitchen Sanitization & Cook"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "सोफा व कारपेट शैंपूइंग" : "Sofa & Upholstery Shampooing"}</Link></li>
+                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "शिफ्टिंग / मूव-इन क्लीनिंग" : "Move-in / Move-out Cleaning"}</Link></li>
                 <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बेबीसिटर व नानी केयर" : "Babysitter & Nanny Care"}</Link></li>
                 <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बुजुर्ग व पेशेंट केयर" : "Elderly & Patient Care"}</Link></li>
               </ul>

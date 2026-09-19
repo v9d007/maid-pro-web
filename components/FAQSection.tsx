@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { FAQS, getFaqDetails } from "@/data/faqs";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -19,10 +19,6 @@ export const FAQSection: React.FC = () => {
         
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-12 space-y-2.5">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/10 dark:bg-emerald-500/10 text-primary dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>{t.faqs.badge}</span>
-          </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-50 font-heading tracking-tight">
             {t.faqs.title}
           </h2>
