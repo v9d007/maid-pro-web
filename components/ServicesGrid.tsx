@@ -93,16 +93,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none z-10" />
-
-                    {/* Price Pill Floating at Bottom-Left of Image */}
-                    {details.priceTag && (
-                      <div className="absolute bottom-3.5 left-3.5 z-20">
-                        <span className="px-2.5 py-1 rounded-md bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs text-[#085a3c] dark:text-emerald-400 font-bold text-xs shadow-xs border border-slate-200/60 dark:border-slate-700">
-                          {details.priceTag}
-                        </span>
-                      </div>
-                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none z-10" />
                   </div>
 
                   {/* Card Main Body */}
@@ -142,7 +133,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                     }}
                     className="w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-200 bg-[#f4f7f6] dark:bg-slate-800/70 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-800 dark:hover:text-emerald-300 border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-300 dark:hover:border-emerald-600 transition-all duration-200 flex items-center justify-center gap-1.5 active:scale-98 cursor-pointer"
                   >
-                    <span>{language === "hi" ? "सेवा बुक करें" : "Book Service"}</span>
+                    <span>{language === "hi" ? "विवरण व दरें देखें" : "View Inclusions & Pricing"}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </button>
                 </div>
