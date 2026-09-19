@@ -80,7 +80,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                     handleCardClick(service, details.title);
                   }
                 }}
-                className="bg-white dark:bg-[#111c24] rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-emerald-500/30 dark:hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group relative shadow-xs cursor-pointer active:scale-[0.99] text-left"
+                className="bg-white dark:bg-[#111c24] rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between group relative shadow-xs cursor-pointer active:scale-[0.99] text-left"
               >
                 <div>
                   {/* Image Banner */}
