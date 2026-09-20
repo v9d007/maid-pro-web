@@ -161,6 +161,32 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageInfo> = {
         answer: "Yes, we provide full GST compliant invoices and flexible daily/monthly corporate service contracts."
       }
     ]
+  },
+  "hotel-restaurant-cook-agra": {
+    slug: "hotel-restaurant-cook-agra",
+    serviceId: "hotel-restaurant-cook",
+    title: "Restaurant & Hotel Professional Cook in Agra",
+    hiTitle: "आगरा में रेस्टोरेंट व होटल प्रोफेशनल कुक सेवा",
+    tagline: "Skilled Commercial Chefs for Restaurants & Hotels (North & South Indian)",
+    hiTagline: "होटल, रेस्टोरेंट व क्लाउड किचन के लिए पेशेवर शेफ व कुक",
+    heroHeadline: "Professional Restaurant & Hotel Chefs in Agra",
+    heroSubhead: "Hire verified commercial master cooks & chefs for restaurants, hotels, cafes & cloud kitchens. Authentic North Indian & South Indian cuisines with flexible 6hr (₹12k), 8hr (₹14k), 10hr (₹16k), 12hr (₹18k) & 24hr live-in (₹28k) shifts.",
+    metaTitle: "Restaurant & Hotel Cook in Agra | North & South Indian Chefs - MaidPro",
+    metaDesc: "Hire professional restaurant, hotel & cloud kitchen cooks in Agra. Authentic North & South Indian food, 6hr (12k), 8hr (14k), 10hr (16k), 12hr (18k) & 24hr live-in (28k).",
+    faqs: [
+      {
+        question: "What cuisines do your hotel & restaurant cooks specialize in?",
+        answer: "Our commercial chefs specialize in authentic North Indian (Tandoor, Curries, Biryani, Mughlai) and South Indian (Dosa varieties, Idli, Sambhar, Vada, Chutneys, Thalis) with bulk preparation and commercial kitchen hygiene."
+      },
+      {
+        question: "What are the shift timings and monthly salary rates for restaurant cooks?",
+        answer: "We offer transparent monthly slabs: 6 Hours (₹12,000/mo), 8 Hours (₹14,000/mo), 10 Hours (₹16,000/mo), 12 Hours (₹18,000/mo), and 24-Hour Live-in Master Chef (₹28,000/mo)."
+      },
+      {
+        question: "Can we conduct a skill test or trial cooking session?",
+        answer: "Yes, we arrange an on-site commercial cooking trial session at your restaurant or hotel kitchen before you finalize the hiring."
+      }
+    ]
   }
 };
 

@@ -876,6 +876,129 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       pricingTerms: "जीएसटी इनवॉइस के साथ आगरा के ऑफिसों और दुकानों के लिए कस्टम प्लान।"
     },
   },
+  {
+    id: "hotel-restaurant-cook",
+    stepNumber: "09",
+    title: "Restaurant & Hotel Professional Cook (North & South Indian)",
+    shortDesc: "Skilled commercial chefs & master cooks for restaurants, hotels, cafes & cloud kitchens in Agra. Authentic North & South Indian cuisines with bulk prep & kitchen hygiene.",
+    priceTag: "₹12,000/mo",
+    badge: "Hotels & Restaurants",
+    category: "maid_care",
+    icon: "ChefHat",
+    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1200&auto=format&fit=crop&q=80",
+    features: [
+      "Authentic North Indian & South Indian Cuisines",
+      "Specialized for Restaurants, Hotels, Cafes & Cloud Kitchens",
+      "Flexible 6hr (₹12k), 8hr (₹14k), 10hr (₹16k), 12hr (₹18k) & 24hr (₹28k) Shifts",
+      "Complete Background & Skill Verification"
+    ],
+    equipmentNotice: "Commercial kitchen equipment, stoves, cooking ingredients and safety gear to be provided by the establishment.",
+    pricingTerms: "Monthly salary slabs based on shift hours with verified commercial skill test and replacement guarantee.",
+    monthlySlabs: [
+      { hours: "6 Hours / day", rate: "₹12,000 / month", badge: "6hr Shift", note: "Breakfast or Dinner Shift" },
+      { hours: "8 Hours / day", rate: "₹14,000 / month", badge: "Standard Shift", note: "Full Commercial Shift" },
+      { hours: "10 Hours / day", rate: "₹16,000 / month", badge: "Extended Shift", note: "Peak Restaurant Hours" },
+      { hours: "12 Hours / day", rate: "₹18,000 / month", badge: "Double Shift", note: "Lunch + Dinner Commercial Shift" },
+      { hours: "24 Hours (Live-in Master Chef)", rate: "₹28,000 / month", badge: "24hr Live-In", note: "Full-Time Hotel / Resort Live-In" }
+    ],
+    inclusionTabs: [
+      {
+        id: "north-indian-prep",
+        name: "North Indian Cuisine",
+        icon: "ChefHat",
+        image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200&auto=format&fit=crop&q=80",
+        trainedTo: [
+          "Rich gravies, Shahi Paneer, Dal Makhani & Mughlai curry prep",
+          "Tandoor rotis, Naan, Parathas, Kulchas & stuffed breads",
+          "Aromatic Dum Biryani, Jeera Rice, Pulao & specialty rices",
+          "Commercial portion control, bulk marination & mise en place",
+          "Fast table turnaround & customized spice level balancing"
+        ],
+        notIncluded: [
+          "Bakery & French pastry specialized baking"
+        ],
+        hi: {
+          name: "नॉर्थ इंडियन व्यंजन",
+          trainedTo: [
+            "शाही पनीर, दाल मखनी, मखमली ग्रेवी व मुगलाई करी",
+            "तंदूरी रोटी, नान, परांठे, कुल्चे व ब्रेड्स",
+            "दम बिरयानी, पुलाव व जीरा राइस की विभिन्न वैरायटी",
+            "कमर्शियल पोर्शन कंट्रोल और बल्क मैरीनेशन",
+            "ऑर्डर पर तेज कुकिंग और स्वाद का सटीक संतुलन"
+          ],
+          notIncluded: ["बेकरी व पेस्ट्री उत्पाद"]
+        }
+      },
+      {
+        id: "south-indian-prep",
+        name: "South Indian Cuisine",
+        icon: "ChefHat",
+        image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=1200&auto=format&fit=crop&q=80",
+        trainedTo: [
+          "Crispy Masala Dosa, Paper Plain Dosa, Onion Rava & Uttapam",
+          "Soft fermented Idlis, Medu Vada & Appam batter preparation",
+          "Authentic aromatic Sambhar, Rasam & multi-flavor coconut/tomato chutneys",
+          "South Indian thali meals & rice specialties (Lemon, Curd, Tamarind Rice)",
+          "High-volume breakfast & tiffin rush management"
+        ],
+        notIncluded: [
+          "Table-side live bar tending"
+        ],
+        hi: {
+          name: "साउथ इंडियन व्यंजन",
+          trainedTo: [
+            "क्रिस्पी मसाला डोसा, प्लेन डोसा, रवा डोसा व उत्तपम",
+            "सॉफ्ट इडली, मेदु वड़ा व अप्पम का परफेक्ट बैटर",
+            "पारंपरिक सांभर, रसम, नारियल व टमाटर की चटनियां",
+            "साउथ इंडियन थाली व राइस वैरायटी (कर्ड, लेमन, इमली राइस)",
+            "सुबह के नाश्ते व शाम की रश में तेजी से ऑर्डर तैयार करना"
+          ],
+          notIncluded: ["बारटेंडिंग सेवाएं"]
+        }
+      },
+      {
+        id: "commercial-hygiene",
+        name: "Commercial Kitchen Hygiene",
+        icon: "ShieldCheck",
+        image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200&auto=format&fit=crop&q=80",
+        trainedTo: [
+          "Raw ingredient quality inspection & fresh vegetable prep",
+          "Stove burner, fryer, chimney & prep station degreasing",
+          "Food wastage minimization & daily stock monitoring",
+          "Strict personal hygiene (hairnet, apron & gloves compliance)",
+          "Smooth teamwork with kitchen helpers, dishwashers & stewards"
+        ],
+        notIncluded: [
+          "Hotel electrical or gas pipeline repairs"
+        ],
+        hi: {
+          name: "रसोई स्वच्छता व सुरक्षा",
+          trainedTo: [
+            "कच्ची सामग्री की गुणवत्ता जांच और सब्जियों की कटिंग",
+            "गैस बर्नर, फ्रायर और काउंटर की गहन सफाई",
+            "भोजन की बर्बादी रोकना और राशन का सही प्रबंधन",
+            "हेयरनेट, एप्रन और दस्तानों का अनिवार्य उपयोग",
+            "किचन हेल्पर्स और वेटर टीम के साथ बेहतर तालमेल"
+          ],
+          notIncluded: ["गैस पाइपलाइन या बिजली की मरम्मत"]
+        }
+      }
+    ],
+    hi: {
+      title: "रेस्टोरेंट व होटल प्रोफेशनल कुक (नॉर्थ व साउथ इंडियन)",
+      shortDesc: "आगरा में रेस्टोरेंट, होटल, कैफे और क्लाउड किचन के लिए पेशेवर शेफ व कुक। नॉर्थ इंडियन व साउथ इंडियन स्वादिष्ट व्यंजन, बल्क कुकिंग और किचन स्वच्छता।",
+      priceTag: "₹12,000/माह से",
+      badge: "होटल व रेस्टोरेंट",
+      features: [
+        "नॉर्थ इंडियन और साउथ इंडियन प्रामाणिक व्यंजन",
+        "रेस्टोरेंट, होटल, ढाबा और क्लाउड किचन के लिए विशेष प्रशिक्षित",
+        "6 घंटे (₹12k), 8 घंटे (₹14k), 10 घंटे (₹16k), 12 घंटे (₹18k) व 24 घंटे (₹28k) की शिफ्ट",
+        "100% पुलिस व स्किल टेस्ट सत्यापित शेफ"
+      ],
+      equipmentNotice: "कमर्शियल किचन उपकरण, स्टोव व राशन सामग्री संस्थान द्वारा उपलब्ध कराई जाएगी।",
+      pricingTerms: "मासिक वेतन स्लैब शिफ्ट के अनुसार तय होते हैं। कौशल सत्यापन व रिप्लेसमेंट गारंटी के साथ।"
+    },
+  },
 ];
 
 export const SERVICES = SERVICES_CATALOG;
