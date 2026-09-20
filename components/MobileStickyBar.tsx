@@ -4,6 +4,7 @@ import React from "react";
 import { Phone, MessageCircle, Calendar } from "lucide-react";
 import { getDirectWhatsAppChatLink, getDirectPhoneCallLink } from "@/utils/whatsapp";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackEvent } from "@/utils/analytics";
 
 interface MobileStickyBarProps {
   onOpenBooking: () => void;
@@ -19,6 +20,7 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({ onOpenBooking 
         {/* 1-Tap Call */}
         <a
           href={getDirectPhoneCallLink()}
+          onClick={() => trackEvent("mobile_bar_call_click")}
           className="col-span-3 py-2 px-1 rounded-xl text-xs font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex flex-col items-center justify-center text-center transition active:scale-95 border border-slate-200/80 dark:border-slate-700"
           aria-label="Call Customer Care"
         >
@@ -29,7 +31,10 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({ onOpenBooking 
         {/* Instant Book Modal */}
         <button
           type="button"
-          onClick={onOpenBooking}
+          onClick={() => {
+            trackEvent("mobile_bar_book_click");
+            onOpenBooking();
+          }}
           className="col-span-4 py-2 px-1.5 rounded-xl text-xs font-bold text-white bg-primary hover:bg-primary-container dark:bg-emerald-600 dark:hover:bg-emerald-500 flex flex-col items-center justify-center text-center transition active:scale-95 shadow-xs cursor-pointer"
         >
           <Calendar className="w-4 h-4 text-white mb-0.5" />
@@ -41,6 +46,7 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({ onOpenBooking 
           href={getDirectWhatsAppChatLink()}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEvent("mobile_bar_whatsapp_click")}
           className="col-span-5 py-2.5 px-2 rounded-xl text-xs font-bold text-white bg-[#25D366] hover:bg-emerald-600 flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95 text-center"
         >
           <MessageCircle className="w-4 h-4 fill-white" />

@@ -7,6 +7,7 @@ import { FORMATTED_PHONE, BUSINESS_ADDRESS, getDirectWhatsAppChatLink } from "@/
 import { AGRA_LOCALITIES } from "@/data/services";
 import { BrandLogo } from "@/components/BrandLogo";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackEvent } from "@/utils/analytics";
 
 export const Footer: React.FC = () => {
   const { language, t } = useLanguage();
@@ -88,7 +89,11 @@ export const Footer: React.FC = () => {
 
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-primary dark:text-emerald-400 flex-shrink-0" />
-                  <a href="tel:+919321034262" className="hover:text-primary dark:hover:text-emerald-400 font-bold transition text-slate-900 dark:text-slate-100">
+                  <a
+                    href="tel:+919321034262"
+                    onClick={() => trackEvent("footer_phone_click")}
+                    className="hover:text-primary dark:hover:text-emerald-400 font-bold transition text-slate-900 dark:text-slate-100"
+                  >
                     {FORMATTED_PHONE}
                   </a>
                 </div>
@@ -103,6 +108,7 @@ export const Footer: React.FC = () => {
                     href={getDirectWhatsAppChatLink()}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent("footer_whatsapp_click")}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-2xs"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
@@ -135,6 +141,7 @@ export const Footer: React.FC = () => {
         href={getDirectWhatsAppChatLink()}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent("floating_whatsapp_click")}
         className="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white w-13 h-13 sm:w-14 sm:h-14 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center group ring-4 ring-white/40 dark:ring-slate-900/50 cursor-pointer"
       >
         <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

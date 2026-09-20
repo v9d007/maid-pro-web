@@ -16,6 +16,7 @@ import {
 import { AGRA_LOCALITIES, SERVICES, getServiceDetails } from "@/data/services";
 import { generateWhatsAppLink } from "@/utils/whatsapp";
 import { useLanguage } from "@/context/LanguageContext";
+import { submitLeadToSheet, trackEvent } from "@/utils/analytics";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -41,12 +42,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     }
   }, [initialService]);
 
-  // Reset submission state when modal re-opens
+  // Reset submission state when modal re-opens & log tracking
   useEffect(() => {
     if (isOpen) {
       setIsSubmitted(false);
+      trackEvent("callback_modal_opened", {
+        service: initialService,
+        locality,
+      });
     }
-  }, [isOpen]);
+  }, [isOpen, initialService]);
 
   // Handle ESC key to close
   useEffect(() => {
@@ -66,21 +71,37 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const isFormValid =
     name.trim().length >= 2 && phone.trim().replace(/\D/g, "").length >= 10;
 
-  const handleSubmitEnquiry = (e: React.FormEvent) => {
+  const handleSubmitEnquiry = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isFormValid) return;
 
-    // Generate formatted WhatsApp message for quick team response
+    // 1. Asynchronously submit lead to Google Sheets
+    submitLeadToSheet({
+      name: name.trim(),
+      phone: phone.trim(),
+      service,
+      locality,
+      source: "Website Callback Modal",
+    });
+
+    // 2. Track analytics conversion event
+    trackEvent("enquiry_submitted", {
+      service,
+      locality,
+      name: name.trim(),
+    });
+
+    // 3. Generate formatted WhatsApp message for quick team response
     const waLink = generateWhatsAppLink({
       service,
       locality,
-      customNotes: `Name: ${name} | Phone: ${phone}`,
+      customNotes: `Name: ${name.trim()} | Phone: ${phone.trim()}`,
     });
 
-    // Open WhatsApp link in new tab
+    // 4. Open WhatsApp link in new tab
     window.open(waLink, "_blank");
 
-    // Switch to success confirmation state
+    // 5. Switch to success confirmation state
     setIsSubmitted(true);
   };
 
@@ -164,6 +185,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 })}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("success_whatsapp_chat_click", {
+                    service,
+                    locality,
+                  })
+                }
                 className="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-emerald-600 active:scale-98 transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />

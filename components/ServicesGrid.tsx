@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { SERVICES_CATALOG, ServiceItem, getServiceDetails } from "@/data/services";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackEvent } from "@/utils/analytics";
 
 interface ServicesGridProps {
   onOpenBooking: (serviceName?: string) => void;
@@ -37,6 +38,11 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
   const { language, t } = useLanguage();
 
   const handleCardClick = (service: ServiceItem, title: string) => {
+    trackEvent("service_card_click", {
+      service_id: service.id,
+      service_title: title,
+    });
+
     if (onOpenDetail) {
       onOpenDetail(service);
     } else {

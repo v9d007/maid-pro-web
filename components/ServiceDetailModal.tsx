@@ -23,8 +23,9 @@ import {
   Star,
 } from "lucide-react";
 import { ServiceItem, PricingSlab, InclusionTab, getServiceDetails } from "@/data/services";
-import { generateServiceBookingWhatsAppLink, FORMATTED_PHONE } from "@/utils/whatsapp";
+import { generateServiceBookingWhatsAppLink } from "@/utils/whatsapp";
 import { useLanguage } from "@/context/LanguageContext";
+import { trackEvent } from "@/utils/analytics";
 
 interface ServiceDetailModalProps {
   isOpen: boolean;
@@ -58,7 +59,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   const [activeTabId, setActiveTabId] = useState<string>("");
 
   useEffect(() => {
-    if (service) {
+    if (service && isOpen) {
       if (service.monthlySlabs && service.monthlySlabs.length > 0) {
         setPricingMode("monthly");
       } else {
@@ -72,8 +73,14 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       } else {
         setActiveTabId("");
       }
+
+      // Track modal open with service interest
+      trackEvent("service_modal_view", {
+        service_id: service.id,
+        service_title: service.title,
+      });
     }
-  }, [service]);
+  }, [service, isOpen]);
 
   useEffect(() => {
     setSelectedSlabIndex(0);
@@ -120,7 +127,24 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       ? currentTab.hi.notIncluded
       : currentTab?.notIncluded || [];
 
+  const handleSlabSelect = (idx: number, slab: PricingSlab) => {
+    setSelectedSlabIndex(idx);
+    trackEvent("pricing_slab_selected", {
+      service_id: service.id,
+      service_title: details.title,
+      hours: slab.hours,
+      rate: slab.rate,
+    });
+  };
+
   const handleWhatsAppBook = () => {
+    trackEvent("service_whatsapp_book_click", {
+      service_id: service.id,
+      service_title: details.title,
+      hours: selectedSlab?.hours,
+      rate: selectedSlab?.rate,
+    });
+
     const link = generateServiceBookingWhatsAppLink({
       serviceName: details.title,
       planType: selectedSlab?.hours,
@@ -250,7 +274,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                   <button
                     key={idx}
                     type="button"
-                    onClick={() => setSelectedSlabIndex(idx)}
+                    onClick={() => handleSlabSelect(idx, slab)}
                     className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all relative flex flex-col justify-between cursor-pointer active:scale-95 ${
                       isSelected
                         ? "bg-primary/5 dark:bg-emerald-500/10 border-primary dark:border-emerald-500 shadow-xs ring-1 ring-primary/40"
@@ -410,6 +434,10 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           <button
             type="button"
             onClick={() => {
+              trackEvent("service_request_callback_click", {
+                service_id: service.id,
+                service_title: details.title,
+              });
               onClose();
               onRequestCallback(details.title);
             }}

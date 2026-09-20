@@ -1,6 +1,7 @@
 import React from "react";
 import { Shield, RefreshCw, Award, CheckCircle2, XCircle, Sparkles, Star, ArrowRight } from "lucide-react";
 import { getDirectWhatsAppChatLink } from "@/utils/whatsapp";
+import { trackEvent } from "@/utils/analytics";
 
 export const WhyChooseUs: React.FC = () => {
   const comparisonItems = [
@@ -176,6 +177,7 @@ export const WhyChooseUs: React.FC = () => {
               href={getDirectWhatsAppChatLink()}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("why_choose_us_whatsapp_click")}
               className="w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold text-white bg-primary hover:bg-primary-container transition shadow-mid flex items-center justify-center gap-2 active:scale-95 flex-shrink-0"
             >
               <span>Book Verified Helper on WhatsApp</span>
