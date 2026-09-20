@@ -69,7 +69,7 @@ function doPost(e) {
       scriptProps.setProperty("LAST_DAY_SEPARATOR", todayKey);
     }
     
-    // Append the verified customer lead row
+    // Append the verified customer lead row (Columns 12 & 13 left blank for internal CRM use)
     leadSheet.appendRow([
       now,                                                     // 1. Date & Exact Timestamp (Native DateTime)
       "Website",                                              // 2. Handled By
@@ -82,8 +82,8 @@ function doPost(e) {
       data.service || "House Maid Service",                   // 9. ⏰ Work Requirements | कार्य आवश्यकताएँ
       data.shift || "",                                        // 10. Salary Details
       "",                                                      // 11. Candidate Preference
-      data.notes || `Source: ${data.source || "Website Callback Form"}`, // 12. Additional Details
-      "New Web Lead (" + timestampStr + ")"                    // 13. Feedback
+      "",                                                      // 12. Additional Details (Empty for team notes)
+      ""                                                       // 13. Feedback (Empty for team feedback)
     ]);
     
     return ContentService.createTextOutput(JSON.stringify({
