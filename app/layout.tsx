@@ -191,6 +191,60 @@ export default function RootLayout({
                       }
                     ]
                   }
+                },
+                {
+                  "@type": "FAQPage",
+                  "@id": "https://maidprosolution4you.in/#faqs",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "Are your housemaids and cleaning staff background-verified?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, 100%. Every helper, maid, cook, and cleaner undergoes mandatory government ID (Aadhaar Card) verification, address verification, and police background checks before being assigned to any home in Agra."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What happens if I am not satisfied with the maid or cleaner?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We offer a 100% Free Replacement Guarantee. If you ever feel the helper's work, punctuality, or attitude doesn't match your expectations, we will provide a qualified replacement immediately at zero additional replacement fee."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Do you offer both one-time cleaning and monthly maid subscriptions?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! You can book on-demand one-time services (like Deep Cleaning or Move-in Cleaning) for a few hours, or hire monthly housemaids, daily cooks, full-day babysitters, and senior caregivers with flexible shifts."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "How quickly can a maid or cleaning team reach my home in Agra?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "For on-demand Deep Cleaning, we can often dispatch our team within 2 to 4 hours (same-day booking). For monthly housemaids, cooks, or nannies, we arrange a personal interview/trial session within 24 to 48 hours in your locality."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "How does the payment work? Are there hidden charges?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We maintain 100% transparent pricing. You only pay the agreed fixed quote or monthly fee. You can pay conveniently via UPI, Google Pay, PhonePe, Net Banking, or Cash after your service is completed satisfactorily."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Which areas in Agra do you currently serve?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We cover all major localities across Agra including Khandari, Bodla, Dayalbagh, Kamla Nagar, Sanjay Place, Shahganj, Civil Lines, Fatehabad Road, Sikandra, Tajganj, and Awas Vikas Colony."
+                      }
+                    }
+                  ]
                 }
               ]
             }),
