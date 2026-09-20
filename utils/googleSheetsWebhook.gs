@@ -63,6 +63,33 @@ function doPost(e) {
     // =========================================================================
     var leadSheet = doc.getSheetByName("Inquiries") || doc.getActiveSheet();
     
+    // Check if we need to insert a Day Separator for today
+    var todayKey = Utilities.formatDate(now, "Asia/Kolkata", "yyyy-MM-dd");
+    var todayTitle = "📅  " + Utilities.formatDate(now, "Asia/Kolkata", "EEEE, dd MMMM yyyy") + " — Inquiries";
+    
+    var scriptProps = PropertiesService.getScriptProperties();
+    var lastSeparatorDate = scriptProps.getProperty("LAST_DAY_SEPARATOR");
+    
+    // Insert day separator if it's a new day
+    if (lastSeparatorDate !== todayKey) {
+      leadSheet.appendRow([todayTitle, "", "", "", "", "", "", "", "", "", "", "", ""]);
+      var sepRowIndex = leadSheet.getLastRow();
+      var maxCols = Math.max(leadSheet.getLastColumn(), 13);
+      var sepRange = leadSheet.getRange(sepRowIndex, 1, 1, maxCols);
+      
+      try {
+        sepRange.merge();
+      } catch (err) {}
+      
+      sepRange.setBackground("#E8F0FE");  // Soft pastel highlight banner
+      sepRange.setFontWeight("bold");
+      sepRange.setFontColor("#1E3A8A");   // Deep blue text
+      sepRange.setFontSize(10);
+      sepRange.setHorizontalAlignment("left");
+      
+      scriptProps.setProperty("LAST_DAY_SEPARATOR", todayKey);
+    }
+    
     leadSheet.appendRow([
       now,                                                     // 1. Date & Exact Timestamp (Native DateTime)
       "Website",                                              // 2. Handled By
@@ -88,4 +115,39 @@ function doPost(e) {
   } finally {
     lock.releaseLock();
   }
+}
+
+/**
+ * Adds a custom menu in Google Sheets for quick one-click manual day separator
+ */
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu("📋 MaidPro Tools")
+    .addItem("📅 Insert Today's Day Separator", "insertTodayDaySeparator")
+    .addToUi();
+}
+
+/**
+ * Manually insert today's day separator banner into the Inquiries sheet
+ */
+function insertTodayDaySeparator() {
+  var doc = SpreadsheetApp.getActiveSpreadsheet();
+  var leadSheet = doc.getSheetByName("Inquiries") || doc.getActiveSheet();
+  var now = new Date();
+  var todayTitle = "📅  " + Utilities.formatDate(now, "Asia/Kolkata", "EEEE, dd MMMM yyyy") + " — Inquiries";
+  
+  leadSheet.appendRow([todayTitle, "", "", "", "", "", "", "", "", "", "", "", ""]);
+  var sepRowIndex = leadSheet.getLastRow();
+  var maxCols = Math.max(leadSheet.getLastColumn(), 13);
+  var sepRange = leadSheet.getRange(sepRowIndex, 1, 1, maxCols);
+  
+  try {
+    sepRange.merge();
+  } catch (err) {}
+  
+  sepRange.setBackground("#E8F0FE");
+  sepRange.setFontWeight("bold");
+  sepRange.setFontColor("#1E3A8A");
+  sepRange.setFontSize(10);
+  sepRange.setHorizontalAlignment("left");
 }
