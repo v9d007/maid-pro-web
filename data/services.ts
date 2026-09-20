@@ -885,7 +885,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     badge: "Hotels & Restaurants",
     category: "maid_care",
     icon: "ChefHat",
-    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1200&auto=format&fit=crop&q=80",
+    image: "/images/services/hotel_cook.jpg",
     features: [
       "Authentic North Indian & South Indian Cuisines",
       "Specialized for Restaurants, Hotels, Cafes & Cloud Kitchens",
