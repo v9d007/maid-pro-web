@@ -150,7 +150,7 @@ export default function RootLayout({
                   ],
                   "aggregateRating": {
                     "@type": "AggregateRating",
-                    "ratingValue": "4.9",
+                    "ratingValue": "4.6",
                     "reviewCount": "128"
                   },
                   "hasOfferCatalog": {

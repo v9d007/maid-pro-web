@@ -113,7 +113,7 @@ export const WhyChooseUs: React.FC = () => {
 
             <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-md border border-white/20">
               <Star className="w-4 h-4 text-amber-300 fill-amber-300" />
-              <span className="text-xs font-bold text-white">4.9 / 5 Rated in Agra</span>
+              <span className="text-xs font-bold text-white">4.6 / 5 Rated in Agra</span>
             </div>
           </div>
 
@@ -157,7 +157,7 @@ export const WhyChooseUs: React.FC = () => {
           <div className="p-5 sm:p-6 bg-surface-container-low border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-6 text-center sm:text-left">
               <div>
-                <span className="text-xl font-extrabold text-primary font-heading block">5,000+</span>
+                <span className="text-xl font-extrabold text-primary font-heading block">500+</span>
                 <span className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Homes Cleaned in Agra</span>
               </div>
               <div className="w-px h-8 bg-outline-variant/40"></div>

@@ -78,16 +78,12 @@ export const AboutSection: React.FC = () => {
 
   return (
     <section id="about" className="py-16 sm:py-24 bg-transparent transition-colors duration-200 relative overflow-hidden">
-      
-      {/* Ambient background glow for right side cards */}
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-primary/5 dark:bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* ========================================================================= */}
         {/* MAIN SPLIT LAYOUT: Text & Standards on Left, Staggered Square Cards Right */}
         {/* ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center">
           
           {/* ----------------------------------------------------------------------- */}
           {/* LEFT SIDE: Story, Mission, Proof Stats & Operational Standards (7 cols) */}
@@ -139,7 +135,7 @@ export const AboutSection: React.FC = () => {
             <div className="py-5 border-y border-slate-200/80 dark:border-slate-800 grid grid-cols-3 gap-4 text-center sm:text-left">
               <div className="space-y-0.5">
                 <div className="text-2xl sm:text-3xl font-extrabold text-primary dark:text-emerald-400 font-heading tracking-tight">
-                  500+
+                  50+
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "सत्यापित सहायक" : "Police-Verified Staff"}
@@ -151,7 +147,7 @@ export const AboutSection: React.FC = () => {
 
               <div className="space-y-0.5">
                 <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50 font-heading tracking-tight">
-                  5,000+
+                  500+
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "आगरा परिवार" : "Agra Homes Served"}
@@ -163,14 +159,14 @@ export const AboutSection: React.FC = () => {
 
               <div className="space-y-0.5">
                 <div className="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-heading tracking-tight flex items-center justify-center sm:justify-start gap-1">
-                  <span>4.9</span>
+                  <span>4.6</span>
                   <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400" />
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "ग्राहक रेटिंग" : "Satisfaction Rating"}
                 </div>
                 <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
-                  {language === "hi" ? "1,200+ समीक्षाएं" : "From 1,200+ reviews"}
+                  {language === "hi" ? "100+ समीक्षाएं" : "From 100+ reviews"}
                 </p>
               </div>
             </div>
@@ -195,8 +191,11 @@ export const AboutSection: React.FC = () => {
           {/* ----------------------------------------------------------------------- */}
           {/* RIGHT SIDE: 3 Compact Gradient Staggered Cards (5 cols) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="lg:col-span-5 relative py-2 flex flex-col gap-3.5 sm:gap-4 sm:block">
+          <div className="lg:col-span-5 relative py-6 lg:py-8 lg:pl-4 xl:pl-6 flex flex-col gap-3.5 sm:gap-4 sm:block">
             
+            {/* Ambient card cluster backdrop glow */}
+            <div className="absolute inset-0 -m-6 sm:-m-8 bg-gradient-to-tr from-emerald-500/10 via-amber-500/5 to-rose-500/10 dark:from-emerald-500/5 dark:via-transparent dark:to-rose-500/5 rounded-3xl blur-2xl pointer-events-none -z-10" />
+
             {principles.map((p, idx) => {
               const Icon = p.icon;
               return (

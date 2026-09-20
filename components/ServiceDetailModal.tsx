@@ -183,7 +183,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 </span>
                 <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-300">
                   <Star className="w-3.5 h-3.5 fill-amber-300" />
-                  <span>4.9 (Agra)</span>
+                  <span>4.6 (Agra)</span>
                 </span>
               </div>
               <h2 className="text-lg sm:text-2xl font-extrabold font-heading text-white drop-shadow-sm leading-tight">

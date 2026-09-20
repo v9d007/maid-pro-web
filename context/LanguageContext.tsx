@@ -170,11 +170,11 @@ const translations: Record<Language, Translations> = {
       story2:
         "Every housekeeper, cook, and caregiver is thoroughly background-checked with Aadhaar & Police ID verification, trained in hygiene and polite etiquette.",
       stat1Label: "Verified Helpers",
-      stat1Value: "500+",
+      stat1Value: "50+",
       stat2Label: "Agra Families Served",
-      stat2Value: "5,000+",
+      stat2Value: "500+",
       stat3Label: "Customer Rating",
-      stat3Value: "4.9/5",
+      stat3Value: "4.6/5",
       callbackTitle: "Request a Quick Callback",
       callbackSubtitle:
         "Get a customized quote and matched helper in Agra within 30 minutes.",
@@ -274,7 +274,7 @@ const translations: Record<Language, Translations> = {
     },
     testimonials: {
       badge: "आगरा के ग्राहकों के अनुभव",
-      title: "आगरा के 5,000+ परिवारों का भरोसा",
+      title: "आगरा के 500+ परिवारों का भरोसा",
       subtitle:
         "जानिए खंदारी, बोदला, दयालबाग और कमला नगर के परिवार हमारे सत्यापित स्टाफ के बारे में क्या कहते हैं।",
       verifiedResident: "प्रमाणित आगरा निवासी",
@@ -287,11 +287,11 @@ const translations: Record<Language, Translations> = {
       story2:
         "प्रत्येक मेड, रसोइया और केयरगिवर का आधार कार्ड व पुलिस सत्यापन अनिवार्य रूप से किया जाता है तथा स्वच्छता व शिष्टाचार का प्रशिक्षण दिया जाता है।",
       stat1Label: "सत्यापित सहायक",
-      stat1Value: "500+",
+      stat1Value: "50+",
       stat2Label: "संतुष्ट परिवार",
-      stat2Value: "5,000+",
+      stat2Value: "500+",
       stat3Label: "ग्राहक रेटिंग",
-      stat3Value: "4.9/5",
+      stat3Value: "4.6/5",
       callbackTitle: "त्वरित कॉलबैक का अनुरोध करें",
       callbackSubtitle:
         "30 मिनट के भीतर उचित दर और अपनी पसंद का सत्यापित स्टाफ प्राप्त करें।",
