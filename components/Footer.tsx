@@ -41,12 +41,12 @@ export const Footer: React.FC = () => {
                 {t.footer.services}
               </h4>
               <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-700 dark:text-slate-300">
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "डीप हाउस क्लीनिंग" : "Deep House Cleaning"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "दैनिक मेड व झाड़ू-पोछा" : "Daily Maid & Housekeeping"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "किचन सैनिटाइजेशन व कुक" : "Kitchen Sanitization & Cook"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "शिफ्टिंग / मूव-इन क्लीनिंग" : "Move-in / Move-out Cleaning"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बेबीसिटर व नानी केयर" : "Babysitter & Nanny Care"}</Link></li>
-                <li><Link href="#services" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बुजुर्ग व पेशेंट केयर" : "Elderly & Patient Care"}</Link></li>
+                <li><Link href="/services/deep-cleaning-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "डीप हाउस क्लीनिंग" : "Deep House Cleaning"}</Link></li>
+                <li><Link href="/services/house-maid-in-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "दैनिक मेड व झाड़ू-पोछा" : "Daily Maid & Housekeeping"}</Link></li>
+                <li><Link href="/services/cook-in-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "किचन सैनिटाइजेशन व कुक" : "Kitchen Sanitization & Cook"}</Link></li>
+                <li><Link href="/services/move-in-cleaning-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "शिफ्टिंग / मूव-इन क्लीनिंग" : "Move-in / Move-out Cleaning"}</Link></li>
+                <li><Link href="/services/babysitter-in-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बेबीसिटर व नानी केयर" : "Babysitter & Nanny Care"}</Link></li>
+                <li><Link href="/services/elderly-care-in-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "बुजुर्ग व पेशेंट केयर" : "Elderly & Patient Care"}</Link></li>
               </ul>
             </div>
 
@@ -56,12 +56,14 @@ export const Footer: React.FC = () => {
                 {language === "hi" ? "आगरा क्षेत्र" : "Agra Areas"}
               </h4>
               <ul className="space-y-1 sm:space-y-1.5 text-[11px]">
-                {AGRA_LOCALITIES.slice(0, 8).map((loc, idx) => (
-                  <li key={idx} className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>
-                    <span className="truncate">{loc}</span>
-                  </li>
-                ))}
+                <li><Link href="/agra/khandari" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Khandari</Link></li>
+                <li><Link href="/agra/dayalbagh" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Dayalbagh</Link></li>
+                <li><Link href="/agra/kamla-nagar" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Kamla Nagar</Link></li>
+                <li><Link href="/agra/sanjay-place" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Sanjay Place</Link></li>
+                <li><Link href="/agra/sikandra" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Sikandra</Link></li>
+                <li><Link href="/agra/bodla" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Bodla</Link></li>
+                <li><Link href="/agra/civil-lines" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Civil Lines</Link></li>
+                <li><Link href="/agra/fatehabad-road" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Fatehabad Road</Link></li>
               </ul>
             </div>
 
