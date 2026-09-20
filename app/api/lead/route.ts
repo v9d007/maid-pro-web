@@ -5,10 +5,13 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { name, phone, service, locality, homeSize, shift, notes, source } = body;
 
-    // Basic validation
-    if (!name || !phone) {
+    // Strict validation: Require real Name and 10+ digit Phone
+    const trimmedName = typeof name === "string" ? name.trim() : "";
+    const cleanPhone = typeof phone === "string" ? phone.replace(/\D/g, "") : "";
+
+    if (!trimmedName || trimmedName.length < 2 || !cleanPhone || cleanPhone.length < 10) {
       return NextResponse.json(
-        { error: "Name and phone number are required." },
+        { error: "Valid client name and 10-digit phone number are required." },
         { status: 400 }
       );
     }

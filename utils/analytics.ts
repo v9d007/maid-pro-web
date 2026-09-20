@@ -68,7 +68,15 @@ export function trackEvent(eventName: string, params: Record<string, any> = {}) 
  */
 export async function submitLeadToSheet(lead: LeadPayload): Promise<{ success: boolean; id?: string }> {
   try {
-    // Track conversion event first
+    const trimmedName = lead.name ? lead.name.trim() : "";
+    const cleanPhone = lead.phone ? lead.phone.trim().replace(/\D/g, "") : "";
+
+    // Strictly skip submission if name or phone is empty
+    if (!trimmedName || trimmedName.length < 2 || !cleanPhone || cleanPhone.length < 10) {
+      return { success: false };
+    }
+
+    // Track conversion event
     trackEvent("lead_form_submitted", {
       service: lead.service,
       locality: lead.locality || "Agra",
