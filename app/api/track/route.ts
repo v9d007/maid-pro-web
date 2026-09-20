@@ -5,7 +5,9 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { event, timestamp, url, ...details } = body;
 
-    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+    const webhookUrl =
+      process.env.GOOGLE_SHEET_WEBHOOK_URL ||
+      "https://script.google.com/macros/s/AKfycbyQ8P4ADx07Q5r8K435kUTjZ8ojXLeh56RqMc620Kh6eEw0zhizp5ttZeLhowZF-QKM/exec";
     if (webhookUrl) {
       // Forward to Google Sheet asynchronously
       fetch(webhookUrl, {

@@ -13,7 +13,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+    const webhookUrl =
+      process.env.GOOGLE_SHEET_WEBHOOK_URL ||
+      "https://script.google.com/macros/s/AKfycbyQ8P4ADx07Q5r8K435kUTjZ8ojXLeh56RqMc620Kh6eEw0zhizp5ttZeLhowZF-QKM/exec";
     let externalId = `MP-${Date.now().toString().slice(-6)}`;
 
     if (webhookUrl) {
@@ -26,11 +28,11 @@ export async function POST(req: Request) {
           body: JSON.stringify({
             name,
             phone,
-            service: service || "General Maid/Cleaning Inquiry",
+            service: service || "House Maid Service",
             locality: locality || "Agra",
-            homeSize: homeSize || "Standard Home",
-            shift: shift || "Flexible Shift",
-            notes: notes || `Source: ${source || "Web"}`,
+            homeSize: homeSize || "",
+            shift: shift || "",
+            notes: notes || `Source: ${source || "Website Callback Form"}`,
           }),
         });
 

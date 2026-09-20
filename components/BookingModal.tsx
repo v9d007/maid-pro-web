@@ -34,6 +34,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [locality, setLocality] = useState("Khandari");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
@@ -46,6 +47,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   useEffect(() => {
     if (isOpen) {
       setIsSubmitted(false);
+      setIsSubmitting(false);
       trackEvent("callback_modal_opened", {
         service: initialService,
         locality,
@@ -73,40 +75,52 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const handleSubmitEnquiry = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isFormValid) return;
+    if (!isFormValid || isSubmitting) return;
 
-    // 1. Asynchronously submit lead to Google Sheets
-    submitLeadToSheet({
-      name: name.trim(),
-      phone: phone.trim(),
-      service,
-      locality,
-      source: "Website Callback Modal",
-    });
+    setIsSubmitting(true);
+    const trimmedName = name.trim();
+    const trimmedPhone = phone.trim();
 
-    // 2. Track analytics conversion event
-    trackEvent("enquiry_submitted", {
-      service,
-      locality,
-      name: name.trim(),
-    });
+    try {
+      // 1. Submit lead to Google Sheets & CRM
+      await submitLeadToSheet({
+        name: trimmedName,
+        phone: trimmedPhone,
+        service,
+        locality,
+        source: "Website Callback Modal",
+      });
 
-    // 3. Generate formatted WhatsApp message for quick team response
-    const waLink = generateWhatsAppLink({
-      service,
-      locality,
-      customNotes: `Name: ${name.trim()} | Phone: ${phone.trim()}`,
-    });
+      // 2. Track analytics conversion event
+      trackEvent("enquiry_submitted", {
+        service,
+        locality,
+        name: trimmedName,
+      });
 
-    // 4. Open WhatsApp link in new tab
-    window.open(waLink, "_blank");
+      // 3. Generate formatted WhatsApp message for quick team response
+      const waLink = generateWhatsAppLink({
+        service,
+        locality,
+        customNotes: `Name: ${trimmedName} | Phone: ${trimmedPhone}`,
+      });
 
-    // 5. Switch to success confirmation state
-    setIsSubmitted(true);
+      // 4. Open WhatsApp link in new tab
+      window.open(waLink, "_blank");
+
+      // 5. Switch to success confirmation state
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("Submission error:", err);
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleModalClose = () => {
     setIsSubmitted(false);
+    setIsSubmitting(false);
     onClose();
   };
 
@@ -311,15 +325,24 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="pt-2 space-y-2">
               <button
                 type="submit"
-                disabled={!isFormValid}
+                disabled={!isFormValid || isSubmitting}
                 className={`w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-[0.98] ${
-                  isFormValid
+                  isFormValid && !isSubmitting
                     ? "text-white bg-primary hover:bg-primary-container dark:bg-emerald-600 dark:hover:bg-emerald-500 shadow-primary/20"
                     : "bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed border border-slate-300/60 dark:border-slate-700/60"
                 }`}
               >
-                <PhoneCall className={`w-4 h-4 ${isFormValid ? "text-white" : "text-slate-400 dark:text-slate-500"}`} />
-                <span>{t.booking.submitButton}</span>
+                {isSubmitting ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>{language === "hi" ? "दर्ज किया जा रहा है..." : "Submitting..."}</span>
+                  </>
+                ) : (
+                  <>
+                    <PhoneCall className={`w-4 h-4 ${isFormValid ? "text-white" : "text-slate-400 dark:text-slate-500"}`} />
+                    <span>{t.booking.submitButton}</span>
+                  </>
+                )}
               </button>
 
               {/* Trust Badges Line */}

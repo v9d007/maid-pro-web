@@ -13,10 +13,10 @@ function doPost(e) {
     var doc = SpreadsheetApp.getActiveSpreadsheet();
     var data = JSON.parse(e.postData.contents);
     var now = new Date();
-    var timestampFormatted = Utilities.formatDate(now, "Asia/Kolkata", "dd/MM/yyyy hh:mm a");
+    var timestampStr = Utilities.formatDate(now, "Asia/Kolkata", "dd/MM/yyyy hh:mm a");
     
     // =========================================================================
-    // CASE 1: USER CLICKS & SERVICE INTEREST (Tracked in Tab 2)
+    // 1. SERVICE CLICKS & USER INTEREST (Tracked in Tab 2)
     // =========================================================================
     if (data.type === "event") {
       var eventSheet = doc.getSheetByName("Service Interest & Clicks");
@@ -47,7 +47,7 @@ function doPost(e) {
       }
       
       eventSheet.appendRow([
-        timestampFormatted,
+        now,                  // Native Date timestamp
         eventAction,
         targetName,
         detailsText,
@@ -59,12 +59,12 @@ function doPost(e) {
     }
     
     // =========================================================================
-    // CASE 2: REAL CUSTOMER LEAD INQUIRY (Appended to Main CRM Tab)
+    // 2. REAL CUSTOMER LEAD INQUIRY (Appended to Main CRM Tab 1)
     // =========================================================================
     var leadSheet = doc.getSheetByName("Inquiries") || doc.getActiveSheet();
     
     leadSheet.appendRow([
-      timestampFormatted,                                      // 1. Date & Exact Timestamp (e.g. 20/09/2026 04:37 PM)
+      now,                                                     // 1. Date & Exact Timestamp (Native DateTime)
       "Website",                                              // 2. Handled By
       "1. New Inquiry",                                        // 3. Status
       data.name || "",                                         // 4. Client Name
@@ -76,10 +76,10 @@ function doPost(e) {
       data.shift || "",                                        // 10. Salary Details
       "",                                                      // 11. Candidate Preference
       data.notes || "Source: Website Callback Form",           // 12. Additional Details
-      "New Web Lead"                                           // 13. Feedback
+      "New Web Lead (" + timestampStr + ")"                    // 13. Feedback
     ]);
     
-    return ContentService.createTextOutput(JSON.stringify({ result: "success", status: "1. New Inquiry", timestamp: timestampFormatted }))
+    return ContentService.createTextOutput(JSON.stringify({ result: "success", status: "1. New Inquiry", timestamp: timestampStr }))
       .setMimeType(ContentService.MimeType.JSON);
       
   } catch (error) {

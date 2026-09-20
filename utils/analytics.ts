@@ -82,6 +82,7 @@ export async function submitLeadToSheet(lead: LeadPayload): Promise<{ success: b
         timestamp: new Date().toISOString(),
         source: lead.source || "Website Booking Form",
       }),
+      keepalive: true,
     });
 
     if (res.ok) {
