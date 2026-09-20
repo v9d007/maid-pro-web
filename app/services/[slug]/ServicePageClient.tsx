@@ -378,9 +378,16 @@ export const ServicePageClient: React.FC<ServicePageClientProps> = ({ pageInfo, 
                       )}
                     </div>
                     <div className="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-                      <span className="font-black text-sm text-primary dark:text-emerald-400 font-heading">
-                        {slab.rate}
-                      </span>
+                      <div className="flex items-baseline gap-1.5">
+                        {slab.originalRate && (
+                          <span className="line-through text-xs text-slate-400 font-normal">
+                            {slab.originalRate}
+                          </span>
+                        )}
+                        <span className="font-black text-sm text-primary dark:text-emerald-400 font-heading">
+                          {slab.rate}
+                        </span>
+                      </div>
                       {isSelected && (
                         <div className="w-4 h-4 rounded-full bg-primary dark:bg-emerald-500 text-white flex items-center justify-center">
                           <Check className="w-2.5 h-2.5" />

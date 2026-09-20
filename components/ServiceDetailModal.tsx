@@ -302,9 +302,16 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                       )}
                     </div>
                     <div className="mt-2 pt-1.5 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-                      <span className="font-extrabold text-xs sm:text-sm text-primary dark:text-emerald-400 font-heading">
-                        {slab.rate}
-                      </span>
+                      <div className="flex items-baseline gap-1.5">
+                        {slab.originalRate && (
+                          <span className="line-through text-[10px] text-slate-400 font-normal">
+                            {slab.originalRate}
+                          </span>
+                        )}
+                        <span className="font-extrabold text-xs sm:text-sm text-primary dark:text-emerald-400 font-heading">
+                          {slab.rate}
+                        </span>
+                      </div>
                       {isSelected && (
                         <div className="w-4 h-4 rounded-full bg-primary dark:bg-emerald-500 text-white flex items-center justify-center">
                           <Check className="w-2.5 h-2.5" />
