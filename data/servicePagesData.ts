@@ -19,26 +19,30 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageInfo> = {
   "house-maid-in-agra": {
     slug: "house-maid-in-agra",
     serviceId: "house-maid-hourly",
-    title: "House Maid Service in Agra",
-    hiTitle: "आगरा में घरेलू मेड व झाड़ू-पोछा सेवा",
-    tagline: "100% Police-Verified Daily Housemaids with Flexible Hourly & Monthly Shifts",
-    hiTagline: "100% पुलिस-सत्यापित घरेलू मेड - दैनिक झाड़ू-पोछा, बर्तन और हाउसकीपिंग",
-    heroHeadline: "Trusted & Verified House Maid Service in Agra",
-    heroSubhead: "Hire experienced, police-verified daily domestic helpers for sweeping, mopping, dusting, and dishwashing with zero advance payment and free instant replacement guarantee.",
-    metaTitle: "House Maid Service in Agra | Verified Daily & Monthly Maids - MaidPro",
-    metaDesc: "Hire 100% police-verified housemaids in Agra. Flexible 1-hour to 24-hour shifts, sweeping, mopping, utensil washing with transparent monthly salary slabs & instant free replacement.",
+    title: "House Maid & Home Cooking Service in Agra",
+    hiTitle: "आगरा में घरेलू मेड व कुक सेवा",
+    tagline: "100% Police-Verified Daily Housemaids & Home Cooks at Same Affordable Rates",
+    hiTagline: "100% पुलिस-सत्यापित घरेलू मेड व कुक - झाड़ू-पोछा, बर्तन और ताजा खाना समान दरों पर",
+    heroHeadline: "Trusted & Verified House Maid & Cooking Service in Agra",
+    heroSubhead: "Hire experienced, police-verified daily domestic helpers for sweeping, mopping, dusting, utensil scrub, and fresh home cooking with zero advance payment and free instant replacement guarantee.",
+    metaTitle: "House Maid & Cook in Agra | Verified Helpers at Same Rates - MaidPro",
+    metaDesc: "Hire 100% police-verified housemaids & home cooks in Agra at the exact same transparent rates. Flexible 1-hr to 24-hr shifts, sweeping, mopping, cooking & instant free replacement.",
     faqs: [
       {
-        question: "How are housemaids background verified in Agra?",
-        answer: "Every maid undergoes mandatory UIDAI Aadhaar verification, address verification, and local police verification before being assigned to any home."
+        question: "Are maid and cooking services provided at the same rates?",
+        answer: "Yes! At MaidPro Agra, both house maid (sweeping/mopping/dishes) and home cooking (roti, sabzi, dal) are offered under the same transparent hourly and monthly salary slabs."
       },
       {
-        question: "What if the maid takes leaves or is absent?",
+        question: "How are housemaids and cooks background verified in Agra?",
+        answer: "Every maid and cook undergoes mandatory UIDAI Aadhaar verification, local address verification, and police verification before being assigned to any home."
+      },
+      {
+        question: "What if the maid or cook takes leaves or is absent?",
         answer: "We offer an instant backup replacement within 24 hours at zero additional cost whenever your regular helper is unwell or unavailable."
       },
       {
-        question: "What are the typical charges for housemaids in Agra?",
-        answer: "Monthly salary slabs range transparently: 1 to 2 hours daily costs ~₹3,000 to ₹4,500/month, 4 hours ~₹6,000/month, and full-day (8-10 hours) ~₹10,000 to ₹14,000/month."
+        question: "What are the typical charges for housemaids & cooks in Agra?",
+        answer: "Monthly salary slabs range transparently: 2 hours daily costs ~₹5,000/month, 3 hours ~₹6,000/month, 4 hours ~₹7,000/month, and full-day (8 hours) ~₹12,000 to ₹13,000/month."
       }
     ]
   },
@@ -70,16 +74,20 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageInfo> = {
   },
   "cook-in-agra": {
     slug: "cook-in-agra",
-    serviceId: "all-in-one-help",
-    title: "Cook & Kitchen Sanitization in Agra",
+    serviceId: "house-maid-hourly",
+    title: "Home Cook & Kitchen Service in Agra",
     hiTitle: "आगरा में घरेलू रसोइया व कुक सेवा",
-    tagline: "Hygienic Vegetarian & Multi-Cuisine Home Cooks in Agra",
-    hiTagline: "स्वच्छ शाकाहारी व स्वादिष्ट भोजन बनाने वाले अनुभवी रसोइये",
-    heroHeadline: "Experienced Home Cooks & Chefs in Agra",
-    heroSubhead: "Enjoy delicious, hygienic home-cooked meals prepared by etiquette-trained cooks. Morning, evening, or all-day cooking shifts with kitchen cleaning included.",
-    metaTitle: "Cook in Agra | Hire Verified Home Cooks & Chefs - MaidPro",
-    metaDesc: "Hire hygienic, verified home cooks in Agra. North Indian, South Indian, diet-friendly meals for breakfast, lunch & dinner with complete kitchen cleanliness.",
+    tagline: "Hygienic Home Cooks & Maids at the Same Affordable Hourly & Monthly Rates",
+    hiTagline: "स्वच्छ शाकाहारी व स्वादिष्ट भोजन बनाने वाले रसोइये - मेड की समान दरों पर",
+    heroHeadline: "Experienced Home Cooks & Kitchen Helpers in Agra",
+    heroSubhead: "Enjoy delicious, hygienic home-cooked meals (rotis, sabzi, dal, rice) prepared by verified cooks. Morning, evening, or all-day cooking shifts with kitchen cleaning included at the same rates as housemaids.",
+    metaTitle: "Home Cook in Agra | Hire Verified Domestic Cooks - MaidPro",
+    metaDesc: "Hire hygienic, verified domestic cooks & kitchen helpers in Agra at same rates as maid services. North Indian home meals, breakfast & dinner with complete kitchen cleanliness.",
     faqs: [
+      {
+        question: "Are home cooks charged at the same rate as housemaids?",
+        answer: "Yes, our domestic home cooking and housekeeping services are available at the exact same transparent rates starting from ₹399/session or ₹5,000/month."
+      },
       {
         question: "Are your cooks trained in hygienic kitchen practices?",
         answer: "Yes. All cooks wear clean aprons and follow strict hand washing, fresh ingredient prep, and post-cooking stove & counter sanitization."

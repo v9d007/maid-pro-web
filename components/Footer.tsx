@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-700 dark:text-slate-300">
                 <li><Link href="/services/deep-cleaning-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "डीप हाउस क्लीनिंग" : "Deep House Cleaning"}</Link></li>
-                <li><Link href="/services/house-maid-in-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "दैनिक मेड व झाड़ू-पोछा" : "Daily Maid & Housekeeping"}</Link></li>
+                <li><Link href="/services/house-maid-in-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "घरेलू मेड व कुक सेवा" : "House Maid & Home Cooking"}</Link></li>
                 <li><Link href="/services/hotel-restaurant-cook-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "होटल व रेस्टोरेंट कुक (नॉर्थ/साउथ)" : "Hotel & Restaurant Cook (North/South)"}</Link></li>
                 <li><Link href="/services/cook-in-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "घरेलू रसोइया व कुक" : "Home Cook & Kitchen"}</Link></li>
                 <li><Link href="/services/move-in-cleaning-agra" className="hover:text-primary dark:hover:text-emerald-300 transition">{language === "hi" ? "शिफ्टिंग / मूव-इन क्लीनिंग" : "Move-in / Move-out Cleaning"}</Link></li>

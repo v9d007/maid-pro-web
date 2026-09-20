@@ -164,6 +164,37 @@ export const COMMON_DOMESTIC_INCLUSION_TABS: InclusionTab[] = [
     }
   },
   {
+    id: "cooking",
+    name: "Home Cooking & Kitchen Prep",
+    icon: "ChefHat",
+    image: "/images/services/all_in_one.jpg",
+    trainedTo: [
+      "Fresh vegetarian home meals (soft rotis/phulkas, sabzi, dal, rice)",
+      "Morning breakfast prep (poha, parathas, upma, sandwiches & tea/coffee)",
+      "Vegetable chopping, peeling, kneading fresh dough & prep work",
+      "Post-cooking gas stove wiping, slab cleaning & kitchen counter hygiene",
+      "Customized spice, salt & oil balancing according to family preference"
+    ],
+    notIncluded: [
+      "Commercial bakery or 5-star continental gourmet pastry baking",
+      "Table-side live cocktail bar tending"
+    ],
+    hi: {
+      name: "दैनिक खाना बनाना व रसोई",
+      trainedTo: [
+        "ताजा शाकाहारी घरेलू भोजन (गरम फुल्के/रोटी, मौसमी सब्जी, दाल, चावल)",
+        "सुबह का नाश्ता व चाय (पोहा, परांठे, उपमा, सैंडविच व चाय)",
+        "सब्जी काटना, छीलना, आटा गूंधना व कुकिंग की पूरी तैयारी",
+        "खाना बनाने के बाद गैस चूल्हा, स्लैब व प्लेटफॉर्म की सफाई",
+        "परिवार के स्वाद व स्वास्थ्य के अनुसार नमक, मिर्च व तेल का संतुलन"
+      ],
+      notIncluded: [
+        "कमर्शियल बेकरी या फाइव-स्टार कॉन्टिनेंटल उत्पाद",
+        "बारटेंडिंग सेवाएं"
+      ]
+    }
+  },
+  {
     id: "laundry",
     name: "Laundry & Ironing",
     icon: "Sparkles",
@@ -268,28 +299,33 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     id: "house-maid-hourly",
     stepNumber: "01",
-    title: "House Maid Service",
-    shortDesc: "Agra's trusted verified maids for sweeping, mopping, dusting, bedmaking & daily chores on hourly or monthly basis.",
+    title: "House Maid & Home Cooking Service",
+    shortDesc: "Agra's trusted verified maids & home cooks for sweeping, mopping, utensil scrub, fresh home cooking (roti, sabzi, dal) & daily chores at the exact same transparent rates.",
     priceTag: "₹399/-",
-    badge: "Most Popular",
+    badge: "Maid & Cook at Same Rate",
     category: "maid_care",
     icon: "Clock",
     image: "/images/services/house_maid.jpg",
-    features: ["Brooming, mopping & dusting", "Instant same-day replacement guarantee", "100% Police & Aadhaar verified staff"],
-    equipmentNotice: "Please provide all necessary equipments, detergents, broom and mop for the expert.",
-    pricingTerms: "At least 2 hr service is mandatory for single-day on-demand bookings.",
+    features: [
+      "Sweeping, mopping, dishes & fresh home cooking",
+      "Same transparent rates for both maid & cook service",
+      "Instant same-day replacement guarantee",
+      "100% Police & Aadhaar verified staff"
+    ],
+    equipmentNotice: "Please provide all necessary equipments, detergents, broom, mop and cooking ingredients for the helper.",
+    pricingTerms: "At least 2 hr service is mandatory for single-day on-demand bookings. Maid and home cooking services are provided at the exact same transparent rates.",
     singleDayHourly: [
-      { hours: "1 Hour", rate: "₹399", note: "Emergency Quick Help" },
-      { hours: "2 Hours (Mandatory min)", rate: "₹699", badge: "Recommended", note: "Cleaning & Dusting min" },
-      { hours: "3 Hours", rate: "₹1,099", note: "Complete Chores" },
-      { hours: "4 Hours", rate: "₹1,399", note: "Half-Day Maid" },
+      { hours: "1 Hour", rate: "₹399", note: "Emergency Quick Help / Cooking" },
+      { hours: "2 Hours (Mandatory min)", rate: "₹699", badge: "Recommended", note: "Cleaning / Cooking 1 Meal" },
+      { hours: "3 Hours", rate: "₹1,099", note: "Cleaning + Cooking + Dishes" },
+      { hours: "4 Hours", rate: "₹1,399", note: "Half-Day Maid / Cook" },
       { hours: "5 Hours", rate: "₹1,599", note: "Deep Routine Help" },
-      { hours: "Full Day Work (8-9 hrs)", rate: "₹2,499", badge: "Full Day", note: "Housekeeping & Help" }
+      { hours: "Full Day Work (8-9 hrs)", rate: "₹2,499", badge: "Full Day", note: "Housekeeping + Cooking" }
     ],
     monthlySlabs: [
-      { hours: "2 Hours / day", rate: "₹5,000 / month", badge: "Starter" },
-      { hours: "3 Hours / day", rate: "₹6,000 / month" },
-      { hours: "4 Hours / day", rate: "₹7,000 / month", badge: "Most Popular" },
+      { hours: "2 Hours / day", rate: "₹5,000 / month", badge: "Starter", note: "Housekeeping or 1-Time Cooking" },
+      { hours: "3 Hours / day", rate: "₹6,000 / month", note: "Cleaning + Light Cooking" },
+      { hours: "4 Hours / day", rate: "₹7,000 / month", badge: "Most Popular", note: "Full Cleaning + Cooking" },
       { hours: "5 Hours / day", rate: "₹8,000 to ₹9,000 / month" },
       { hours: "6 Hours / day", rate: "₹9,000 to ₹10,000 / month" },
       { hours: "7 Hours / day", rate: "₹10,000 to ₹11,000 / month" },
@@ -298,28 +334,34 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     inclusionTabs: [
       COMMON_DOMESTIC_INCLUSION_TABS[0], // Housekeeping
       COMMON_DOMESTIC_INCLUSION_TABS[1], // Dishes
-      COMMON_DOMESTIC_INCLUSION_TABS[2], // Laundry
+      COMMON_DOMESTIC_INCLUSION_TABS[2], // Cooking
+      COMMON_DOMESTIC_INCLUSION_TABS[3], // Laundry
     ],
     hi: {
-      title: "घंटे व महीने के अनुसार मेड सर्विस",
-      shortDesc: "झाड़ू-पोछा, डस्टिंग, बिस्तर लगाने व दैनिक कामकाज के लिए आगरा की 100% पुलिस सत्यापित मेड।",
+      title: "घरेलू मेड व कुक सेवा (सफाई व खाना)",
+      shortDesc: "झाड़ू-पोछा, बर्तन, ताजा घरेलू खाना (रोटी, सब्जी, दाल) व दैनिक कामकाज के लिए 100% पुलिस सत्यापित मेड व कुक — दोनों एक ही किफायती दर पर।",
       priceTag: "₹399/-",
-      badge: "सर्वाधिक लोकप्रिय",
-      features: ["झाड़ू, पोछा और डस्टिंग", "मेड की छुट्टी पर तुरंत मुफ्त रिप्लेसमेंट", "100% पुलिस व आधार सत्यापित स्टाफ"],
-      equipmentNotice: "कृपया मेड/सहायक के लिए झाड़ू, पोछा, बाल्टी व सर्फ उपलब्ध कराएं।",
-      pricingTerms: "सिंगल डे ऑन-डिमांड बुकिंग के लिए कम से कम 2 घंटे की सेवा अनिवार्य है।",
+      badge: "समान दरों पर मेड व कुक",
+      features: [
+        "झाड़ू, पोछा, बर्तन व ताजा घरेलू खाना बनाना",
+        "मेड और कुक दोनों सेवाओं के लिए समान पारदर्शी दरें",
+        "मेड/कुक की छुट्टी पर तुरंत मुफ्त रिप्लेसमेंट",
+        "100% पुलिस व आधार सत्यापित स्टाफ"
+      ],
+      equipmentNotice: "कृपया मेड/कुक के लिए झाड़ू, पोछा, बाल्टी, सर्फ व राशन सामग्री उपलब्ध कराएं।",
+      pricingTerms: "सिंगल डे ऑन-डिमांड बुकिंग के लिए कम से कम 2 घंटे की सेवा अनिवार्य है। मेड और कुक दोनों सेवाएं समान पारदर्शी दरों पर उपलब्ध हैं।",
       singleDayHourly: [
-        { hours: "1 घंटा", rate: "₹399", note: "क्विक इमरजेंसी हेल्प" },
-        { hours: "2 घंटे (अनिवार्य)", rate: "₹699", badge: "सुझावित", note: "सफाई हेतु न्यूनतम" },
-        { hours: "3 घंटे", rate: "₹1,099", note: "संपूर्ण घरेलू काम" },
-        { hours: "4 घंटे", rate: "₹1,399", note: "हाफ-डे मेड" },
+        { hours: "1 घंटा", rate: "₹399", note: "क्विक इमरजेंसी हेल्प / कुकिंग" },
+        { hours: "2 घंटे (अनिवार्य)", rate: "₹699", badge: "सुझावित", note: "सफाई / 1 समय का खाना" },
+        { hours: "3 घंटे", rate: "₹1,099", note: "सफाई + खाना + बर्तन" },
+        { hours: "4 घंटे", rate: "₹1,399", note: "हाफ-डे मेड / कुक" },
         { hours: "5 घंटे", rate: "₹1,599", note: "विस्तृत सहायता" },
-        { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹2,499", badge: "फुल डे", note: "सफाई व काम" }
+        { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹2,499", badge: "फुल डे", note: "सफाई व कुकिंग सहायता" }
       ],
       monthlySlabs: [
-        { hours: "2 घंटे / दिन", rate: "₹5,000 / माह", badge: "स्टार्टर" },
-        { hours: "3 घंटे / दिन", rate: "₹6,000 / माह" },
-        { hours: "4 घंटे / दिन", rate: "₹7,000 / माह", badge: "सबसे लोकप्रिय" },
+        { hours: "2 घंटे / दिन", rate: "₹5,000 / माह", badge: "स्टार्टर", note: "सफाई या 1 समय का खाना" },
+        { hours: "3 घंटे / दिन", rate: "₹6,000 / माह", note: "सफाई + हल्का खाना" },
+        { hours: "4 घंटे / दिन", rate: "₹7,000 / माह", badge: "सबसे लोकप्रिय", note: "पूरी सफाई + कुकिंग" },
         { hours: "5 घंटे / दिन", rate: "₹8,000 से ₹9,000 / माह" },
         { hours: "6 घंटे / दिन", rate: "₹9,000 से ₹10,000 / माह" },
         { hours: "7 घंटे / दिन", rate: "₹10,000 से ₹11,000 / माह" },
@@ -330,21 +372,25 @@ export const SERVICES_CATALOG: ServiceItem[] = [
   {
     id: "all-in-one-help",
     stepNumber: "02",
-    title: "All-in-One Domestic Help",
-    shortDesc: "Complete domestic chore support: sweeping/mopping, utensil scrub (बर्तन), machine laundry & ironing (कपड़े), and kitchen upkeep.",
+    title: "All-in-One Domestic Help (Maid, Cook & Laundry)",
+    shortDesc: "Complete domestic chore support: sweeping/mopping, utensil scrub (बर्तन), fresh home cooking (खाना), machine laundry & ironing (कपड़े), and kitchen upkeep.",
     priceTag: "₹5,000/mo",
     badge: "Best Value",
     category: "maid_care",
     icon: "Home",
     image: "/images/services/all_in_one.jpg",
-    features: ["Housekeeping + Dishes + Laundry combined", "Transparent hourly & monthly salary slabs", "3-Month free replacement agreement"],
-    equipmentNotice: "Please provide all necessary equipments, detergents, broom, mop and washing supplies.",
+    features: [
+      "Housekeeping + Cooking + Dishes + Laundry combined",
+      "Same transparent rates with multi-tasking domestic helper",
+      "3-Month free replacement agreement"
+    ],
+    equipmentNotice: "Please provide all necessary equipments, detergents, broom, mop, cooking ingredients and washing supplies.",
     pricingTerms: "These are all prices for a 50% maid 1 month salary one-time service charges with agreement of 3 months free replacement.",
     singleDayHourly: [
-      { hours: "2 Hours", rate: "₹699", note: "Cleaning + Dishes" },
-      { hours: "3 Hours", rate: "₹1,099", note: "Cleaning + Dishes + Laundry" },
-      { hours: "4 Hours", rate: "₹1,399", note: "Half-Day Multi-Task" },
-      { hours: "Full Day (8-9 hrs)", rate: "₹2,499", badge: "Full Day Work", note: "Complete Home Help" }
+      { hours: "2 Hours", rate: "₹699", note: "Cleaning + Dishes / Cooking" },
+      { hours: "3 Hours", rate: "₹1,099", note: "Cleaning + Cooking + Dishes + Laundry" },
+      { hours: "4 Hours", rate: "₹1,399", note: "Half-Day Multi-Task Help" },
+      { hours: "Full Day (8-9 hrs)", rate: "₹2,499", badge: "Full Day Work", note: "Complete Home & Cooking Help" }
     ],
     monthlySlabs: [
       { hours: "2 Hours / day", rate: "₹5,000 / month", badge: "Starter" },
@@ -363,21 +409,26 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     inclusionTabs: [
       COMMON_DOMESTIC_INCLUSION_TABS[0], // Housekeeping
       COMMON_DOMESTIC_INCLUSION_TABS[1], // Dishes
-      COMMON_DOMESTIC_INCLUSION_TABS[2], // Laundry
+      COMMON_DOMESTIC_INCLUSION_TABS[2], // Cooking
+      COMMON_DOMESTIC_INCLUSION_TABS[3], // Laundry
     ],
     hi: {
-      title: "ऑल-इन-वन घरेलू सहायक (झाड़ू-पोछा, बर्तन व कपड़े)",
-      shortDesc: "घर के सभी कामों का संपूर्ण प्रबंधन: झाड़ू-पोछा, बर्तन मांजना, कपड़े धोना व इस्त्री और रसोई की सफाई।",
+      title: "ऑल-इन-वन घरेलू सहायक (सफाई, बर्तन, कपड़े व खाना)",
+      shortDesc: "घर के सभी कामों का संपूर्ण प्रबंधन: झाड़ू-पोछा, बर्तन मांजना, ताजा घरेलू खाना बनाना, कपड़े धोना व इस्त्री और रसोई की सफाई।",
       priceTag: "₹5,000/माह",
       badge: "बेस्ट वैल्यू",
-      features: ["झाड़ू-पोछा + बर्तन + कपड़े एक साथ", "पारदर्शी प्रति घंटा व मासिक वेतन स्लैब", "3 महीने की मुफ्त रिप्लेसमेंट गारंटी"],
-      equipmentNotice: "कृपया बर्तन धोने का साबुन, वाशिंग पाउडर, झाड़ू व पोछा उपलब्ध कराएं।",
+      features: [
+        "झाड़ू-पोछा + खाना बनाना + बर्तन + कपड़े एक साथ",
+        "समान पारदर्शी दरें और बहु-कुशल घरेलू सहायक",
+        "3 महीने की मुफ्त रिप्लेसमेंट गारंटी"
+      ],
+      equipmentNotice: "कृपया बर्तन धोने का साबुन, वाशिंग पाउडर, झाड़ू, पोछा व राशन सामग्री उपलब्ध कराएं।",
       pricingTerms: "3 महीने के अनुबंध के साथ 50% एकमुश्त सेवा शुल्क व 3 महीने तक मुफ्त रिप्लेसमेंट।",
       singleDayHourly: [
-        { hours: "2 घंटे", rate: "₹699", note: "सफाई + बर्तन" },
-        { hours: "3 घंटे", rate: "₹1,099", note: "सफाई + बर्तन + कपड़े" },
+        { hours: "2 घंटे", rate: "₹699", note: "सफाई + बर्तन / कुकिंग" },
+        { hours: "3 घंटे", rate: "₹1,099", note: "सफाई + खाना + बर्तन + कपड़े" },
         { hours: "4 घंटे", rate: "₹1,399", note: "हाफ-डे सभी काम" },
-        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹2,499", badge: "फुल डे", note: "संपूर्ण घरेलू सहायता" }
+        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹2,499", badge: "फुल डे", note: "संपूर्ण घरेलू व कुकिंग सहायता" }
       ],
       monthlySlabs: [
         { hours: "2 घंटे / दिन", rate: "₹5,000 / माह", badge: "स्टार्टर" },
