@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" width="520" height="140">
+  <defs>
+    <linearGradient id="monoEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003833" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+    <linearGradient id="monoSwoosh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Isometric Geometric M & Roof -->
+  <g transform="translate(14, 12)">
+    <!-- Base Ribbon Squircle -->
+    <path d="M 20 88 L 20 44 L 58 16 L 96 44 L 96 88" fill="none" stroke="url(#monoEmerald)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Central Fold forming 'M' -->
+    <path d="M 38 72 L 58 46 L 78 72" fill="none" stroke="url(#monoEmerald)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Energetic Upward Gold Swoosh with Sparkle -->
+    <path d="M 10 92 C 24 108, 76 112, 102 54" fill="none" stroke="url(#monoSwoosh)" stroke-width="8" stroke-linecap="round" />
+
+    <!-- Sparkle Stars -->
+    <path d="M 102 38 Q 102 48 110 48 Q 102 48 102 58 Q 102 48 94 48 Q 102 48 102 38 Z" fill="url(#monoSwoosh)" />
+    <circle cx="118" cy="32" r="3.5" fill="#fef08a" />
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(145, 14)">
+    <text x="0" y="68" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="62" letter-spacing="-1">
+      <tspan fill="#004842">Maid</tspan>
+      <tspan fill="url(#monoSwoosh)">Pro</tspan>
+    </text>
+    <circle cx="266" cy="58" r="6" fill="#f59e0b" />
+
+    <text x="2" y="98" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" fill="#0f766e" letter-spacing="3" text-transform="uppercase">
+      DOMESTIC PLATFORM • AGRA
+    </text>
+
+    <rect x="2" y="108" width="168" height="18" rx="5" fill="#f0fdf9" stroke="#0d9488" stroke-width="1" />
+    <text x="86" y="121" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="9.5" fill="#0f766e" text-anchor="middle">
+      ⚡ INSTANT REPLACEMENT
+    </text>
+  </g>
+</svg>

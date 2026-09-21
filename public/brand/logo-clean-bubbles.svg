@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+  <defs>
+    <linearGradient id="bubbleCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#0284c7" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="bubbleTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#0d9488" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- ICON: Two Overlapping Refraction Bubbles -->
+  <g transform="translate(15, 12)">
+    <!-- Left Bubble -->
+    <circle cx="46" cy="48" r="38" fill="url(#bubbleCyan)" />
+    <ellipse cx="36" cy="34" rx="14" ry="8" transform="rotate(-30 36 34)" fill="#ffffff" fill-opacity="0.45" />
+    <circle cx="30" cy="28" r="3" fill="#ffffff" fill-opacity="0.8" />
+
+    <!-- Right Bubble -->
+    <circle cx="86" cy="48" r="38" fill="url(#bubbleTeal)" style="mix-blend-mode: multiply;" />
+    <ellipse cx="96" cy="34" rx="14" ry="8" transform="rotate(30 96 34)" fill="#ffffff" fill-opacity="0.4" />
+    <circle cx="102" cy="28" r="3" fill="#ffffff" fill-opacity="0.8" />
+
+    <!-- Overlap Lens Refraction Arc -->
+    <path d="M66 22 C78 36 78 60 66 74" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6" />
+  </g>
+
+  <!-- WORDMARK: maidpro in Modern Geometric Sans -->
+  <g transform="translate(158, 20)">
+    <text x="0" y="66" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="64" letter-spacing="-1.5">
+      <tspan fill="#009ca6">maid</tspan>
+      <tspan fill="#0f2b38">pro</tspan>
+    </text>
+    <text x="3" y="88" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-weight="600" font-size="11" fill="#64748b" letter-spacing="3">
+      PREMIER CLEANING SERVICES • AGRA
+    </text>
+  </g>
+</svg>

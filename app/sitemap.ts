@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { ALL_LOCALITIES } from '@/data/localitiesData';
+import { ALL_CITIES } from '@/data/citiesData';
 import { ALL_SERVICE_PAGES } from '@/data/servicePagesData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,19 +22,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 2. Agra Localities Pages
-  ALL_LOCALITIES.forEach((loc) => {
+  // 2. City Landing Pages & Hyper-Local Sub-Localities
+  ALL_CITIES.forEach((city) => {
+    // City Hub Route
     routes.push({
-      url: `${baseUrl}/agra/${loc.slug}`,
+      url: `${baseUrl}/${city.slug}`,
       lastModified: currentDate,
       changeFrequency: 'daily',
-      priority: 0.9,
+      priority: city.hasGbpVerification ? 0.95 : 0.9,
       alternates: {
         languages: {
-          en: `${baseUrl}/agra/${loc.slug}`,
-          hi: `${baseUrl}/agra/${loc.slug}`,
+          en: `${baseUrl}/${city.slug}`,
+          hi: `${baseUrl}/${city.slug}`,
         },
       },
+    });
+
+    // Locality Pages under each City
+    city.localities.forEach((loc) => {
+      routes.push({
+        url: `${baseUrl}/${city.slug}/${loc.slug}`,
+        lastModified: currentDate,
+        changeFrequency: 'daily',
+        priority: 0.85,
+        alternates: {
+          languages: {
+            en: `${baseUrl}/${city.slug}/${loc.slug}`,
+            hi: `${baseUrl}/${city.slug}/${loc.slug}`,
+          },
+        },
+      });
     });
   });
 

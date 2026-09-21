@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" width="520" height="140">
+  <defs>
+    <linearGradient id="apexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003833" />
+      <stop offset="100%" stop-color="#005c55" />
+    </linearGradient>
+    <linearGradient id="apexGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Three Interlocking Arches / Modern Crown Apex -->
+  <g transform="translate(16, 10)">
+    <!-- Central Tall Arch -->
+    <path d="M 44 110 V 50 C 44 26, 68 26, 68 50 V 110" fill="none" stroke="url(#apexGrad)" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Left Arch -->
+    <path d="M 22 110 V 68 C 22 48, 44 48, 44 68" fill="none" stroke="url(#apexGrad)" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Right Arch -->
+    <path d="M 90 110 V 68 C 90 48, 68 48, 68 68" fill="none" stroke="url(#apexGrad)" stroke-width="8" stroke-linecap="round" />
+
+    <!-- Horizontal Connecting Crossbars -->
+    <line x1="28" y1="84" x2="84" y2="84" stroke="url(#apexGrad)" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Crown Diamond Star Apex -->
+    <path d="M 80 18 Q 80 32 94 32 Q 80 32 80 46 Q 80 32 66 32 Q 80 32 80 18 Z" fill="url(#apexGold)" />
+    <circle cx="80" cy="32" r="2.5" fill="#ffffff" />
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(145, 14)">
+    <text x="0" y="68" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="62" letter-spacing="-1">
+      <tspan fill="#004842">Maid</tspan>
+      <tspan fill="url(#apexGold)">Pro</tspan>
+    </text>
+    <circle cx="266" cy="58" r="6" fill="#f59e0b" />
+
+    <text x="2" y="98" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" fill="#0f766e" letter-spacing="3" text-transform="uppercase">
+      HOTEL-GRADE CLEANING &amp; DOMESTIC HELP
+    </text>
+
+    <rect x="2" y="108" width="160" height="18" rx="5" fill="#f8fafc" stroke="#64748b" stroke-width="1" />
+    <text x="82" y="121" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="9.5" fill="#334155" text-anchor="middle">
+      ★ 5-STAR HOSPITALITY GRADE
+    </text>
+  </g>
+</svg>

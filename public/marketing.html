@@ -177,6 +177,12 @@
         <button onclick="switchTab('mockups')" id="tabBtn-mockups" class="tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
           📸 Photo Mockups
         </button>
+        <button onclick="switchTab('brand')" id="tabBtn-brand" class="tab-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
+          🎨 Brand Assets & Icons
+        </button>
+        <button onclick="switchTab('logos')" id="tabBtn-logos" class="tab-btn px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:text-white transition font-bold">
+          💎 4 Logo Concepts (Vote & Choose)
+        </button>
       </nav>
 
       <!-- Action Buttons -->
@@ -251,11 +257,21 @@
 
             <!-- Top Row: Brand & Verified Pill -->
             <div class="flex items-center justify-between relative z-10">
-              <div class="flex items-baseline gap-1">
-                <span class="card-brand font-black text-2xl font-heading tracking-tight text-white">
-                  Maid<span class="text-amber-400">Pro</span>
-                </span>
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block animate-pulse"></span>
+              <div class="flex items-center gap-2">
+                <div class="flex items-baseline gap-1">
+                  <span class="card-brand font-black text-2xl font-heading tracking-tight text-white">
+                    Maid<span class="text-amber-400">Pro</span>
+                  </span>
+                </div>
+                <!-- Golden House & Sparkle Star Emblem -->
+                <svg viewBox="0 0 100 100" class="w-6 h-6 text-amber-400 fill-none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 32 40 V 24 H 40 V 30" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                  <path d="M 16 48 L 50 20 L 84 48" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M 22 46 V 80 H 38" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M 78 46 V 80 H 52" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M 50 44 Q 50 60 66 60 Q 50 60 50 76 Q 50 60 34 60 Q 50 60 50 44 Z" fill="#ffffff"/>
+                  <path d="M 70 12 Q 70 18 76 18 Q 70 18 70 24 Q 70 18 64 18 Q 70 18 70 12 Z" fill="currentColor"/>
+                </svg>
               </div>
               <div class="card-pill flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[10px] font-bold text-emerald-300">
                 <svg class="w-3 h-3 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
@@ -462,11 +478,21 @@
               
               <!-- Brand Identity -->
               <div>
-                <div class="flex items-baseline gap-1.5">
-                  <span class="font-black text-3xl sm:text-4xl font-heading tracking-tight text-white">
-                    Maid<span class="text-amber-400">Pro</span>
-                  </span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block animate-pulse"></span>
+                <div class="flex items-center gap-2">
+                  <div class="flex items-baseline gap-1">
+                    <span class="font-black text-3xl sm:text-4xl font-heading tracking-tight text-white">
+                      Maid<span class="text-amber-400">Pro</span>
+                    </span>
+                  </div>
+                  <!-- Official Golden House & Sparkle Emblem -->
+                  <svg viewBox="0 0 100 100" class="w-8 h-8 text-amber-400 fill-none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 32 40 V 24 H 40 V 30" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                    <path d="M 16 48 L 50 20 L 84 48" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M 22 46 V 80 H 38" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M 78 46 V 80 H 52" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M 50 44 Q 50 60 66 60 Q 50 60 50 76 Q 50 60 34 60 Q 50 60 50 44 Z" fill="#ffffff"/>
+                    <path d="M 70 12 Q 70 18 76 18 Q 70 18 70 24 Q 70 18 64 18 Q 70 18 70 12 Z" fill="currentColor"/>
+                  </svg>
                   <span class="text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/15 text-teal-200 ml-2 border border-white/20">
                     AGRA
                   </span>
@@ -951,6 +977,578 @@ Say goodbye to maid absents and housework stress! *MaidPro* brings 100% Police-V
 
     </section>
 
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 5: BRAND ASSETS, LOGOS, PROFILE PICTURES & BACKGROUNDS            -->
+    <!-- ========================================================================= -->
+    <section id="brandSection" class="tab-content hidden space-y-10">
+      
+      <!-- Section Header -->
+      <div class="no-print bg-slate-950/60 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 mb-1 tracking-wider uppercase">
+            <span>Unified Brand Identity Pack</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-black text-white font-heading">Cross-Platform Icons, Logos & Profile Pictures</h2>
+          <p class="text-xs text-slate-400 mt-1 max-w-2xl">
+            Seamlessly represent MaidPro across WhatsApp Business, Instagram, Facebook, Google Business Profile, LinkedIn, and print.
+            All assets are optimized with exact safe zones, high-resolution vector SVGs, and ultra-crisp image renders.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="/public/images/marketing/social_cover_banner.jpg" download="maidpro_cover_banner.jpg" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-teal-600 hover:bg-teal-500 text-white transition flex items-center gap-1.5 shadow-sm">
+            <span>📥 Download Cover Banner</span>
+          </a>
+          <a href="/public/images/marketing/profile_avatar.jpg" download="maidpro_profile_avatar.jpg" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 transition flex items-center gap-1.5 shadow-sm">
+            <span>📥 Download Profile DP</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 1. PROFILE PICTURES (WHATSAPP BUSINESS, INSTAGRAM, FACEBOOK, GOOGLE) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div>
+            <h3 class="text-lg font-black text-white font-heading flex items-center gap-2">
+              <span>1. Profile Pictures / Avatars (DPs)</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">1:1 Ratio</span>
+            </h3>
+            <p class="text-xs text-slate-400">Perfect for WhatsApp Business profile picture, Instagram avatar, Facebook page logo, and Google Maps listing.</p>
+          </div>
+          <span class="text-xs text-slate-400">Safe for Circular Crop</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Avatar Option A: 3D Rendered Luxury DP -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Option A: 3D Luxury Metallic DP</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">JPG • 1080 × 1080</span>
+            </div>
+
+            <!-- Visual Circular Simulator -->
+            <div class="flex items-center justify-center gap-6 py-4">
+              <!-- Square Raw -->
+              <div class="w-32 h-32 rounded-2xl overflow-hidden shadow-lg border border-slate-700 bg-slate-900 flex-shrink-0">
+                <img src="/images/marketing/profile_avatar.jpg" alt="MaidPro 3D Profile Avatar" class="w-full h-full object-cover">
+              </div>
+
+              <!-- Circular Crop Simulator -->
+              <div class="flex flex-col items-center">
+                <div class="w-32 h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-emerald-500/40 border-2 border-amber-400/50 bg-slate-900 flex-shrink-0">
+                  <img src="/images/marketing/profile_avatar.jpg" alt="MaidPro Avatar Circular Crop" class="w-full h-full object-cover">
+                </div>
+                <span class="text-[10px] text-teal-300 font-semibold mt-1.5">WhatsApp / Insta Preview</span>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-3 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Deep emerald green with gold metallic rim</span>
+              <a href="/public/images/marketing/profile_avatar.jpg" download="maidpro_profile_avatar.jpg" class="px-3 py-1 rounded-lg bg-teal-700 hover:bg-teal-600 text-white font-bold transition">
+                Download JPG →
+              </a>
+            </div>
+          </div>
+
+          <!-- Avatar Option B: Clean Vector SVG Circular Emblem -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Option B: Vector Flat Emblem DP</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">SVG &amp; PNG • Scalable</span>
+            </div>
+
+            <!-- Visual Circular Simulator -->
+            <div class="flex items-center justify-center gap-6 py-4">
+              <!-- Square Raw -->
+              <div class="w-32 h-32 rounded-2xl overflow-hidden shadow-lg border border-slate-700 bg-slate-900 flex-shrink-0 p-2 flex items-center justify-center">
+                <img src="/brand/maidpro-profile-avatar.svg" alt="MaidPro Vector Avatar" class="w-full h-full object-contain">
+              </div>
+
+              <!-- Circular Crop Simulator -->
+              <div class="flex flex-col items-center">
+                <div class="w-32 h-32 rounded-full overflow-hidden shadow-2xl ring-4 ring-teal-500/40 border-2 border-teal-400/50 bg-slate-900 flex-shrink-0">
+                  <img src="/brand/maidpro-profile-avatar.svg" alt="MaidPro Vector Avatar Circle" class="w-full h-full object-contain">
+                </div>
+                <span class="text-[10px] text-teal-300 font-semibold mt-1.5">Vector Safe-Zone</span>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-3 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Infinite scaling, perfect for app icons & web</span>
+              <a href="/brand/maidpro-profile-avatar.svg" download="maidpro_profile_avatar.svg" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 font-bold transition">
+                Download SVG →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- 2. OFFICIAL LOGOS (HORIZONTAL & STACKED) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div>
+            <h3 class="text-lg font-black text-white font-heading flex items-center gap-2">
+              <span>2. Official Brand Logos (Horizontal &amp; Vector)</span>
+            </h3>
+            <p class="text-xs text-slate-400">For website headers, official documents, quotes, invoices, partner banners, and press releases.</p>
+          </div>
+          <span class="text-xs text-slate-400">Dark &amp; Light Variants</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Dark Background Logo -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white uppercase tracking-wider">Dark Background Edition</span>
+              <span class="text-[10px] bg-slate-800 text-teal-400 px-2 py-0.5 rounded">SVG Format</span>
+            </div>
+
+            <div class="bg-[#002824] rounded-xl p-6 border border-teal-500/20 flex items-center justify-center min-h-[140px]">
+              <img src="/brand/maidpro-logo-horizontal-dark.svg" alt="MaidPro Logo Dark" class="max-h-24 w-auto">
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-1">
+              <span class="text-slate-400">Use on: Dark navbars, pitch decks, dark flyers</span>
+              <a href="/brand/maidpro-logo-horizontal-dark.svg" download="maidpro-logo-dark.svg" class="px-3 py-1 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold transition">
+                Download SVG
+              </a>
+            </div>
+          </div>
+
+          <!-- Light Background Logo -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Light Background Edition</span>
+              <span class="text-[10px] bg-slate-800 text-amber-400 px-2 py-0.5 rounded">SVG Format</span>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 border border-slate-200 flex items-center justify-center min-h-[140px] shadow-inner">
+              <img src="/brand/maidpro-logo-horizontal-light.svg" alt="MaidPro Logo Light" class="max-h-24 w-auto">
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-1">
+              <span class="text-slate-400">Use on: Invoices, letterheads, white agreements</span>
+              <a href="/brand/maidpro-logo-horizontal-light.svg" download="maidpro-logo-light.svg" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 font-bold transition">
+                Download SVG
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- 3. APP ICONS & SQUIRCLE FAVICONS -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div>
+            <h3 class="text-lg font-black text-white font-heading flex items-center gap-2">
+              <span>3. App Icons &amp; Brand Symbols</span>
+            </h3>
+            <p class="text-xs text-slate-400">High-contrast geometric squircle mark for app icons, Apple touch icons, and browser favicons.</p>
+          </div>
+          <span class="text-xs text-slate-400">512 × 512 Vector</span>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-6">
+            <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-2xl border border-teal-500/30 bg-slate-900 flex-shrink-0">
+              <img src="/brand/maidpro-icon.svg" alt="MaidPro App Icon" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-white">MaidPro Master Squircle Icon</h4>
+              <p class="text-xs text-slate-400 mt-1 max-w-md">
+                Features the distinctive gold roofline, sparkling stars, and bold "MP" monogram over deep emerald background with glowing pulse dot.
+              </p>
+              <div class="flex flex-wrap gap-2 mt-2 text-[10px] font-semibold text-slate-300">
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">16×16 Favicon</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">192×192 PWA</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">512×512 App Icon</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="/brand/maidpro-icon.svg" download="maidpro-icon.svg" class="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-md">
+              <span>Download Icon SVG</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 4. SOCIAL MEDIA COVER BANNERS & BRAND WALLPAPERS -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div>
+            <h3 class="text-lg font-black text-white font-heading flex items-center gap-2">
+              <span>4. Social Media Cover Banners &amp; Wallpapers</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">16:9 &amp; Ultra-Wide</span>
+            </h3>
+            <p class="text-xs text-slate-400">Header artwork for WhatsApp Business, Facebook page, LinkedIn company page, and Zoom virtual background.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Banner 1: Realistic Apartment Cover Banner -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between">
+            <div class="relative aspect-video overflow-hidden bg-slate-900">
+              <img src="/images/marketing/social_cover_banner.jpg" alt="MaidPro Social Media Cover Banner" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 flex items-center justify-between">
+              <div>
+                <h4 class="text-sm font-bold text-white">Social Media Cover Banner (Photo Edition)</h4>
+                <p class="text-xs text-slate-400">Spotless Agra home interior with verified badge and contact info.</p>
+              </div>
+              <a href="/public/images/marketing/social_cover_banner.jpg" download="maidpro_cover_banner.jpg" class="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition">
+                Download JPG
+              </a>
+            </div>
+          </div>
+
+          <!-- Banner 2: Luxury Emerald Brand Wallpaper -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between">
+            <div class="relative aspect-video overflow-hidden bg-slate-900">
+              <img src="/images/marketing/brand_wallpaper.jpg" alt="MaidPro Brand Wallpaper Background" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 flex items-center justify-between">
+              <div>
+                <h4 class="text-sm font-bold text-white">Luxury Brand Wallpaper &amp; Zoom Backdrop</h4>
+                <p class="text-xs text-slate-400">Deep emerald green silk with golden geometric lines and sparkles.</p>
+              </div>
+              <a href="/public/images/marketing/brand_wallpaper.jpg" download="maidpro_brand_wallpaper.jpg" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition">
+                Download Wallpaper
+              </a>
+            </div>
+          </div>
+
+          <!-- Banner 3: Ultra-Wide Vector Header -->
+          <div class="col-span-1 lg:col-span-2 bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-sm font-bold text-white">LinkedIn, Twitter &amp; Web Header (Vector Ultra-Wide 1500 × 500)</h4>
+                <p class="text-xs text-slate-400">Optimized for corporate profile banners with full service scope.</p>
+              </div>
+              <a href="/brand/maidpro-banner-wide.svg" download="maidpro-banner-wide.svg" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 font-bold text-xs transition">
+                Download Vector SVG
+              </a>
+            </div>
+            
+            <div class="w-full rounded-xl overflow-hidden border border-teal-500/20 shadow-md bg-[#002420]">
+              <img src="/brand/maidpro-banner-wide.svg" alt="MaidPro Wide Banner" class="w-full h-auto">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- 5. COLOR PALETTE & TYPOGRAPHY QUICK REFERENCE -->
+      <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-bold text-white font-heading">MaidPro Brand Colors &amp; Typography Cheat Sheet</h3>
+          <span class="text-xs text-slate-400">Click any color code to copy</span>
+        </div>
+
+        <!-- Color Pills -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          
+          <button onclick="copyHex('#004842')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-teal-500 transition group">
+            <div class="w-full h-10 rounded-lg bg-[#004842] border border-white/10 mb-2"></div>
+            <div class="text-xs font-bold text-white">Deep Emerald</div>
+            <div class="text-[11px] font-mono text-teal-400 group-hover:underline">#004842</div>
+            <div class="text-[9px] text-slate-500 mt-0.5">Primary Dark</div>
+          </button>
+
+          <button onclick="copyHex('#005c55')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-teal-500 transition group">
+            <div class="w-full h-10 rounded-lg bg-[#005c55] border border-white/10 mb-2"></div>
+            <div class="text-xs font-bold text-white">Emerald Green</div>
+            <div class="text-[11px] font-mono text-teal-400 group-hover:underline">#005c55</div>
+            <div class="text-[9px] text-slate-500 mt-0.5">Brand Base</div>
+          </button>
+
+          <button onclick="copyHex('#f59e0b')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-amber-500 transition group">
+            <div class="w-full h-10 rounded-lg bg-[#f59e0b] border border-white/10 mb-2"></div>
+            <div class="text-xs font-bold text-white">Warm Amber</div>
+            <div class="text-[11px] font-mono text-amber-400 group-hover:underline">#f59e0b</div>
+            <div class="text-[9px] text-slate-500 mt-0.5">Accent &amp; CTAs</div>
+          </button>
+
+          <button onclick="copyHex('#2dd4bf')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-teal-400 transition group">
+            <div class="w-full h-10 rounded-lg bg-[#2dd4bf] border border-white/10 mb-2"></div>
+            <div class="text-xs font-bold text-white">Mint Glow</div>
+            <div class="text-[11px] font-mono text-teal-300 group-hover:underline">#2dd4bf</div>
+            <div class="text-[9px] text-slate-500 mt-0.5">Highlights</div>
+          </button>
+
+          <button onclick="copyHex('#f8fafc')" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-slate-400 transition group">
+            <div class="w-full h-10 rounded-lg bg-[#f8fafc] border border-slate-400 mb-2"></div>
+            <div class="text-xs font-bold text-white">Pearl White</div>
+            <div class="text-[11px] font-mono text-slate-300 group-hover:underline">#f8fafc</div>
+            <div class="text-[9px] text-slate-500 mt-0.5">Clean Surface</div>
+          </button>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 6: 4 NEW LOGO CONCEPTS (VOTE & CHOOSE FOR LIVE WEBSITE)           -->
+    <!-- ========================================================================= -->
+    <section id="logosSection" class="tab-content hidden space-y-12">
+      
+      <!-- Section Header -->
+      <div class="no-print bg-slate-950/60 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 mb-1 tracking-wider uppercase">
+            <span>Official Rebranding Options</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-black text-white font-heading">Choose Your New MaidPro Brand Logo</h2>
+          <p class="text-xs text-slate-400 mt-1 max-w-2xl">
+            We developed 4 distinct corporate design directions for MaidPro. Review each option below, test how it looks in the live website navbar, and choose the one that best captures your vision!
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-teal-300 bg-teal-500/10 border border-teal-500/30 px-3 py-1.5 rounded-xl">
+            ✓ Live Website Ready
+          </span>
+        </div>
+      </div>
+
+      <!-- LIVE WEBSITE NAVBAR PREVIEW SIMULATOR -->
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+          <div>
+            <h3 class="text-base font-bold text-white font-heading flex items-center gap-2">
+              <span>🖥️ Live Website Header Simulator</span>
+              <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">Interactive</span>
+            </h3>
+            <p class="text-xs text-slate-400">See how each logo option appears in the real MaidPro navigation bar.</p>
+          </div>
+
+          <!-- Simulator Controls -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400">Preview Option:</span>
+            <div class="bg-slate-900 p-1 rounded-xl border border-slate-800 flex items-center gap-1 text-xs">
+              <button onclick="previewNavbarLogo(1)" id="simBtn-1" class="sim-btn px-2.5 py-1 rounded-lg bg-teal-600 text-white font-bold transition">1. Bubbles (maidpro.com style)</button>
+              <button onclick="previewNavbarLogo(2)" id="simBtn-2" class="sim-btn px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition">2. Star Sparkle</button>
+              <button onclick="previewNavbarLogo(3)" id="simBtn-3" class="sim-btn px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition">3. Aqua Droplet</button>
+              <button onclick="previewNavbarLogo(4)" id="simBtn-4" class="sim-btn px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition">4. Monogram</button>
+            </div>
+            <button onclick="toggleSimTheme()" id="simThemeBtn" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition">
+              ☀️ Toggle Light / Dark
+            </button>
+          </div>
+        </div>
+
+        <!-- The Simulated Navbar -->
+        <div id="simulatedNavbar" class="rounded-xl border border-slate-700 bg-[#0b1318] p-4 transition-colors duration-200 shadow-xl flex items-center justify-between">
+          
+          <!-- Logo Container in Nav -->
+          <div id="simLogoDisplay" class="flex items-center gap-2.5">
+            <img id="simLogoImg" src="/brand/logo-clean-bubbles.svg" alt="Selected Logo in Nav" class="h-10 w-auto">
+          </div>
+
+          <!-- Mock Nav Links -->
+          <div class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300" id="simNavLinks">
+            <span class="text-teal-400 font-bold border-b-2 border-teal-400 pb-0.5">Home Services</span>
+            <span class="hover:text-white cursor-pointer">About Us</span>
+            <span class="hover:text-white cursor-pointer">Verified Staff</span>
+            <span class="hover:text-white cursor-pointer">Pricing</span>
+            <span class="hover:text-white cursor-pointer">Contact</span>
+          </div>
+
+          <!-- Mock Nav Action Button -->
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-bold text-slate-400 hidden sm:inline">📞 9321034262</span>
+            <span class="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold shadow-sm">
+              Book Helper →
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- THE 4 LOGO SHOWCASE CARDS -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- ================= OPTION 1 ================= -->
+        <div class="bg-slate-950 border border-slate-800 hover:border-teal-500/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between transition group">
+          <!-- Board Image -->
+          <div class="relative aspect-video overflow-hidden bg-white border-b border-slate-800">
+            <img src="/images/marketing/logo_option_bubbles_2.jpg" alt="Option 1: The Translucent Refraction Bubbles" class="w-full h-full object-contain p-4 group-hover:scale-105 transition duration-300">
+            <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-teal-500/30 text-[11px] font-bold text-teal-300">
+              Option 1 • maidpro.com Signature Style
+            </div>
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-black text-white font-heading">The Translucent Refraction Bubbles</h3>
+                <span class="text-xs text-teal-400 font-bold">maidpro.com Motif</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Directly inspired by the world-class design of maidpro.com. Features two clean, overlapping circular soap bubbles with soft cyan and mint refraction transparency, paired with clean geometric all-lowercase "maid" (cyan teal) and "pro" (deep navy).
+                Zero clutter, perfectly balanced, airy, and friendly.
+              </p>
+
+              <!-- Live Vector Preview Strip -->
+              <div class="mt-4 p-3 rounded-xl bg-white flex items-center justify-center shadow-inner">
+                <img src="/brand/logo-clean-bubbles.svg" alt="Option 1 Vector Preview" class="h-12 w-auto">
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <div class="text-[11px] text-slate-400">
+                Best for: Spotless cleanliness, international tech look, fresh hygiene
+              </div>
+              <button onclick="previewNavbarLogo(1)" class="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition">
+                Test in Nav ↑
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= OPTION 2 ================= -->
+        <div class="bg-slate-950 border border-slate-800 hover:border-teal-500/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between transition group">
+          <!-- Board Image -->
+          <div class="relative aspect-video overflow-hidden bg-white border-b border-slate-800">
+            <img src="/images/marketing/logo_option_sparkle.jpg" alt="Option 2: The Modern Star Sparkle Accent" class="w-full h-full object-contain p-4 group-hover:scale-105 transition duration-300">
+            <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-teal-500/30 text-[11px] font-bold text-teal-300">
+              Option 2 • Modern Minimalist
+            </div>
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-black text-white font-heading">The Modern Star Sparkle Accent</h3>
+                <span class="text-xs text-amber-400 font-bold">Executive Wordmark</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                An ultra-modern geometric wordmark where the dot of the letter 'i' is replaced by a sharp 4-point glowing diamond sparkle in bright aqua-emerald gradient.
+                Clean, prestigious, executive, and scalable from a tiny 16px favicon up to giant highway billboards.
+              </p>
+
+              <!-- Live Vector Preview Strip -->
+              <div class="mt-4 p-3 rounded-xl bg-white flex items-center justify-center shadow-inner">
+                <img src="/brand/logo-clean-sparkle.svg" alt="Option 2 Vector Preview" class="h-12 w-auto">
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <div class="text-[11px] text-slate-400">
+                Best for: Corporate authority, pristine polish, modern minimalism
+              </div>
+              <button onclick="previewNavbarLogo(2)" class="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition">
+                Test in Nav ↑
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= OPTION 3 ================= -->
+        <div class="bg-slate-950 border border-slate-800 hover:border-teal-500/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between transition group">
+          <!-- Board Image -->
+          <div class="relative aspect-video overflow-hidden bg-white border-b border-slate-800">
+            <img src="/images/marketing/logo_option_bubbles_1.jpg" alt="Option 3: Pure Aqua Glow & Leaf Arc" class="w-full h-full object-contain p-4 group-hover:scale-105 transition duration-300">
+            <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-teal-500/30 text-[11px] font-bold text-teal-300">
+              Option 3 • Eco Fresh
+            </div>
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-black text-white font-heading">Pure Aqua Glow &amp; Leaf Arc</h3>
+                <span class="text-xs text-emerald-400 font-bold">Hygiene &amp; Eco Care</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                An energetic aqua water droplet integrated with a fresh organic leaf curve and speed swoosh.
+                Symbolizes spotless sanitation, non-toxic eco-friendly cleaning materials, and quick turnaround times.
+              </p>
+
+              <!-- Live Vector Preview Strip -->
+              <div class="mt-4 p-3 rounded-xl bg-white flex items-center justify-center shadow-inner">
+                <img src="/brand/logo-clean-droplet.svg" alt="Option 3 Vector Preview" class="h-12 w-auto">
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <div class="text-[11px] text-slate-400">
+                Best for: Sanitization, organic cleaning, fresh domestic assistance
+              </div>
+              <button onclick="previewNavbarLogo(3)" class="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition">
+                Test in Nav ↑
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= OPTION 4 ================= -->
+        <div class="bg-slate-950 border border-slate-800 hover:border-teal-500/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between transition group">
+          <!-- Board Image -->
+          <div class="relative aspect-video overflow-hidden bg-slate-900 border-b border-slate-800">
+            <img src="/images/marketing/logo_option2_monogram.jpg" alt="Option 4: The Modern Geometric M-Monogram" class="w-full h-full object-cover group-hover:scale-102 transition duration-300">
+            <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-teal-500/30 text-[11px] font-bold text-teal-300">
+              Option 4 • Tech Monogram
+            </div>
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-lg font-black text-white font-heading">The Modern Geometric M-Monogram</h3>
+                <span class="text-xs text-amber-400 font-bold">App-First Platform</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Interlocking isometric geometric ribbons that form the letter "M" and home apex simultaneously, accented with a vibrant upward swoosh and gold sparkle.
+                Strong app-icon recognition and tech-first branding.
+              </p>
+
+              <!-- Live Vector Preview Strip -->
+              <div class="mt-4 p-3 rounded-xl bg-white flex items-center justify-center shadow-inner">
+                <img src="/brand/logo-option-2-monogram.svg" alt="Option 4 Vector Preview" class="h-12 w-auto">
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <div class="text-[11px] text-slate-400">
+                Best for: Mobile app icons, digital platforms, tech-forward brand
+              </div>
+              <button onclick="previewNavbarLogo(4)" class="px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition">
+                Test in Nav ↑
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Action: Feedback & Selection Info -->
+      <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-teal-950 border border-teal-500/30 rounded-2xl p-6 text-center space-y-3">
+        <h4 class="text-base font-bold text-white">Which Logo Concept Do You Prefer?</h4>
+        <p class="text-xs text-slate-300 max-w-xl mx-auto">
+          Simply reply with your favorite option (e.g. <strong>"Option 1"</strong>, <strong>"Option 2"</strong>, <strong>"Option 3"</strong>, or <strong>"Option 4"</strong>), and we will instantly configure it across your live Next.js website, favicons, business cards, and marketing materials!
+        </p>
+      </div>
+
+    </section>
+
   </div>
 
 
@@ -1135,6 +1733,56 @@ Say goodbye to maid absents and housework stress! *MaidPro* brings 100% Police-V
         window.print();
         document.body.className = '';
       }, 200);
+    }
+
+    // Copy Hex Color Code
+    function copyHex(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        alert("Copied " + hex + " to clipboard!");
+      }).catch(err => console.error(err));
+    }
+
+    // Logo Navbar Simulator
+    let simIsDark = true;
+    let currentSimOption = 1;
+
+    function previewNavbarLogo(opt) {
+      currentSimOption = opt;
+      const logoImg = document.getElementById('simLogoImg');
+      if (logoImg) {
+        const logoMap = {
+          1: '/brand/logo-clean-bubbles.svg',
+          2: '/brand/logo-clean-sparkle.svg',
+          3: '/brand/logo-clean-droplet.svg',
+          4: '/brand/logo-option-2-monogram.svg'
+        };
+        logoImg.src = logoMap[opt] || '/brand/logo-clean-bubbles.svg';
+      }
+
+      document.querySelectorAll('.sim-btn').forEach((btn, idx) => {
+        if (idx + 1 === opt) {
+          btn.className = 'sim-btn px-2.5 py-1 rounded-lg bg-teal-600 text-white font-bold transition';
+        } else {
+          btn.className = 'sim-btn px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition';
+        }
+      });
+    }
+
+    function toggleSimTheme() {
+      simIsDark = !simIsDark;
+      const nav = document.getElementById('simulatedNavbar');
+      const links = document.getElementById('simNavLinks');
+      const themeBtn = document.getElementById('simThemeBtn');
+
+      if (simIsDark) {
+        nav.className = 'rounded-xl border border-slate-700 bg-[#0b1318] p-4 transition-colors duration-200 shadow-xl flex items-center justify-between';
+        links.className = 'hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300';
+        themeBtn.innerText = '☀️ Toggle Light / Dark';
+      } else {
+        nav.className = 'rounded-xl border border-slate-200 bg-white p-4 transition-colors duration-200 shadow-xl flex items-center justify-between';
+        links.className = 'hidden md:flex items-center gap-6 text-xs font-semibold text-slate-700';
+        themeBtn.innerText = '🌙 Toggle Dark Mode';
+      }
     }
 
     // Run QR Code generator on load

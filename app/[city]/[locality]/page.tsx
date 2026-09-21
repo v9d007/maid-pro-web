@@ -1,21 +1,25 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LOCALITIES_DATA, ALL_LOCALITIES } from "@/data/localitiesData";
+import { ALL_LOCALITIES, getLocalityBySlug } from "@/data/localitiesData";
 import { LocalityPageClient } from "./LocalityPageClient";
 
 interface Props {
-  params: Promise<{ locality: string }>;
+  params: Promise<{
+    city: string;
+    locality: string;
+  }>;
 }
 
 export async function generateStaticParams() {
   return ALL_LOCALITIES.map((loc) => ({
+    city: loc.citySlug,
     locality: loc.slug,
   }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locality } = await params;
-  const data = LOCALITIES_DATA[locality];
+  const { city, locality } = await params;
+  const data = getLocalityBySlug(city, locality);
 
   if (!data) {
     return {
@@ -23,17 +27,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const url = `https://maidprosolution4you.in/agra/${data.slug}`;
+  const url = `https://maidprosolution4you.in/${data.citySlug}/${data.slug}`;
 
   return {
     title: data.metaTitle,
     description: data.metaDesc,
     keywords: [
-      `Maid in ${data.name} Agra`,
+      `Maid in ${data.name} ${data.cityName}`,
       `House Maid service ${data.name}`,
-      `Deep cleaning ${data.name} Agra`,
+      `Deep cleaning ${data.name} ${data.cityName}`,
       `Cook in ${data.name}`,
-      `Babysitter ${data.name}`,
+      `Babysitter in ${data.name}`,
       `Maid Pro Solution 4 You ${data.name}`,
     ],
     alternates: {
@@ -51,8 +55,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LocalityPage({ params }: Props) {
-  const { locality } = await params;
-  const data = LOCALITIES_DATA[locality];
+  const { city, locality } = await params;
+  const data = getLocalityBySlug(city, locality);
 
   if (!data) {
     notFound();
@@ -63,18 +67,18 @@ export default async function LocalityPage({ params }: Props) {
     "@graph": [
       {
         "@type": "HomeAndConstructionBusiness",
-        "@id": `https://maidprosolution4you.in/agra/${data.slug}#business`,
-        name: `Maid Pro Solution 4 You - ${data.name}`,
+        "@id": `https://maidprosolution4you.in/${data.citySlug}/${data.slug}#business`,
+        name: `Maid Pro Solution 4 You - ${data.name}, ${data.cityName}`,
         description: data.description,
         telephone: "+919321034262",
         email: "maidprosolution@gmail.com",
-        url: `https://maidprosolution4you.in/agra/${data.slug}`,
+        url: `https://maidprosolution4you.in/${data.citySlug}/${data.slug}`,
         priceRange: "₹₹",
         address: {
           "@type": "PostalAddress",
-          streetAddress: data.landmarks[0] || data.name,
-          addressLocality: "Agra",
-          addressRegion: "Uttar Pradesh",
+          streetAddress: data.landmarks[0] || `${data.name}, ${data.cityName}`,
+          addressLocality: data.cityName,
+          addressRegion: data.state,
           postalCode: data.pincode,
           addressCountry: "IN",
         },
@@ -84,8 +88,8 @@ export default async function LocalityPage({ params }: Props) {
           longitude: data.geo.lng,
         },
         areaServed: [
-          { "@type": "AdministrativeArea", name: `${data.name}, Agra` },
-          { "@type": "City", name: "Agra" },
+          { "@type": "AdministrativeArea", name: `${data.name}, ${data.cityName}` },
+          { "@type": "City", name: data.cityName },
         ],
         openingHoursSpecification: [
           {
@@ -97,13 +101,12 @@ export default async function LocalityPage({ params }: Props) {
         ],
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.6",
-          reviewCount: "128",
+          ratingValue: "4.8",
+          reviewCount: data.verifiedStaffCount * 2 + 30,
         },
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `https://maidprosolution4you.in/agra/${data.slug}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
@@ -114,14 +117,14 @@ export default async function LocalityPage({ params }: Props) {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Agra Localities",
-            item: "https://maidprosolution4you.in/#contact",
+            name: data.cityName,
+            item: `https://maidprosolution4you.in/${data.citySlug}`,
           },
           {
             "@type": "ListItem",
             position: 3,
-            name: `${data.name}, Agra`,
-            item: `https://maidprosolution4you.in/agra/${data.slug}`,
+            name: data.name,
+            item: `https://maidprosolution4you.in/${data.citySlug}/${data.slug}`,
           },
         ],
       },

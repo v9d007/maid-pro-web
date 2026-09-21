@@ -1,10 +1,11 @@
 export interface BookingDetails {
-  service: string;
+  service?: string;
   homeSize?: string;
   frequency?: string;
   tasks?: string[];
   shift?: string;
   locality?: string;
+  city?: string;
   customNotes?: string;
   estimatedPrice?: number | string;
 }
@@ -17,7 +18,8 @@ export function generateWhatsAppLink(details: BookingDetails): string {
   const parts: string[] = [];
   if (details.service) parts.push(`Service: ${details.service}`);
   if (details.homeSize) parts.push(`Size: ${details.homeSize}`);
-  if (details.locality) parts.push(`Area: ${details.locality}, Agra`);
+  if (details.locality) parts.push(`Area: ${details.locality}`);
+  if (details.city) parts.push(`City: ${details.city}`);
   if (details.customNotes) parts.push(`Details: ${details.customNotes}`);
 
   const message = `Hi Maid Pro! I want to book a service:\n• ${parts.join("\n• ")}\n\nPlease share details & availability.`;
@@ -25,8 +27,9 @@ export function generateWhatsAppLink(details: BookingDetails): string {
   return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-export function getDirectWhatsAppChatLink(): string {
-  const message = "Hi Maid Pro! I need help with maid / cleaning service in Agra.";
+export function getDirectWhatsAppChatLink(city?: string): string {
+  const locContext = city ? ` in ${city}` : "";
+  const message = `Hi Maid Pro! I need help with maid / cleaning service${locContext}.`;
   return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
@@ -35,17 +38,20 @@ export function generateServiceBookingWhatsAppLink({
   planType,
   slabRate,
   locality,
+  city,
 }: {
   serviceName: string;
   planType?: string;
   slabRate?: string;
   locality?: string;
+  city?: string;
 }): string {
   const parts: string[] = [`Service: ${serviceName}`];
   if (planType && slabRate) parts.push(`Selected Plan: ${planType} (${slabRate})`);
-  if (locality) parts.push(`Area: ${locality}, Agra`);
+  if (locality) parts.push(`Area: ${locality}`);
+  if (city) parts.push(`City: ${city}`);
 
-  const message = `Hi Maid Pro! I want to book:\n• ${parts.join("\n• ")}\n\nPlease share helper availability & confirm my booking in Agra.`;
+  const message = `Hi Maid Pro! I want to book:\n• ${parts.join("\n• ")}\n\nPlease share helper availability & confirm my booking.`;
   return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 

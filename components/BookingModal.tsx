@@ -14,24 +14,41 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { AGRA_LOCALITIES, SERVICES, getServiceDetails } from "@/data/services";
+import { CITIES_DATA, ALL_CITIES } from "@/data/citiesData";
 import { generateWhatsAppLink } from "@/utils/whatsapp";
 import { useLanguage } from "@/context/LanguageContext";
+import { useCity } from "@/context/CityContext";
 import { submitLeadToSheet, trackEvent } from "@/utils/analytics";
 
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialService?: string;
+  initialCity?: string;
+  initialLocality?: string;
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onClose,
-  initialService = "House Maid Service (Hourly & Monthly)",
+  initialService = "House Maid & Home Cooking Service",
+  initialCity,
+  initialLocality,
 }) => {
   const { language, t } = useLanguage();
+  const { currentCity } = useCity();
+
   const [service, setService] = useState(initialService);
-  const [locality, setLocality] = useState("Khandari");
+  const [selectedCitySlug, setSelectedCitySlug] = useState<string>(
+    initialCity
+      ? ALL_CITIES.find((c) => c.name.toLowerCase() === initialCity.toLowerCase())?.slug || "agra"
+      : currentCity.slug
+  );
+  
+  const activeCityData = CITIES_DATA[selectedCitySlug] || CITIES_DATA["agra"];
+  const cityLocalities = activeCityData.localities;
+
+  const [locality, setLocality] = useState(initialLocality || cityLocalities[0]?.name || "Khandari");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,6 +60,24 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     }
   }, [initialService]);
 
+  useEffect(() => {
+    if (initialCity) {
+      const match = ALL_CITIES.find((c) => c.name.toLowerCase() === initialCity.toLowerCase());
+      if (match) {
+        setSelectedCitySlug(match.slug);
+      }
+    } else {
+      setSelectedCitySlug(currentCity.slug);
+    }
+  }, [initialCity, currentCity.slug]);
+
+  useEffect(() => {
+    const locs = CITIES_DATA[selectedCitySlug]?.localities || [];
+    if (locs.length > 0 && (!initialLocality || !locs.some((l) => l.name === locality))) {
+      setLocality(locs[0].name);
+    }
+  }, [selectedCitySlug]);
+
   // Reset submission state when modal re-opens & log tracking
   useEffect(() => {
     if (isOpen) {
@@ -50,6 +85,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       setIsSubmitting(false);
       trackEvent("callback_modal_opened", {
         service: initialService,
+        city: activeCityData.name,
         locality,
       });
     }
@@ -80,6 +116,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     setIsSubmitting(true);
     const trimmedName = name.trim();
     const trimmedPhone = phone.trim();
+    const fullLocalityString = `${locality}, ${activeCityData.name}`;
 
     try {
       // 1. Submit lead to Google Sheets & CRM
@@ -87,13 +124,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         name: trimmedName,
         phone: trimmedPhone,
         service,
-        locality,
-        source: "Website Callback Modal",
+        locality: fullLocalityString,
+        source: `Website Callback Modal (${activeCityData.name})`,
       });
 
       // 2. Track analytics conversion event
       trackEvent("enquiry_submitted", {
         service,
+        city: activeCityData.name,
         locality,
         name: trimmedName,
       });
@@ -101,8 +139,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       // 3. Generate formatted WhatsApp message for quick team response
       const waLink = generateWhatsAppLink({
         service,
-        locality,
-        customNotes: `Name: ${trimmedName} | Phone: ${trimmedPhone}`,
+        locality: fullLocalityString,
+        customNotes: `Name: ${trimmedName} | Phone: ${trimmedPhone} | City: ${activeCityData.name}`,
       });
 
       // 4. Open WhatsApp link in new tab
@@ -263,25 +301,52 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </div>
             </div>
 
-            {/* 2. Locality in Agra Dropdown */}
-            <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">
-                {t.booking.localityLabel}
-              </label>
-              <div className="relative">
-                <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                <select
-                  value={locality}
-                  onChange={(e) => setLocality(e.target.value)}
-                  className="w-full pl-9 pr-8 py-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:border-transparent focus:outline-none transition appearance-none cursor-pointer"
-                >
-                  {AGRA_LOCALITIES.map((loc) => (
-                    <option key={loc} value={loc}>
-                      {loc}, Agra
+            {/* 2. City & Locality Dual Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* City Selection */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">
+                  {language === "hi" ? "शहर (City)" : "Select City"}
+                </label>
+                <div className="relative">
+                  <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <select
+                    value={selectedCitySlug}
+                    onChange={(e) => setSelectedCitySlug(e.target.value)}
+                    className="w-full pl-9 pr-8 py-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:border-transparent focus:outline-none transition appearance-none cursor-pointer"
+                  >
+                    {ALL_CITIES.map((c) => (
+                      <option key={c.slug} value={c.slug}>
+                        {language === "hi" ? c.hiName : c.name} ({c.state})
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
+              </div>
+
+              {/* Locality in City Dropdown */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">
+                  {t.booking.localityLabel}
+                </label>
+                <div className="relative">
+                  <select
+                    value={locality}
+                    onChange={(e) => setLocality(e.target.value)}
+                    className="w-full pl-3.5 pr-8 py-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:border-transparent focus:outline-none transition appearance-none cursor-pointer"
+                  >
+                    {cityLocalities.map((loc) => (
+                      <option key={loc.slug} value={loc.name}>
+                        {language === "hi" ? loc.hiName : loc.name}
+                      </option>
+                    ))}
+                    <option value="Other / Nearby Area">
+                      {language === "hi" ? "अन्य नजदीकी क्षेत्र" : "Other / Nearby Area"}
                     </option>
-                  ))}
-                </select>
-                <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
               </div>
             </div>
 

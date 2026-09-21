@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Phone, MessageCircle, MapPin, Clock, ShieldCheck } from "lucide-react";
 import { FORMATTED_PHONE, BUSINESS_ADDRESS, getDirectWhatsAppChatLink } from "@/utils/whatsapp";
-import { AGRA_LOCALITIES } from "@/data/services";
+import { ALL_CITIES } from "@/data/citiesData";
 import { BrandLogo } from "@/components/BrandLogo";
 import { useLanguage } from "@/context/LanguageContext";
 import { trackEvent } from "@/utils/analytics";
@@ -25,13 +25,13 @@ export const Footer: React.FC = () => {
 
               <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed max-w-sm">
                 {language === "hi"
-                  ? "आगरा में घरेलू सहायता, हाउसकीपिंग और डीप क्लीनिंग के लिए आपका विश्वसनीय स्थानीय मंच।"
-                  : "Agra's trusted local platform for verified domestic helpers, housekeeping, and professional deep cleaning."}
+                  ? "भारत के 9+ प्रमुख शहरों (आगरा, गाजियाबाद, मुंबई, जयपुर, ग्वालियर आदि) में 100% पुलिस-सत्यापित मेड, कुक, और डीप क्लीनिंग सेवाएं।"
+                  : "India's trusted platform for verified domestic helpers, cooks, and professional cleaning across Agra, Ghaziabad, Kalyan Mumbai, Jaipur, and 5+ cities."}
               </p>
 
               <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-semibold text-xs pt-0.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-700 dark:text-emerald-400 flex-shrink-0" />
-                <span>{language === "hi" ? "पुलिस-सत्यापित व प्रशिक्षित स्टाफ" : "Police-Verified & Trained Staff in Agra"}</span>
+                <span>{language === "hi" ? "100% पुलिस-सत्यापित व प्रशिक्षित स्टाफ" : "100% Police-Verified & Trained Staff"}</span>
               </div>
             </div>
 
@@ -51,20 +51,30 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Col 3: Agra Coverage Areas (1 col on mobile, 2 cols on desktop) */}
+            {/* Col 3: Operational Cities (1 col on mobile, 2 cols on desktop) */}
             <div className="col-span-1 lg:col-span-2 space-y-2.5">
               <h4 className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-slate-100 font-heading">
-                {language === "hi" ? "आगरा क्षेत्र" : "Agra Areas"}
+                {language === "hi" ? "कार्यरत शहर" : "Our Cities"}
               </h4>
               <ul className="space-y-1 sm:space-y-1.5 text-[11px]">
-                <li><Link href="/agra/khandari" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Khandari</Link></li>
-                <li><Link href="/agra/dayalbagh" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Dayalbagh</Link></li>
-                <li><Link href="/agra/kamla-nagar" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Kamla Nagar</Link></li>
-                <li><Link href="/agra/sanjay-place" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Sanjay Place</Link></li>
-                <li><Link href="/agra/sikandra" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Sikandra</Link></li>
-                <li><Link href="/agra/bodla" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Bodla</Link></li>
-                <li><Link href="/agra/civil-lines" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Civil Lines</Link></li>
-                <li><Link href="/agra/fatehabad-road" className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary/60 dark:bg-emerald-400 flex-shrink-0"></span>Fatehabad Road</Link></li>
+                {ALL_CITIES.map((city) => (
+                  <li key={city.slug}>
+                    <Link
+                      href={`/${city.slug}`}
+                      className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center justify-between group"
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <span className={`w-1.5 h-1.5 rounded-full ${city.hasGbpVerification ? "bg-emerald-500 shadow-xs" : "bg-primary/60 dark:bg-emerald-400"} flex-shrink-0`} />
+                        <span>{language === "hi" ? city.hiName : city.name}</span>
+                      </span>
+                      {city.hasGbpVerification && (
+                        <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 opacity-80 group-hover:opacity-100">
+                          ✓
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
