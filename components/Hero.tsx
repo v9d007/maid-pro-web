@@ -58,8 +58,8 @@ export const Hero: React.FC<HeroProps> = () => {
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl lg:rounded-[32px] overflow-hidden border border-slate-200/80 dark:border-slate-700 shadow-sm bg-slate-50 dark:bg-slate-800 w-full h-80 sm:h-96 lg:h-[440px]">
               <Image
-                src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&auto=format&fit=crop&q=80"
-                alt="Spotless, serene living room in Agra - Maid Pro Solution 4 You"
+                src="/images/hero_living_room.jpg"
+                alt="Spotless, serene modern living room - Maid Pro Solution 4 You"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 520px"

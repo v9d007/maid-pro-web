@@ -958,7 +958,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         id: "north-indian-prep",
         name: "North Indian Cuisine",
         icon: "ChefHat",
-        image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200&auto=format&fit=crop&q=80",
+        image: "/images/services/hotel_cook.jpg",
         trainedTo: [
           "Rich gravies, Shahi Paneer, Dal Makhani & Mughlai curry prep",
           "Tandoor rotis, Naan, Parathas, Kulchas & stuffed breads",
@@ -985,7 +985,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         id: "south-indian-prep",
         name: "South Indian Cuisine",
         icon: "ChefHat",
-        image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=1200&auto=format&fit=crop&q=80",
+        image: "/images/services/hotel_cook.jpg",
         trainedTo: [
           "Crispy Masala Dosa, Paper Plain Dosa, Onion Rava & Uttapam",
           "Soft fermented Idlis, Medu Vada & Appam batter preparation",
@@ -1012,7 +1012,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         id: "commercial-hygiene",
         name: "Commercial Kitchen Hygiene",
         icon: "ShieldCheck",
-        image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200&auto=format&fit=crop&q=80",
+        image: "/images/services/hotel_cook.jpg",
         trainedTo: [
           "Raw ingredient quality inspection & fresh vegetable prep",
           "Stove burner, fryer, chimney & prep station degreasing",

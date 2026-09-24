@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 85" width="260" height="85">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@900&amp;family=Inter:wght@800&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Clean Text-Only Brand Logo: Lowercase maidpro with subtext covering the EXACT SAME WIDTH -->
+  <g transform="translate(20, 10)">
+    <!-- Main Wordmark: maidpro (width = 220px) -->
+    <text x="0" y="46" font-family="'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="54" textLength="220" lengthAdjust="spacing">
+      <tspan fill="#ffffff">maid</tspan><tspan fill="#f59e0b">pro</tspan>
+    </text>
+
+    <!-- Subtext 'SOLUTION FOR YOU' covering the EXACT SAME WIDTH (width = 220px) -->
+    <text x="0" y="66" font-family="'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="11" fill="#e2e8f0" textLength="220" lengthAdjust="spacing">
+      SOLUTION FOR YOU
+    </text>
+  </g>
+</svg>

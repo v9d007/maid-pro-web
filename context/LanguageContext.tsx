@@ -131,7 +131,7 @@ const translations: Record<Language, Translations> = {
       headingLine1: "Spotless Homes,",
       headingLine2: "Absolute Peace of Mind.",
       subtitle:
-        "Serving Agra's finest neighborhoods including Bodla, Khandari, Dayalbagh, and Kamla Nagar. We bring 100% police-verified, reliable, and meticulous domestic help, home cooks, and cleaning services directly to your doorstep.",
+        "India's trusted platform for 100% police-verified domestic helpers, home cooks, and professional deep cleaning services delivered directly to your doorstep across 9+ operational cities.",
       verifiedStaff: "Verified Staff",
       satisfactionGuaranteed: "Satisfaction Guaranteed",
       instantReplacement: "Free Instant Replacement",
@@ -248,7 +248,7 @@ const translations: Record<Language, Translations> = {
       headingLine1: "चमकता घर,",
       headingLine2: "पूरी मन की शांति।",
       subtitle:
-        "आगरा के प्रमुख क्षेत्रों जैसे बोदला, खंदारी, दयालबाग और कमला नगर में सेवा उपलब्ध। हम आपके घर लाते हैं 100% पुलिस-सत्यापित, भरोसेमंद और प्रशिक्षित मेड, कुक व सफाई विशेषज्ञ बिना किसी अग्रिम भुगतान के।",
+        "भारत के 9+ प्रमुख शहरों में 100% पुलिस-सत्यापित, भरोसेमंद और प्रशिक्षित मेड, कुक व सफाई सेवाएं सीधे आपके द्वार पर बिना किसी अग्रिम भुगतान के।",
       verifiedStaff: "सत्यापित स्टाफ",
       satisfactionGuaranteed: "संतुष्टि की गारंटी",
       instantReplacement: "मुफ्त तत्काल रिप्लेसमेंट",

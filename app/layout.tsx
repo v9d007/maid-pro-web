@@ -113,7 +113,7 @@ export default function RootLayout({
                   "@id": "https://maidprosolution4you.in/#business",
                   "name": "Maid Pro Solution 4 You",
                   "description": "Aadhaar & Police-verified housemaids, cooks, babysitters & deep cleaning experts in Agra. 24/7 service with instant free replacement and transparent rates.",
-                  "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80",
+                  "image": "https://maidprosolution4you.in/images/services/all_in_one.jpg",
                   "telephone": "+919321034262",
                   "email": "maidprosolution@gmail.com",
                   "url": "https://maidprosolution4you.in",

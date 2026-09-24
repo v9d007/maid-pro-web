@@ -91,21 +91,7 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
       {/* 1. Navigation */}
       <Navbar onOpenBooking={handleOpenBooking} />
 
-      {/* 2. Breadcrumb */}
-      <div className="bg-slate-100/80 dark:bg-slate-900/60 border-b border-slate-200/70 dark:border-slate-800 text-xs py-2 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
-          <Link href="/" className="hover:text-primary dark:hover:text-emerald-400 font-medium transition flex items-center gap-1">
-            <ArrowLeft className="w-3 h-3" />
-            <span>{isHindi ? "होम" : "Home"}</span>
-          </Link>
-          <ChevronRight className="w-3 h-3 text-slate-400" />
-          <span>{isHindi ? city.hiState : city.state}</span>
-          <ChevronRight className="w-3 h-3 text-slate-400" />
-          <span className="font-bold text-primary dark:text-emerald-400">{isHindi ? city.hiName : city.name}</span>
-        </div>
-      </div>
-
-      {/* 3. City Hero Banner */}
+      {/* 2. City Hero Banner */}
       <section className="relative w-full bg-gradient-to-b from-[#eaf4f2] via-[#f4f9f8]/80 to-white dark:from-[#0e1d24] dark:via-[#0c171d]/80 dark:to-[#0b1318] overflow-hidden py-12 sm:py-16 lg:py-20 transition-colors duration-200">
         <div className="absolute top-0 right-1/4 w-[550px] h-[300px] bg-primary/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -215,17 +201,16 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
                 {/* Localities Tags Preview */}
                 <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
                   <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 block mb-2">
-                    {isHindi ? `${city.hiName} के प्रमुख इलाके:` : `Top Service Areas in ${city.name}:`}
+                    {isHindi ? `${city.hiName} के प्रमुख इलाके:` : `Key Areas Served in ${city.name}:`}
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {city.localities.map((loc) => (
-                      <Link
+                      <span
                         key={loc.slug}
-                        href={`/${city.slug}/${loc.slug}`}
-                        className="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 dark:hover:bg-emerald-500/20 text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 transition font-medium"
+                        className="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium"
                       >
                         {isHindi ? loc.hiName : loc.name}
-                      </Link>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -233,48 +218,6 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Localities Interactive Grid */}
-      <section className="py-12 bg-white dark:bg-[#0c161d] border-y border-slate-200/80 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-bold text-primary dark:text-emerald-400 uppercase tracking-wider">
-              {isHindi ? "क्षेत्रवार सेवाएं" : "Hyper-Local Coverage"}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 font-heading">
-              {isHindi ? `${city.hiName} में हमारे प्रमुख सेवा क्षेत्र` : `Select Your Area in ${city.name}`}
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-              {isHindi ? "अपने नजदीकी इलाके पर क्लिक करें और तुरंत सत्यापित स्टाफ बुक करें:" : "Click on your locality to check verified staff availability and response times:"}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 pt-2">
-            {city.localities.map((loc) => (
-              <Link
-                key={loc.slug}
-                href={`/${city.slug}/${loc.slug}`}
-                className="p-4 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/60 hover:bg-white dark:hover:bg-slate-800/90 hover:border-primary dark:hover:border-emerald-500 hover:shadow-md transition group text-left block cursor-pointer"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-sm text-slate-900 dark:text-slate-100 group-hover:text-primary dark:group-hover:text-emerald-400 transition">
-                    {isHindi ? loc.hiName : loc.name}
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-primary dark:group-hover:text-emerald-400 group-hover:translate-x-0.5 transition" />
-                </div>
-                <div className="text-[11px] text-slate-500 dark:text-slate-400 space-y-0.5">
-                  <span className="block">Pin: {loc.pincode}</span>
-                  {loc.landmarks && (
-                    <span className="text-[10px] text-slate-600 dark:text-slate-300 block truncate">
-                      {loc.landmarks.slice(0, 2).join(", ")}
-                    </span>
-                  )}
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
@@ -289,7 +232,7 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
       <Testimonials />
 
       {/* 7. About */}
-      <AboutSection />
+      <AboutSection city={city} />
 
       {/* 8. FAQs */}
       <FAQSection />

@@ -1,27 +1,52 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon, Globe, Check, MapPin, ChevronDown } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { useTheme } from "@/context/ThemeContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useCity } from "@/context/CityContext";
+import { CITIES_DATA } from "@/data/citiesData";
 
 interface NavbarProps {
   onOpenBooking?: (serviceId?: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("services");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [cityDropdownOpen, setCityDropdownOpen] = useState(false);
 
+  const cityDropdownRef = useRef<HTMLDivElement>(null);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
+
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
-  const { currentCity, setCity, allCities } = useCity();
+  const { setCity, allCities } = useCity();
+
+  // Close dropdowns on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cityDropdownRef.current && !cityDropdownRef.current.contains(event.target as Node)) {
+        setCityDropdownOpen(false);
+      }
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target as Node)) {
+        setLangDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Detect active city directly from URL route (e.g. /agra, /ghaziabad, /kalyan-mumbai)
+  const pathParts = pathname?.split("/").filter(Boolean) || [];
+  const routeCitySlug = pathParts.length > 0 && CITIES_DATA[pathParts[0]] ? pathParts[0] : null;
+  const activeCity = routeCitySlug ? CITIES_DATA[routeCitySlug] : null;
 
   const navLinks = [
     { id: "services", label: t.nav.homeServices },
@@ -114,29 +139,63 @@ export const Navbar: React.FC<NavbarProps> = () => {
             <div className="hidden md:flex items-center gap-2.5 flex-shrink-0">
               
               {/* City Selector Dropdown */}
-              <div className="relative">
+              <div className="relative" ref={cityDropdownRef}>
                 <button
-                  onClick={() => {
-                    setCityDropdownOpen(!cityDropdownOpen);
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCityDropdownOpen((prev) => !prev);
                     setLangDropdownOpen(false);
                   }}
                   aria-label="Select City"
                   title="Choose City / शहर चुनें"
-                  className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold text-slate-800 dark:text-slate-100 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700 transition active:scale-95 cursor-pointer bg-white/90 dark:bg-slate-900/80 shadow-2xs"
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold transition active:scale-95 cursor-pointer shadow-2xs border ${
+                    activeCity
+                      ? "text-primary dark:text-emerald-400 bg-primary/10 dark:bg-emerald-500/15 border-primary/30 dark:border-emerald-500/30"
+                      : "text-slate-800 dark:text-slate-100 hover:text-primary dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 border-slate-200/90 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80"
+                  }`}
                 >
                   <MapPin className="w-3.5 h-3.5 text-primary dark:text-emerald-400 shrink-0" />
-                  <span className="max-w-[110px] truncate">{language === "hi" ? currentCity.hiName : currentCity.name}</span>
+                  <span className="max-w-[120px] truncate">
+                    {activeCity
+                      ? (language === "hi" ? activeCity.hiName : activeCity.name)
+                      : (language === "hi" ? "शहर चुनें" : "Select City")}
+                  </span>
                   <ChevronDown className="w-3 h-3 text-slate-400" />
                 </button>
 
                 {cityDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-700 p-2 z-50 animate-in fade-in-50 zoom-in-95 max-h-80 overflow-y-auto">
-                    <div className="px-2.5 py-1.5 border-b border-slate-100 dark:border-slate-800 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                      {language === "hi" ? "कार्यरत शहर (9 स्थान)" : "Operational Cities (9 Locations)"}
+                  <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-700 p-2 z-50 animate-in fade-in-50 zoom-in-95 max-h-84 overflow-y-auto">
+                    <div className="px-2.5 py-1.5 border-b border-slate-100 dark:border-slate-800 text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                      <span>{language === "hi" ? "सर्विस शहर चुनें" : "Select Location"}</span>
+                      <span className="text-[9px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-semibold text-slate-500">9 Cities</span>
                     </div>
+
                     <div className="py-1 space-y-0.5">
+                      {/* All India / Generic Home Option */}
+                      <Link
+                        href="/"
+                        onClick={() => {
+                          setCity("");
+                          setCityDropdownOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between px-3 py-2 text-xs rounded-xl transition ${
+                          !activeCity
+                            ? "bg-primary/10 dark:bg-emerald-500/20 text-primary dark:text-emerald-400 font-bold"
+                            : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
+                        }`}
+                      >
+                        <div className="flex flex-col text-left">
+                          <span className="font-semibold">{language === "hi" ? "🇮🇳 सभी शहर (मुख्य पृष्ठ)" : "🇮🇳 All India (Home)"}</span>
+                          <span className="text-[10px] text-slate-400">{language === "hi" ? "पूरे भारत में सेवाएं" : "Pan-India Services Overview"}</span>
+                        </div>
+                        {!activeCity && <Check className="w-3.5 h-3.5 text-primary dark:text-emerald-400 shrink-0" />}
+                      </Link>
+
+                      <div className="my-1 border-t border-slate-100 dark:border-slate-800" />
+
                       {allCities.map((c) => {
-                        const isSelected = currentCity.slug === c.slug;
+                        const isSelected = activeCity?.slug === c.slug;
                         return (
                           <Link
                             key={c.slug}
@@ -166,6 +225,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
               {/* Theme Toggle Button */}
               <button
+                type="button"
                 onClick={toggleTheme}
                 aria-label="Toggle theme"
                 title={theme === "light" ? t.nav.themeDark : t.nav.themeLight}
@@ -179,10 +239,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
               </button>
 
               {/* Language Selector Dropdown */}
-              <div className="relative">
+              <div className="relative" ref={langDropdownRef}>
                 <button
-                  onClick={() => {
-                    setLangDropdownOpen(!langDropdownOpen);
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLangDropdownOpen((prev) => !prev);
                     setCityDropdownOpen(false);
                   }}
                   aria-label="Select Language"
@@ -232,7 +294,11 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-100"
               >
                 <MapPin className="w-3 h-3 text-primary dark:text-emerald-400 shrink-0" />
-                <span className="max-w-[75px] truncate">{language === "hi" ? currentCity.hiName : currentCity.name}</span>
+                <span className="max-w-[80px] truncate">
+                  {activeCity
+                    ? (language === "hi" ? activeCity.hiName : activeCity.name)
+                    : (language === "hi" ? "शहर चुनें" : "City")}
+                </span>
               </button>
 
               <button
@@ -261,12 +327,27 @@ export const Navbar: React.FC<NavbarProps> = () => {
             
             {/* Mobile City Selector Strip */}
             <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 space-y-2">
-              <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 block">
-                {language === "hi" ? "अपना शहर चुनें (9 कार्यरत शहर):" : "Select Your City (9 Active Cities):"}
-              </span>
-              <div className="grid grid-cols-3 gap-1.5">
+              <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                <span>{language === "hi" ? "अपना शहर चुनें:" : "Select Your City:"}</span>
+                <span className="text-[10px] text-primary dark:text-emerald-400 font-semibold">9 Operational Cities</span>
+              </div>
+              <div className="grid grid-cols-2 gap-1.5 max-h-44 overflow-y-auto pr-0.5">
+                <Link
+                  href="/"
+                  onClick={() => {
+                    setCity("");
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`p-2 rounded-xl text-center text-xs font-semibold border transition ${
+                    !activeCity
+                      ? "bg-primary text-white border-primary dark:bg-emerald-600 dark:border-emerald-600 shadow-xs"
+                      : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                  }`}
+                >
+                  <span className="block truncate">{language === "hi" ? "🇮🇳 सभी शहर (Home)" : "🇮🇳 All India (Home)"}</span>
+                </Link>
                 {allCities.map((c) => {
-                  const isSelected = currentCity.slug === c.slug;
+                  const isSelected = activeCity?.slug === c.slug;
                   return (
                     <Link
                       key={c.slug}

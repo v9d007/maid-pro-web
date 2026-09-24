@@ -61,17 +61,10 @@ export const Footer: React.FC = () => {
                   <li key={city.slug}>
                     <Link
                       href={`/${city.slug}`}
-                      className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center justify-between group"
+                      className="hover:text-primary dark:hover:text-emerald-300 transition flex items-center gap-1.5 text-slate-700 dark:text-slate-300"
                     >
-                      <span className="flex items-center gap-1.5">
-                        <span className={`w-1.5 h-1.5 rounded-full ${city.hasGbpVerification ? "bg-emerald-500 shadow-xs" : "bg-primary/60 dark:bg-emerald-400"} flex-shrink-0`} />
-                        <span>{language === "hi" ? city.hiName : city.name}</span>
-                      </span>
-                      {city.hasGbpVerification && (
-                        <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 opacity-80 group-hover:opacity-100">
-                          ✓
-                        </span>
-                      )}
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 flex-shrink-0" />
+                      <span>{language === "hi" ? city.hiName : city.name}</span>
                     </Link>
                   </li>
                 ))}

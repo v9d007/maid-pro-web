@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="midnightBg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#111f26" />
+      <stop offset="70%" stop-color="#0b1318" />
+      <stop offset="100%" stop-color="#050a0d" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#midnightBg)" />
+  <circle cx="540" cy="540" r="480" fill="none" stroke="#1e293b" stroke-width="4" />
+
+  <g text-anchor="middle">
+    <!-- Main "maidpro" in Lowercase (US style), White + Amber Orange, No Dot (width = 700px) -->
+    <text x="540" y="555" font-family="'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="172" textLength="700" lengthAdjust="spacing">
+      <tspan fill="#ffffff">maid</tspan><tspan fill="#f59e0b">pro</tspan>
+    </text>
+
+    <!-- Subtitle: SOLUTION FOR YOU covering the EXACT SAME WIDTH (700px) -->
+    <text x="540" y="625" font-family="'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="34" fill="#fde68a" textLength="700" lengthAdjust="spacing">
+      SOLUTION FOR YOU
+    </text>
+  </g>
+</svg>

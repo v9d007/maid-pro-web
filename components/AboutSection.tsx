@@ -3,8 +3,13 @@
 import React from "react";
 import { Sparkles, Star, ShieldCheck, Clock, HeartHandshake, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { CityInfo } from "@/data/citiesData";
 
-export const AboutSection: React.FC = () => {
+export interface AboutSectionProps {
+  city?: CityInfo;
+}
+
+export const AboutSection: React.FC<AboutSectionProps> = ({ city }) => {
   const { language } = useLanguage();
 
   const principles = [
@@ -16,8 +21,8 @@ export const AboutSection: React.FC = () => {
       title: language === "hi" ? "त्वरित मुफ्त रिप्लेसमेंट" : "Free Instant Replacement",
       desc:
         language === "hi"
-          ? "यदि सहायक अनुपस्थित या अस्वस्थ हो, तो 24 घंटे में दूसरा सहायक।"
-          : "Backup replacement helper matched within 24 hours if maid takes leave.",
+          ? "यदि सहायक अनुपस्थित या अस्वस्थ हो, तो 24 घंटे में दूसरा सत्यापित सहायक।"
+          : "Backup replacement helper matched within 24 hours if helper takes leave.",
       badge: language === "hi" ? "24h गारंटी" : "24h Guarantee",
       badgeColor: "text-emerald-700 dark:text-emerald-300 bg-emerald-100/80 dark:bg-emerald-900/40 border-emerald-200 dark:border-emerald-800/60",
       position: "sm:-rotate-2 sm:translate-x-2 sm:translate-y-0",
@@ -57,24 +62,27 @@ export const AboutSection: React.FC = () => {
       title: language === "hi" ? "3-चरणीय पृष्ठभूमि सत्यापन" : "Triple Background Check",
       desc:
         language === "hi"
-          ? "आधार प्रमाणीकरण, स्थायी पते की जांच और स्थानीय पुलिस रिकॉर्ड क्लीयरेंस।"
+          ? "आधार प्रमाणीकरण, स्थायी पते की भौतिक जांच और स्थानीय पुलिस रिकॉर्ड क्लीयरेंस।"
           : "UIDAI Aadhaar authentication, permanent address check & police vetting.",
     },
     {
       title: language === "hi" ? "स्वच्छता व शिष्टाचार" : "Hygiene & Etiquette",
       desc:
         language === "hi"
-          ? "आधुनिक सफाई मानकों, रसोई स्वच्छता, समय की पाबंदी और विनम्र व्यवहार का प्रशिक्षण।"
-          : "Practical training in modern sanitization, punctuality, and polite household manners.",
+          ? "आधुनिक सफाई मानकों, रसोई स्वच्छता, समय की पाबंदी और विनम्र व्यवहार का व्यावहारिक प्रशिक्षण।"
+          : "Practical training in modern sanitization, food hygiene, punctuality, and polite etiquette.",
     },
     {
-      title: language === "hi" ? "स्थानीय आगरा सहायता टीम" : "Local Agra Operations",
+      title: language === "hi" ? "समर्पित ऑन-ग्राउंड सहायता" : "Dedicated Local Operations",
       desc:
         language === "hi"
-          ? "आगरा में हमारी स्थानीय टीम सप्ताह के सातों दिन आपकी सुविधा के लिए तत्पर है।"
-          : "Dedicated on-ground Agra team available 7 days a week for immediate coordination.",
+          ? "हमारे सभी 9+ सेवा शहरों में स्थानीय टीम सप्ताह के सातों दिन आपकी सुविधा व बैकअप के लिए तत्पर है।"
+          : "Dedicated on-ground operations across all 9+ cities available 7 days a week for immediate coordination.",
     },
   ];
+
+  const cityLabelEn = city ? `in ${city.name} & across India` : "across India";
+  const cityLabelHi = city ? `${city.hiName} व देशभर के` : "भारतीय";
 
   return (
     <section id="about" className="py-16 sm:py-24 bg-transparent transition-colors duration-200 relative overflow-hidden">
@@ -100,7 +108,7 @@ export const AboutSection: React.FC = () => {
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-slate-50 font-heading tracking-tight leading-[1.2]">
                 {language === "hi" ? (
                   <>
-                    आगरा के परिवारों के लिए एक{" "}
+                    {cityLabelHi} परिवारों के लिए एक{" "}
                     <span className="text-primary dark:text-emerald-400">
                       सुरक्षित, सत्यापित और संगठित
                     </span>{" "}
@@ -108,7 +116,7 @@ export const AboutSection: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    Making domestic home care in Agra{" "}
+                    Making domestic home care {cityLabelEn}{" "}
                     <span className="text-primary dark:text-emerald-400">
                       safe, verified, and dependable.
                     </span>
@@ -119,14 +127,14 @@ export const AboutSection: React.FC = () => {
               <div className="space-y-3 text-slate-700 dark:text-slate-200 text-sm sm:text-base leading-relaxed">
                 <p>
                   {language === "hi"
-                    ? "MaidPro की स्थापना आगरा में घरेलू सहायता क्षेत्र में सुरक्षा, पारदर्शिता और पेशेवर विश्वसनीयता लाने के उद्देश्य से की गई थी। पारंपरिक रूप से घरेलू सहायकों की नियुक्ति केवल मौखिक सिफारिशों पर निर्भर थी — जिसमें न तो कोई पुलिस सत्यापन होता था और न सुरक्षा की गारंटी।"
-                    : "MaidPro was founded to bring professional security, transparency, and structure to Agra's domestic service sector. Traditionally, hiring domestic help meant relying on unverified word-of-mouth references with zero background checks and unpredictable attendance."}
+                    ? "MaidPro की स्थापना घरेलू सहायता व हाउसकीपिंग क्षेत्र में सुरक्षा, पारदर्शिता और पेशेवर विश्वसनीयता लाने के उद्देश्य से की गई थी। पारंपरिक रूप से घरेलू सहायकों की नियुक्ति केवल मौखिक सिफारिशों पर निर्भर थी — जिसमें न तो कोई पुलिस सत्यापन होता था और न सुरक्षा की कोई गारंटी।"
+                    : "MaidPro was founded to bring professional security, transparency, and structure to India's domestic service and housekeeping sector. Traditionally, hiring home help meant relying on unverified word-of-mouth references with zero background vetting and unpredictable attendance."}
                 </p>
 
                 <p>
                   {language === "hi"
-                    ? "हमने इस व्यवस्था को एक संगठित मंच में बदलकर आगरा के परिवारों को प्रशिक्षित, पृष्ठभूमि-सत्यापित सहायक उपलब्ध कराए हैं — बिना किसी अग्रिम शुल्क के। साथ ही, हम अपने सहायकों को निष्पक्ष वेतन और सम्मानजनक माहौल सुनिश्चित करते हैं।"
-                    : "We transformed this informal ecosystem into an organized platform where Agra families receive thoroughly vetted, etiquette-trained helpers with zero advance fee, while ensuring domestic workers receive fair living wages, on-time pay, and dignity."}
+                    ? "हमने इस असंगठित व्यवस्था को एक आधुनिक, भरोसेमंद मंच में बदलकर परिवारों को प्रशिक्षित, 100% पुलिस-सत्यापित सहायक उपलब्ध कराए हैं — बिना किसी अग्रिम कमीशन के। आगरा, गाजियाबाद, मुंबई MMR, जयपुर, ग्वालियर सहित 9+ प्रमुख शहरों में हम अपने सहायकों को निष्पक्ष वेतन और परिवारों को 24 घंटे में मुफ्त रिप्लेसमेंट गारंटी प्रदान करते हैं।"
+                    : "We transformed this informal ecosystem into an organized pan-India platform where families receive thoroughly vetted, etiquette-trained helpers with zero advance fee. Operating across 9+ key hubs including Agra, Ghaziabad, Kalyan Mumbai, Jaipur, and Gwalior, we ensure fair living wages for staff and guaranteed 24-hour backup replacements for households."}
                 </p>
               </div>
             </div>
@@ -135,10 +143,10 @@ export const AboutSection: React.FC = () => {
             <div className="py-5 border-y border-slate-200/80 dark:border-slate-800 grid grid-cols-3 gap-4 text-center sm:text-left">
               <div className="space-y-0.5">
                 <div className="text-2xl sm:text-3xl font-extrabold text-primary dark:text-emerald-400 font-heading tracking-tight">
-                  50+
+                  500+
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
-                  {language === "hi" ? "सत्यापित सहायक" : "Police-Verified Staff"}
+                  {language === "hi" ? "सत्यापित स्टाफ" : "Police-Verified Staff"}
                 </div>
                 <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
                   {language === "hi" ? "आधार व पुलिस क्लियरेंस" : "Background checked"}
@@ -147,26 +155,26 @@ export const AboutSection: React.FC = () => {
 
               <div className="space-y-0.5">
                 <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-50 font-heading tracking-tight">
-                  500+
+                  2,500+
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
-                  {language === "hi" ? "आगरा परिवार" : "Agra Homes Served"}
+                  {language === "hi" ? "खुशहाल परिवार" : "Homes Served"}
                 </div>
                 <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
-                  {language === "hi" ? "आगरा की प्रमुख कॉलोनियों में" : "Across Agra"}
+                  {language === "hi" ? "9+ प्रमुख शहरों में" : "Across 9+ cities"}
                 </p>
               </div>
 
               <div className="space-y-0.5">
                 <div className="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-heading tracking-tight flex items-center justify-center sm:justify-start gap-1">
-                  <span>4.6</span>
+                  <span>4.8</span>
                   <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400" />
                 </div>
                 <div className="text-xs font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "ग्राहक रेटिंग" : "Satisfaction Rating"}
                 </div>
                 <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
-                  {language === "hi" ? "100+ समीक्षाएं" : "From 100+ reviews"}
+                  {language === "hi" ? "500+ समीक्षाएं" : "From 500+ reviews"}
                 </p>
               </div>
             </div>
