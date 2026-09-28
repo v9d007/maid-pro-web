@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, phone, service, locality, homeSize, shift, notes, source } = body;
+    const { name, phone, service, city, locality, homeSize, shift, notes, source } = body;
 
     // Strict validation: Require real Name and 10+ digit Phone
     const trimmedName = typeof name === "string" ? name.trim() : "";
@@ -32,10 +32,11 @@ export async function POST(req: Request) {
             name,
             phone,
             service: service || "House Maid Service",
-            locality: locality || "Agra",
+            city: city || "Agra",
+            locality: locality || "",
             homeSize: homeSize || "",
             shift: shift || "",
-            notes: notes || `Source: ${source || "Website Callback Form"}`,
+            notes: notes || "",
           }),
         });
 

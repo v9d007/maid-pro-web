@@ -69,21 +69,23 @@ function doPost(e) {
       scriptProps.setProperty("LAST_DAY_SEPARATOR", todayKey);
     }
     
-    // Append the verified customer lead row (Columns 12 & 13 left blank for internal CRM use)
+    var clientCity = data.city ? String(data.city).trim() : "Agra";
+    var fullAddress = data.locality ? String(data.locality).trim() : "";
+    
+    // Append the verified customer lead row (Column 4 for Feedback/Notes, Col 12 for Candidate Preference)
     leadSheet.appendRow([
-      now,                                                     // 1. Date & Exact Timestamp (Native DateTime)
-      "Website",                                              // 2. Handled By
-      "1. New Inquiry",                                        // 3. Status
-      clientName,                                              // 4. Client Name
-      clientPhone,                                             // 5. Contact no.
-      "Agra",                                                  // 6. City
-      (data.locality ? data.locality + ", Agra" : "Agra"),     // 7. Complete Address
-      data.homeSize || "",                                     // 8. Number of Family Members
-      data.service || "House Maid Service",                   // 9. ⏰ Work Requirements | कार्य आवश्यकताएँ
-      data.shift || "",                                        // 10. Salary Details
-      "",                                                      // 11. Candidate Preference
-      "",                                                      // 12. Additional Details (Empty for team notes)
-      ""                                                       // 13. Feedback (Empty for team feedback)
+      now,                                                     // 1. (A) Date & Exact Timestamp (Native DateTime)
+      "Website",                                              // 2. (B) Handled By
+      "1. New Inquiry",                                        // 3. (C) Status
+      data.notes || "",                                        // 4. (D) Feedback/Additional Details (Empty for team notes)
+      clientName,                                              // 5. (E) Client Name
+      clientPhone,                                             // 6. (F) Contact no.
+      clientCity,                                              // 7. (G) City (Dynamic: Agra, Mumbai, Ghaziabad, etc.)
+      fullAddress,                                             // 8. (H) Complete Address
+      data.homeSize || "",                                     // 9. (I) Number of Family Members
+      data.service || "House Maid Service",                   // 10. (J) ⏰ Work Requirements | कार्य आवश्यकताएँ
+      data.shift || "",                                        // 11. (K) Salary Details
+      ""                                                       // 12. (L) Candidate Preference
     ]);
     
     return ContentService.createTextOutput(JSON.stringify({
@@ -122,9 +124,9 @@ function insertTodayDaySeparator() {
   var now = new Date();
   var todayTitle = "📅  " + Utilities.formatDate(now, "Asia/Kolkata", "EEEE, dd MMMM yyyy") + " — Inquiries";
   
-  leadSheet.appendRow([todayTitle, "", "", "", "", "", "", "", "", "", "", "", ""]);
+  leadSheet.appendRow([todayTitle, "", "", "", "", "", "", "", "", "", "", ""]);
   var sepRowIndex = leadSheet.getLastRow();
-  var maxCols = Math.max(leadSheet.getLastColumn(), 13);
+  var maxCols = Math.max(leadSheet.getLastColumn(), 12);
   var sepRange = leadSheet.getRange(sepRowIndex, 1, 1, maxCols);
   
   try {
@@ -147,7 +149,7 @@ function cleanUpEmptyRows() {
   var lastRow = sheet.getLastRow();
   if (lastRow <= 1) return;
   
-  var range = sheet.getRange(2, 1, lastRow - 1, 13);
+  var range = sheet.getRange(2, 1, lastRow - 1, 12);
   var values = range.getValues();
   var deletedCount = 0;
   
@@ -155,8 +157,8 @@ function cleanUpEmptyRows() {
   for (var i = values.length - 1; i >= 0; i--) {
     var row = values[i];
     var firstCol = String(row[0] || "").trim();
-    var clientName = String(row[3] || "").trim();
-    var contactNo = String(row[4] || "").trim();
+    var clientName = String(row[4] || "").trim(); // Col E (Index 4)
+    var contactNo = String(row[5] || "").trim();  // Col F (Index 5)
     
     // Keep day separator rows (starts with 📅)
     if (firstCol.indexOf("📅") !== -1) {

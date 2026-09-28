@@ -4,6 +4,7 @@ export interface LeadPayload {
   name: string;
   phone: string;
   service: string;
+  city?: string;
   locality?: string;
   homeSize?: string;
   shift?: string;
@@ -88,7 +89,6 @@ export async function submitLeadToSheet(lead: LeadPayload): Promise<{ success: b
       body: JSON.stringify({
         ...lead,
         timestamp: new Date().toISOString(),
-        source: lead.source || "Website Booking Form",
       }),
       keepalive: true,
     });

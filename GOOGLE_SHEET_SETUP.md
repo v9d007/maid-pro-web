@@ -79,22 +79,22 @@ function doPost(e) {
     // =========================================================================
     // CASE 2: REAL CUSTOMER LEAD INQUIRY (Appended to Main CRM Tab)
     // =========================================================================
-    var leadSheet = doc.getSheetByName("Inquiries") || doc.getActiveSheet();
-    
+    var clientCity = data.city ? String(data.city).trim() : "Agra";
+    var fullAddress = data.locality ? String(data.locality).trim() : "";
+
     leadSheet.appendRow([
-      timestampFormatted,                                      // 1. Date & Exact Timestamp (e.g. 20/09/2026 04:37 PM)
-      "Website",                                              // 2. Handled By
-      "1. New Inquiry",                                        // 3. Status
-      data.name || "",                                         // 4. Client Name
-      data.phone || "",                                        // 5. Contact no.
-      "Agra",                                                  // 6. City
-      (data.locality ? data.locality + ", Agra" : "Agra"),     // 7. Complete Address
-      data.homeSize || "",                                     // 8. Number of Family Members
-      data.service || "Maid / Cleaning Service",               // 9. ⏰ Work Requirements | कार्य आवश्यकताएँ
-      data.shift || "",                                        // 10. Salary Details
-      "",                                                      // 11. Candidate Preference
-      data.notes || "Source: Website Callback Form",           // 12. Additional Details
-      "New Web Lead"                                           // 13. Feedback
+      timestampFormatted,                                      // 1. (A) Date & Exact Timestamp
+      "Website",                                              // 2. (B) Handled By
+      "1. New Inquiry",                                        // 3. (C) Status
+      data.notes || "",                                        // 4. (D) Feedback/Additional Details
+      data.name || "",                                         // 5. (E) Client Name
+      data.phone || "",                                        // 6. (F) Contact no.
+      clientCity,                                              // 7. (G) City (Dynamic: Agra, Mumbai, Delhi, etc.)
+      fullAddress,                                             // 8. (H) Complete Address
+      data.homeSize || "",                                     // 9. (I) Number of Family Members
+      data.service || "House Maid Service",                   // 10. (J) ⏰ Work Requirements | कार्य आवश्यकताएँ
+      data.shift || "",                                        // 11. (K) Salary Details
+      ""                                                       // 12. (L) Candidate Preference
     ]);
     
     return ContentService.createTextOutput(JSON.stringify({ result: "success", status: "1. New Inquiry", timestamp: timestampFormatted }))

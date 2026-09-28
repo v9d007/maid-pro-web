@@ -116,16 +116,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     setIsSubmitting(true);
     const trimmedName = name.trim();
     const trimmedPhone = phone.trim();
-    const fullLocalityString = `${locality}, ${activeCityData.name}`;
 
     try {
-      // 1. Submit lead to Google Sheets & CRM
+      // 1. Submit lead to Google Sheets & CRM with separate clean city and locality
       await submitLeadToSheet({
         name: trimmedName,
         phone: trimmedPhone,
         service,
-        locality: fullLocalityString,
-        source: `Website Callback Modal (${activeCityData.name})`,
+        city: activeCityData.name,
+        locality: locality,
       });
 
       // 2. Track analytics conversion event
@@ -136,17 +135,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         name: trimmedName,
       });
 
-      // 3. Generate formatted WhatsApp message for quick team response
-      const waLink = generateWhatsAppLink({
-        service,
-        locality: fullLocalityString,
-        customNotes: `Name: ${trimmedName} | Phone: ${trimmedPhone} | City: ${activeCityData.name}`,
-      });
-
-      // 4. Open WhatsApp link in new tab
-      window.open(waLink, "_blank");
-
-      // 5. Switch to success confirmation state
+      // 3. Switch to success confirmation state (WhatsApp is NOT auto-opened)
       setIsSubmitted(true);
     } catch (err) {
       console.error("Submission error:", err);
@@ -200,11 +189,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto leading-relaxed">
                 {language === "hi" ? (
                   <>
-                    धन्यवाद <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! हमारी आगरा टीम विवरण की पुष्टि के लिए जल्द ही <strong className="text-primary dark:text-emerald-400">{phone}</strong> पर कॉल करेगी।
+                    धन्यवाद <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! हमारी {activeCityData.hiName} टीम विवरण की पुष्टि के लिए जल्द ही <strong className="text-primary dark:text-emerald-400">{phone}</strong> पर कॉल करेगी।
                   </>
                 ) : (
                   <>
-                    Thank you <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! Our Agra coordinator will call you back shortly on <strong className="text-primary dark:text-emerald-400">{phone}</strong> to confirm your booking.
+                    Thank you <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! Our {activeCityData.name} coordinator will call you back shortly on <strong className="text-primary dark:text-emerald-400">{phone}</strong> to confirm your booking.
                   </>
                 )}
               </p>
@@ -217,7 +206,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   {t.booking.successDetailsTitle}
                 </span>
                 <span className="text-[11px] font-bold text-primary dark:text-emerald-400 bg-primary/10 dark:bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
-                  {locality}, Agra
+                  {locality}, {activeCityData.name}
                 </span>
               </div>
 
@@ -232,14 +221,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <a
                 href={generateWhatsAppLink({
                   service,
-                  locality,
-                  customNotes: `Name: ${name} | Phone: ${phone}`,
+                  locality: `${locality}, ${activeCityData.name}`,
+                  customNotes: `Name: ${name} | Phone: ${phone} | City: ${activeCityData.name}`,
                 })}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
                   trackEvent("success_whatsapp_chat_click", {
                     service,
+                    city: activeCityData.name,
                     locality,
                   })
                 }
@@ -266,14 +256,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="flex items-center gap-1.5">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-primary dark:text-emerald-400 bg-primary/10 dark:bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
                   <Sparkles className="w-3 h-3" />
-                  {language === "hi" ? "आगरा सत्यापित सेवा" : "Agra Verified Service"}
+                  {language === "hi" ? `${activeCityData.hiName} सत्यापित सेवा` : `${activeCityData.name} Verified Service`}
                 </span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-50 font-heading tracking-tight">
                 {t.booking.modalTitle}
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                {t.booking.modalSubtitle}
+                {language === "hi"
+                  ? `हमारी ${activeCityData.hiName} टीम से तुरंत कॉलबैक प्राप्त करने के लिए अपनी जानकारी दर्ज करें`
+                  : `Share your requirement to arrange a prompt callback from our ${activeCityData.name} team`}
               </p>
             </div>
 
@@ -328,7 +320,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Locality in City Dropdown */}
               <div className="space-y-1.5">
                 <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">
-                  {t.booking.localityLabel}
+                  {language === "hi" ? `${activeCityData.hiName} में क्षेत्र / इलाका` : `Locality in ${activeCityData.name}`}
                 </label>
                 <div className="relative">
                   <select
