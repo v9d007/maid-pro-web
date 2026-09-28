@@ -156,34 +156,34 @@ const translations: Record<Language, Translations> = {
       viewAllServices: "Explore All 6 Services",
     },
     testimonials: {
-      badge: "Real Agra Customer Reviews",
-      title: "Trusted by Families Across Agra",
+      badge: "Customer Reviews",
+      title: "Trusted by 2,500+ Families Across India",
       subtitle:
-        "See what families in Khandari, Bodla, Dayalbagh & Kamla Nagar have to say about our verified staff.",
-      verifiedResident: "Verified Agra Resident",
+        "See what families across our operational cities have to say about our verified staff.",
+      verifiedResident: "Verified Homeowner",
     },
     about: {
       badge: "Our Mission & Standards",
-      title: "Redefining Home Care in Agra with Trust & Safety",
+      title: "Redefining Home Care with Trust & Safety",
       story1:
-        "MaidPro was founded to bring professional security, police verification, and fair wages to Agra's domestic service sector.",
+        "MaidPro was founded to bring professional security, police verification, and fair wages to India's domestic service sector.",
       story2:
         "Every housekeeper, cook, and caregiver is thoroughly background-checked with Aadhaar & Police ID verification, trained in hygiene and polite etiquette.",
       stat1Label: "Verified Helpers",
-      stat1Value: "50+",
-      stat2Label: "Agra Families Served",
-      stat2Value: "500+",
+      stat1Value: "500+",
+      stat2Label: "Families Served",
+      stat2Value: "2,500+",
       stat3Label: "Customer Rating",
-      stat3Value: "4.6/5",
+      stat3Value: "4.8/5",
       callbackTitle: "Request a Quick Callback",
       callbackSubtitle:
-        "Get a customized quote and matched helper in Agra within 30 minutes.",
+        "Get a customized quote and matched helper in your city within 30 minutes.",
       fullName: "Full Name",
       phoneNumber: "Phone / WhatsApp Number",
       serviceNeeded: "Service Required",
       selectServicePlaceholder: "Select a service...",
       requestCallback: "Request Free Callback",
-      callbackSuccess: "Thank you! Our Agra coordinator will call you shortly.",
+      callbackSuccess: "Thank you! Our coordinator will call you shortly.",
     },
     faqs: {
       badge: "Common Questions",
@@ -197,14 +197,14 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline:
-        "Agra's trusted local platform for verified domestic helpers, housekeeping, and professional deep cleaning.",
+        "India's trusted platform for verified domestic helpers, housekeeping, and professional deep cleaning.",
       quickLinks: "Quick Navigation",
       services: "Popular Services",
       contact: "Contact & Office Hub",
       addressLabel: "Bodla, Khandari Crossing, Sanjay Place, Agra, UP - 282002",
       phoneLabel: "+91 93210 34262",
       emailLabel: "maidprosolution@gmail.com",
-      serviceAreas: "Serving Bodla, Khandari, Dayalbagh, Kamla Nagar, Sanjay Place & All Agra",
+      serviceAreas: "Serving 9+ Cities Across India • Verified Domestic Staff & Deep Cleaning",
       allRightsReserved: "All rights reserved. MaidPro.",
     },
     booking: {
@@ -273,25 +273,25 @@ const translations: Record<Language, Translations> = {
       viewAllServices: "सभी 6 सेवाएं देखें",
     },
     testimonials: {
-      badge: "आगरा के ग्राहकों के अनुभव",
-      title: "आगरा के 500+ परिवारों का भरोसा",
+      badge: "ग्राहकों के अनुभव",
+      title: "भारत के 2,500+ परिवारों का भरोसा",
       subtitle:
-        "जानिए खंदारी, बोदला, दयालबाग और कमला नगर के परिवार हमारे सत्यापित स्टाफ के बारे में क्या कहते हैं।",
-      verifiedResident: "प्रमाणित आगरा निवासी",
+        "जानिए हमारे 9+ शहरों के परिवार हमारे पुलिस-सत्यापित घरेलू स्टाफ के बारे में क्या कहते हैं।",
+      verifiedResident: "सत्यापित ग्राहक",
     },
     about: {
       badge: "हमारा उद्देश्य और सुरक्षा मानक",
-      title: "आगरा में घरेलू सहायता को सुरक्षा और सम्मान के साथ जोड़ना",
+      title: "घरेलू सहायता को सुरक्षा और सम्मान के साथ जोड़ना",
       story1:
-        "MaidPro की शुरुआत आगरा में घरेलू सहायकों की भर्ती में सुरक्षा और पारदर्शिता लाने के उद्देश्य से की गई थी।",
+        "MaidPro की शुरुआत घरेलू सहायकों की भर्ती में सुरक्षा और पारदर्शिता लाने के उद्देश्य से की गई थी।",
       story2:
         "प्रत्येक मेड, रसोइया और केयरगिवर का आधार कार्ड व पुलिस सत्यापन अनिवार्य रूप से किया जाता है तथा स्वच्छता व शिष्टाचार का प्रशिक्षण दिया जाता है।",
       stat1Label: "सत्यापित सहायक",
-      stat1Value: "50+",
+      stat1Value: "500+",
       stat2Label: "संतुष्ट परिवार",
-      stat2Value: "500+",
+      stat2Value: "2,500+",
       stat3Label: "ग्राहक रेटिंग",
-      stat3Value: "4.6/5",
+      stat3Value: "4.8/5",
       callbackTitle: "त्वरित कॉलबैक का अनुरोध करें",
       callbackSubtitle:
         "30 मिनट के भीतर उचित दर और अपनी पसंद का सत्यापित स्टाफ प्राप्त करें।",
@@ -300,7 +300,7 @@ const translations: Record<Language, Translations> = {
       serviceNeeded: "आवश्यक सेवा",
       selectServicePlaceholder: "सेवा चुनें...",
       requestCallback: "मुफ्त कॉलबैक पाएं",
-      callbackSuccess: "धन्यवाद! हमारे आगरा प्रतिनिधि जल्द ही आपसे संपर्क करेंगे।",
+      callbackSuccess: "धन्यवाद! हमारे प्रतिनिधि जल्द ही आपसे संपर्क करेंगे।",
     },
     faqs: {
       badge: "सामान्य प्रश्न",
@@ -314,14 +314,14 @@ const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline:
-        "आगरा में घरेलू सहायता, हाउसकीपिंग और डीप क्लीनिंग के लिए आपका विश्वसनीय स्थानीय मंच।",
+        "भारत में घरेलू सहायता, हाउसकीपिंग और डीप क्लीनिंग के लिए आपका विश्वसनीय मंच।",
       quickLinks: "महत्वपूर्ण लिंक्स",
       services: "लोकप्रिय सेवाएं",
       contact: "कार्यालय व संपर्क",
       addressLabel: "बोदला, खंदारी चौराहा, संजय प्लेस, आगरा, यूपी - 282002",
       phoneLabel: "+91 93210 34262",
       emailLabel: "maidprosolution@gmail.com",
-      serviceAreas: "बोदला, खंदारी, दयालबाग, कमला नगर, संजय प्लेस और पूरे आगरा में सेवा उपलब्ध",
+      serviceAreas: "भारत के 9+ प्रमुख शहरों में सेवारत • 100% पुलिस-सत्यापित व प्रशिक्षित स्टाफ",
       allRightsReserved: "सर्वाधिकार सुरक्षित। MaidPro.",
     },
     booking: {

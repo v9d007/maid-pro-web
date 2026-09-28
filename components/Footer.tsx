@@ -118,7 +118,7 @@ export const Footer: React.FC = () => {
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition shadow-2xs"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
-                    <span>{language === "hi" ? "व्हाट्सएप पर बात करें" : "WhatsApp Agra Help"}</span>
+                    <span>{language === "hi" ? "व्हाट्सएप पर बात करें" : "WhatsApp Support"}</span>
                   </a>
                 </div>
               </div>
