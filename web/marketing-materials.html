@@ -70,6 +70,34 @@
       max-height: 297mm;
     }
 
+    /* ========================================================================= */
+    /* ELEGANT BUSINESS CARD THEMES                                              */
+    /* ========================================================================= */
+    .card-theme-emerald {
+      background: radial-gradient(circle at 90% 10%, rgba(245, 158, 11, 0.18) 0%, transparent 42%),
+                  radial-gradient(circle at 10% 90%, rgba(45, 212, 191, 0.14) 0%, transparent 45%),
+                  linear-gradient(135deg, #012823 0%, #00453f 50%, #011b17 100%) !important;
+      border: 1.5px solid rgba(245, 158, 11, 0.45) !important;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+      color: #ffffff !important;
+    }
+    .card-theme-obsidian {
+      background: radial-gradient(circle at 90% 10%, rgba(245, 158, 11, 0.16) 0%, transparent 40%),
+                  radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+                  linear-gradient(135deg, #0a0f12 0%, #121c22 50%, #070a0c 100%) !important;
+      border: 1.5px solid rgba(245, 158, 11, 0.55) !important;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07), 0 25px 50px -12px rgba(0, 0, 0, 0.95) !important;
+      color: #ffffff !important;
+    }
+    .card-theme-ivory {
+      background: radial-gradient(circle at 90% 10%, rgba(245, 158, 11, 0.12) 0%, transparent 40%),
+                  radial-gradient(circle at 10% 90%, rgba(0, 72, 66, 0.08) 0%, transparent 40%),
+                  linear-gradient(135deg, #ffffff 0%, #fbfdfc 50%, #f1f6f4 100%) !important;
+      border: 1.5px solid rgba(217, 119, 6, 0.45) !important;
+      box-shadow: inset 0 0 0 1px rgba(0, 72, 66, 0.1), 0 20px 40px -15px rgba(0, 72, 66, 0.18) !important;
+      color: #0f172a !important;
+    }
+
     /* Print Specific Styles */
     @media print {
       body {
@@ -230,86 +258,142 @@
         <!-- Card Theme & Print Controls -->
         <div class="flex flex-wrap items-center gap-2">
           <div class="bg-slate-900 p-1 rounded-xl border border-slate-800 flex items-center gap-1 text-xs">
-            <span class="text-[11px] text-slate-400 px-2">Theme:</span>
-            <button onclick="setCardTheme('dark')" id="themeBtn-dark" class="px-2.5 py-1 rounded-lg bg-teal-700 text-white font-semibold transition">
-              Emerald Luxury
+            <span class="text-[11px] text-slate-400 px-2 font-semibold">Luxury Theme:</span>
+            <button onclick="setCardTheme('emerald')" id="themeBtn-emerald" class="px-2.5 py-1 rounded-lg bg-teal-700 text-white font-semibold transition">
+              👑 Emerald &amp; Gold
             </button>
-            <button onclick="setCardTheme('light')" id="themeBtn-light" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition">
-              Clean White
+            <button onclick="setCardTheme('obsidian')" id="themeBtn-obsidian" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition">
+              🖤 Obsidian Black
+            </button>
+            <button onclick="setCardTheme('ivory')" id="themeBtn-ivory" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition">
+              🤍 Royal Pearl Ivory
             </button>
           </div>
 
-          <button onclick="triggerCardPrint('front')" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-teal-600 hover:bg-teal-500 text-white transition flex items-center gap-1.5">
+          <button onclick="triggerCardPrint('front')" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-teal-600 hover:bg-teal-500 text-white transition flex items-center gap-1.5 shadow-sm">
             🖨️ Print Front
           </button>
           <button onclick="triggerCardPrint('back')" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 transition flex items-center gap-1.5">
             🖨️ Print Back
           </button>
+          <a href="/brand/maidpro-card-front-emerald.png" download="maidpro-card-front-600dpi.png" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition flex items-center gap-1.5">
+            ⬇️ Front (Ultra HD)
+          </a>
+          <a href="/brand/maidpro-card-back-emerald.png" download="maidpro-card-back-600dpi.png" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition flex items-center gap-1.5">
+            ⬇️ Back (Ultra HD)
+          </a>
         </div>
       </div>
 
-      <!-- Live Cards Display (Side-by-side or stacked) -->
+      <!-- Live Cards Display (Side-by-side) -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center justify-center">
         
         <!-- CARD FRONT -->
         <div class="flex flex-col items-center space-y-3">
           <div class="no-print text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
             <span>Front Side</span>
-            <span class="text-[10px] bg-slate-800 text-teal-400 px-2 py-0.5 rounded-full border border-slate-700">Identity & Contact</span>
+            <span class="text-[10px] bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/20 font-semibold">Identity &amp; Concierge Contact</span>
           </div>
 
-          <!-- The Card Target (Scaled for screen view, exact in print) -->
-          <div id="cardFrontTarget" class="card-element business-card-dark relative rounded-2xl shadow-2xl p-6 border flex flex-col justify-between overflow-hidden transition-all duration-300" style="width: 420px; height: 240px;">
-            <!-- Background Radial Glow -->
-            <div class="card-glow absolute -top-16 -right-16 w-44 h-44 rounded-full bg-teal-500/15 blur-2xl pointer-events-none"></div>
+          <!-- The Card Target (Front) -->
+          <div id="cardFrontTarget" class="card-element card-theme-emerald relative rounded-2xl p-6 flex flex-col justify-between overflow-hidden transition-all duration-300" style="width: 420px; height: 240px;">
+            <!-- Background Radial Glows & Corner Accents -->
+            <div class="card-glow absolute -top-16 -right-16 w-44 h-44 rounded-full bg-amber-500/15 blur-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-16 -left-16 w-44 h-44 rounded-full bg-teal-500/15 blur-2xl pointer-events-none"></div>
+            <div class="card-decor-tr absolute top-0 right-0 w-24 h-24 border-t border-r border-amber-400/20 rounded-tr-2xl pointer-events-none m-2"></div>
+            <div class="card-decor-bl absolute bottom-0 left-0 w-20 h-20 border-b border-l border-amber-400/15 rounded-bl-2xl pointer-events-none m-2"></div>
 
-            <!-- Top Row: Brand & Verified Pill -->
-            <div class="flex items-center justify-between relative z-10">
-              <div class="flex items-center gap-2">
-                <span class="card-brand font-black text-2xl font-heading tracking-tight text-white leading-none">
+            <!-- Top Row: Brand & Executive Verified Pill -->
+            <div class="flex items-start justify-between relative z-10">
+              <div>
+                <div class="card-brand font-black text-[26px] font-heading tracking-tight leading-none text-white drop-shadow-sm">
                   maid<span class="text-[#f59e0b]">pro</span>
-                </span>
+                </div>
+                <div class="card-subtext text-[7px] font-extrabold uppercase tracking-[0.28em] text-amber-300/85 mt-1 font-heading">
+                  SOLUTION FOR YOU
+                </div>
               </div>
-              <div class="card-pill flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[10px] font-bold text-emerald-300">
-                <svg class="w-3 h-3 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                <span>100% Police Verified</span>
+              
+              <!-- Executive Trust Capsule -->
+              <div class="card-pill flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-400/30 text-[9.5px] font-bold text-emerald-300 backdrop-blur-md shadow-xs">
+                <svg class="w-2.5 h-2.5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                </svg>
+                <span>100% POLICE VERIFIED</span>
               </div>
             </div>
 
-            <!-- Middle Row: Value Statement & Services -->
-            <div class="relative z-10 my-auto">
-              <p class="card-slogan text-xs font-semibold text-teal-200 uppercase tracking-wider">
-                Reliable Domestic Helpers & Deep Cleaning
+            <!-- Middle Row: Value Statement & Refined Service Chips -->
+            <div class="relative z-10 my-auto py-1">
+              <p class="card-slogan text-[10.5px] font-bold tracking-[0.08em] text-emerald-100/90 uppercase font-heading flex items-center gap-1.5">
+                <span class="text-amber-400">✦</span>
+                <span>Verified Domestic Help &amp; Deep Cleaning</span>
               </p>
-              <div class="card-tags flex flex-wrap gap-1 mt-2 text-[10px] font-medium text-slate-300">
-                <span class="px-2 py-0.5 rounded-md bg-slate-800/80 border border-slate-700/60">House Maid</span>
-                <span class="px-2 py-0.5 rounded-md bg-slate-800/80 border border-slate-700/60">Deep Cleaning</span>
-                <span class="px-2 py-0.5 rounded-md bg-slate-800/80 border border-slate-700/60">Cook</span>
-                <span class="px-2 py-0.5 rounded-md bg-slate-800/80 border border-slate-700/60">Nanny / Patient Care</span>
+              <div class="card-tags flex flex-wrap gap-1.5 mt-2 text-[9px] font-semibold">
+                <span class="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 shadow-2xs flex items-center gap-1">
+                  <svg class="w-2.5 h-2.5 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3l2 2-9 9-3 1 1-3 9-9z"/>
+                    <path d="M4 21h16M6 18l-3 4h5l-2-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                  <span>House Maid</span>
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 shadow-2xs flex items-center gap-1">
+                  <svg class="w-2.5 h-2.5 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4z"/>
+                  </svg>
+                  <span>Deep Cleaning</span>
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 shadow-2xs flex items-center gap-1">
+                  <svg class="w-2.5 h-2.5 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 4a2 2 0 100-4 2 2 0 000 4zM4 16h16a8 8 0 00-16 0zM3 18h18a1 1 0 010 2H3a1 1 0 010-2z"/>
+                  </svg>
+                  <span>Cook / Chef</span>
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 shadow-2xs flex items-center gap-1">
+                  <svg class="w-2.5 h-2.5 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                  <span>Babysitter &amp; Patient</span>
+                </span>
               </div>
             </div>
 
             <!-- Bottom Row: Contact Details & QR Code -->
-            <div class="flex items-end justify-between border-t border-slate-800/80 pt-3 relative z-10">
+            <div class="flex items-end justify-between border-t border-white/10 pt-2.5 relative z-10">
               <div class="space-y-1">
-                <div class="flex items-center gap-1.5 text-xs font-bold text-white">
-                  <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px]">📞</span>
-                  <span class="tracking-wide text-amber-300 text-sm font-black">+91 93210 34262</span>
+                <div class="flex items-center gap-2">
+                  <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-sm">
+                    <svg class="w-3.5 h-3.5 text-slate-950" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <span class="card-phone tracking-wider text-amber-300 text-[15px] font-black font-heading leading-tight drop-shadow-xs">
+                      +91 93210 34262
+                    </span>
+                  </div>
                 </div>
-                <div class="card-location text-[10px] text-slate-400 flex items-center gap-1">
-                  <span>📍 Bodla & Khandari, Agra (All Areas Covered)</span>
+                <div class="card-location text-[9.5px] text-slate-300 flex items-center gap-1">
+                  <span>📍 Bodla &amp; Khandari, Agra • All Societies Covered</span>
                 </div>
-                <div class="card-guarantee text-[9px] text-teal-400 font-semibold">
-                  ✓ 100% Police Verified &nbsp;•&nbsp; Free 24h Replacement
+                <div class="card-guarantee text-[8.5px] text-teal-300 font-semibold flex items-center gap-1">
+                  <span>✓ Free 24h Replacement</span>
+                  <span>•</span>
+                  <span>Zero Advance Brokerage</span>
                 </div>
               </div>
 
-              <!-- Vector QR Code Box -->
+              <!-- Official WhatsApp QR Code in Ceramic Card -->
               <div class="flex flex-col items-center">
-                <div class="p-1.5 bg-white rounded-lg shadow-md">
-                  <div id="cardFrontQr" class="w-14 h-14 flex items-center justify-center"></div>
+                <div class="card-qr-box p-1 bg-white rounded-xl shadow-xl border border-amber-400/40">
+                  <div id="cardFrontQr" class="w-[52px] h-[52px] flex items-center justify-center overflow-hidden rounded-lg">
+                    <img src="/brand/maidpro-whatsapp-qr.png" alt="WhatsApp QR Code" class="w-full h-full object-contain">
+                  </div>
                 </div>
-                <span class="text-[8px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Scan for WhatsApp</span>
+                <span class="card-qr-label text-[7.5px] font-black text-amber-300 uppercase tracking-widest mt-1 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span>Scan to Chat</span>
+                </span>
               </div>
             </div>
 
@@ -320,85 +404,108 @@
         <div class="flex flex-col items-center space-y-3">
           <div class="no-print text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
             <span>Back Side</span>
-            <span class="text-[10px] bg-slate-800 text-amber-400 px-2 py-0.5 rounded-full border border-slate-700">Services & Pricing</span>
+            <span class="text-[10px] bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/20 font-semibold">Services &amp; Pricing</span>
           </div>
 
           <!-- The Card Target (Back) -->
-          <div id="cardBackTarget" class="card-element business-card-dark relative rounded-2xl shadow-2xl p-6 border flex flex-col justify-between overflow-hidden transition-all duration-300" style="width: 420px; height: 240px;">
-            
-            <!-- Top Heading -->
-            <div class="flex items-center justify-between border-b border-slate-800/80 pb-2 relative z-10">
-              <span class="text-xs font-extrabold text-amber-300 font-heading uppercase tracking-wider">
-                Services & Transparent Rates
-              </span>
-              <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">
-                Zero Hidden Fees
-              </span>
+          <div id="cardBackTarget" class="card-element card-theme-emerald relative rounded-2xl p-6 flex flex-col justify-between overflow-hidden transition-all duration-300" style="width: 420px; height: 240px;">
+            <!-- Background Radial Glow -->
+            <div class="card-glow absolute -top-16 -right-16 w-44 h-44 rounded-full bg-amber-500/15 blur-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-16 -left-16 w-44 h-44 rounded-full bg-teal-500/15 blur-2xl pointer-events-none"></div>
+
+            <!-- Top Heading with Gold Divider -->
+            <div class="relative z-10">
+              <div class="flex items-center justify-between pb-1.5">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-amber-400 text-xs">✦</span>
+                  <span class="card-back-title text-[11px] font-black text-amber-300 font-heading uppercase tracking-wider">
+                    Services &amp; Transparent Rates
+                  </span>
+                </div>
+                <span class="card-back-badge text-[8.5px] font-extrabold px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-400/30">
+                  Zero Hidden Fees
+                </span>
+              </div>
+              <div class="card-divider h-px w-full bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
             </div>
 
             <!-- Service Bullet Matrix -->
-            <div class="grid grid-cols-2 gap-x-3 gap-y-1.5 my-auto text-[10px] relative z-10">
-              <div class="flex items-start gap-1.5">
-                <span class="text-teal-400 font-bold">🧹</span>
+            <div class="grid grid-cols-2 gap-x-3 gap-y-1.5 my-auto text-[9.5px] relative z-10 py-1">
+              <div class="card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5">
+                <svg class="w-3 h-3 text-amber-300 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3l2 2-9 9-3 1 1-3 9-9z"/>
+                  <path d="M4 21h16M6 18l-3 4h5l-2-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
                 <div>
-                  <strong class="text-white block font-bold leading-tight">Daily House Maid</strong>
-                  <span class="text-slate-400 text-[9px]">From ₹399/hr • ₹5,000/mo</span>
+                  <strong class="card-item-title text-white block font-bold leading-tight">Daily House Maid</strong>
+                  <span class="card-item-sub text-emerald-200/80 text-[8.5px]">₹399/hr • From ₹5,000/mo</span>
                 </div>
               </div>
 
-              <div class="flex items-start gap-1.5">
-                <span class="text-teal-400 font-bold">✨</span>
+              <div class="card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5">
+                <svg class="w-3 h-3 text-amber-300 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4z"/>
+                </svg>
                 <div>
-                  <strong class="text-white block font-bold leading-tight">Full Deep Cleaning</strong>
-                  <span class="text-slate-400 text-[9px]">1 BHK from ₹1,499 (Machine)</span>
+                  <strong class="card-item-title text-white block font-bold leading-tight">Full Deep Cleaning</strong>
+                  <span class="card-item-sub text-emerald-200/80 text-[8.5px]">1 BHK from ₹1,499 (Machine)</span>
                 </div>
               </div>
 
-              <div class="flex items-start gap-1.5">
-                <span class="text-teal-400 font-bold">🍳</span>
+              <div class="card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5">
+                <svg class="w-3 h-3 text-amber-300 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 4a2 2 0 100-4 2 2 0 000 4zM4 16h16a8 8 0 00-16 0zM3 18h18a1 1 0 010 2H3a1 1 0 010-2z"/>
+                </svg>
                 <div>
-                  <strong class="text-white block font-bold leading-tight">Home Cook / Chef</strong>
-                  <span class="text-slate-400 text-[9px]">North & South Indian meals</span>
+                  <strong class="card-item-title text-white block font-bold leading-tight">Home Cook / Chef</strong>
+                  <span class="card-item-sub text-emerald-200/80 text-[8.5px]">North &amp; South Indian meals</span>
                 </div>
               </div>
 
-              <div class="flex items-start gap-1.5">
-                <span class="text-teal-400 font-bold">👶</span>
+              <div class="card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5">
+                <svg class="w-3 h-3 text-amber-300 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
                 <div>
-                  <strong class="text-white block font-bold leading-tight">Babysitter & Japa</strong>
-                  <span class="text-slate-400 text-[9px]">Infant care & 24hr live-in</span>
+                  <strong class="card-item-title text-white block font-bold leading-tight">Babysitter &amp; Japa</strong>
+                  <span class="card-item-sub text-emerald-200/80 text-[8.5px]">Infant care &amp; 24hr live-in</span>
                 </div>
               </div>
 
-              <div class="flex items-start gap-1.5">
-                <span class="text-teal-400 font-bold">👵</span>
+              <div class="card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5">
+                <svg class="w-3 h-3 text-amber-300 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 10.5h-4.5V6a1.5 1.5 0 00-3 0v4.5H7a1.5 1.5 0 000 3h4.5V18a1.5 1.5 0 003 0v-4.5H19a1.5 1.5 0 000-3z"/>
+                </svg>
                 <div>
-                  <strong class="text-white block font-bold leading-tight">Elderly & Patient</strong>
-                  <span class="text-slate-400 text-[9px]">Walking help & medicine</span>
+                  <strong class="card-item-title text-white block font-bold leading-tight">Elderly &amp; Patient</strong>
+                  <span class="card-item-sub text-emerald-200/80 text-[8.5px]">Walking help &amp; medicine</span>
                 </div>
               </div>
 
-              <div class="flex items-start gap-1.5">
-                <span class="text-teal-400 font-bold">📦</span>
+              <div class="card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5">
+                <svg class="w-3 h-3 text-amber-300 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
                 <div>
-                  <strong class="text-white block font-bold leading-tight">Move-In Cleaning</strong>
-                  <span class="text-slate-400 text-[9px]">Sparkling move-in ready</span>
+                  <strong class="card-item-title text-white block font-bold leading-tight">Move-In Cleaning</strong>
+                  <span class="card-item-sub text-emerald-200/80 text-[8.5px]">Sparkling move-in ready</span>
                 </div>
               </div>
             </div>
 
-            <!-- Bottom Trust Badges -->
-            <div class="bg-slate-900/90 rounded-xl p-2 border border-slate-800 flex items-center justify-between text-[9px] relative z-10">
-              <div class="flex items-center gap-1 text-slate-300">
-                <span class="text-emerald-400 font-bold">🛡️</span>
-                <span>UIDAI & Police Verified</span>
+            <!-- Bottom Trust & Instant WhatsApp Bar -->
+            <div class="card-back-footer bg-slate-950/80 backdrop-blur-md rounded-xl px-2.5 py-1.5 border border-white/10 flex items-center justify-between text-[8.5px] relative z-10">
+              <div class="flex items-center gap-1 text-slate-300 font-medium">
+                <svg class="w-2.5 h-2.5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <span>UIDAI Verified</span>
               </div>
-              <div class="flex items-center gap-1 text-slate-300">
-                <span class="text-amber-400 font-bold">⚡</span>
-                <span>Instant Backup Maid</span>
+              <div class="flex items-center gap-1 text-slate-300 font-medium">
+                <svg class="w-2.5 h-2.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .73.3.56.62L11 21z"/></svg>
+                <span>Instant Backup</span>
               </div>
-              <div class="font-bold text-teal-300">
-                wa.me/919321034262
+              <div class="card-back-wa font-bold text-amber-300 flex items-center gap-1">
+                <svg class="w-2.5 h-2.5 text-[#25D366]" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 01-1.25-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.68 8.23-8.23 8.23z"/></svg>
+                <span>wa.me/message/DSX6JXSZ6KUNM1</span>
               </div>
             </div>
 
@@ -657,11 +764,13 @@
 
             <!-- WhatsApp QR Code with Scan Callout -->
             <div class="bg-white p-2 rounded-xl shadow flex items-center gap-2.5">
-              <div id="pamphletQr" class="w-16 h-16 flex items-center justify-center"></div>
+              <div id="pamphletQr" class="w-16 h-16 flex items-center justify-center overflow-hidden">
+                <img src="/brand/maidpro-whatsapp-qr.png" alt="WhatsApp QR Code" class="w-full h-full object-contain">
+              </div>
               <div class="text-left pr-1">
                 <div class="text-[10px] font-black uppercase text-emerald-800">Scan QR Code</div>
                 <div class="text-[9px] text-slate-600 font-medium">To WhatsApp Directly</div>
-                <div class="text-[8px] text-slate-400 mt-0.5">wa.me/919321034262</div>
+                <div class="text-[8px] text-slate-500 font-bold mt-0.5">wa.me/message/DSX6JXSZ6KUNM1</div>
               </div>
             </div>
 
@@ -884,7 +993,7 @@ Say goodbye to maid absents and housework stress! *maidpro* brings 100% Police-V
 • Fast local service in Khandari, Dayalbagh, Kamla Nagar, Sikandra, Bodla & all Agra
 
 📞 *Call or WhatsApp:* +91 93210 34262
-👉 *Instant WhatsApp Chat:* https://wa.me/919321034262?text=Hi%20maidpro!%20I%20need%20domestic%20help%20in%20Agra</div>
+👉 *Instant WhatsApp Chat:* https://wa.me/message/DSX6JXSZ6KUNM1?text=Hi%20maidpro!%20I%20need%20domestic%20help%20in%20Agra</div>
 
           <div class="flex items-center justify-between pt-2">
             <span class="text-xs text-slate-400">Click to copy and forward directly to resident groups</span>
@@ -1255,12 +1364,92 @@ Say goodbye to maid absents and housework stress! *maidpro* brings 100% Police-V
       </div>
 
 
-      <!-- 4. SOCIAL MEDIA COVER BANNERS & BRAND WALLPAPERS -->
+      <!-- 4. OFFICIAL WHATSAPP BUSINESS QR CODE & SHORT LINK -->
       <div class="space-y-4">
         <div class="flex items-center justify-between border-b border-slate-800 pb-2">
           <div>
             <h3 class="text-lg font-black text-white font-heading flex items-center gap-2">
-              <span>4. Social Media Cover Banners &amp; Wallpapers</span>
+              <span class="w-3 h-3 rounded-full bg-[#25D366] shadow-[0_0_8px_#25D366]"></span>
+              <span>4. Official WhatsApp Business QR Code &amp; Short Link</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Verified WhatsApp</span>
+            </h3>
+            <p class="text-xs text-slate-400">Direct scan-and-chat QR code and short link for instant customer inquiries, booking confirmations, and marketing collateral.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Card 1: Official QR Code Asset -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-2xl flex flex-col justify-between space-y-4">
+            <div class="flex items-start gap-5">
+              <div class="p-2 bg-white rounded-2xl shadow-lg border border-slate-200 flex-shrink-0">
+                <img src="/brand/maidpro-whatsapp-qr.png" alt="WhatsApp Business QR Code" class="w-28 h-28 sm:w-32 sm:h-32 object-contain rounded-xl">
+              </div>
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-bold">
+                  <span>💬 WhatsApp Business</span>
+                </div>
+                <h4 class="text-base font-bold text-white leading-snug">"Maid pro Solution 4 You"</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  High-resolution (1000 × 1000) square QR code with official WhatsApp logo badge. Ready to embed in social posts, flyers, stickers, or standees.
+                </p>
+                <div class="text-[11px] font-mono text-emerald-400 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg inline-block break-all">
+                  https://wa.me/message/DSX6JXSZ6KUNM1?src=qr
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80">
+              <button onclick="downloadAsset('/brand/maidpro-whatsapp-qr.png', 'maidpro-whatsapp-qr.png')" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-md">
+                <span>Download QR PNG (1000×1000)</span>
+              </button>
+              <button onclick="copyHex('https://wa.me/message/DSX6JXSZ6KUNM1?src=qr')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+                <span>Copy Link</span>
+              </button>
+              <a href="https://wa.me/message/DSX6JXSZ6KUNM1?src=qr" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 font-bold text-xs transition flex items-center gap-1.5">
+                <span>Test Chat ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Full WhatsApp Business Badge / Card Asset -->
+          <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-2xl flex flex-col justify-between space-y-4">
+            <div class="flex items-start gap-5">
+              <div class="p-1 bg-white rounded-2xl shadow-lg border border-slate-200 flex-shrink-0">
+                <img src="/brand/maidpro-whatsapp-business-card.png" alt="WhatsApp Business Badge Card" class="w-28 h-28 sm:w-32 sm:h-32 object-contain rounded-xl">
+              </div>
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[11px] font-bold">
+                  <span>📱 Official Business Card</span>
+                </div>
+                <h4 class="text-base font-bold text-white leading-snug">Full WhatsApp Business Badge</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Complete account header card with business name and verified account badge. Perfect for Instagram stories, WhatsApp status updates, and digital brochures.
+                </p>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span>Direct QR Code Destination Verified</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80">
+              <button onclick="downloadAsset('/brand/maidpro-whatsapp-business-card.png', 'maidpro-whatsapp-business-card.png')" class="px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-md">
+                <span>Download Badge Card PNG</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- 5. SOCIAL MEDIA COVER BANNERS & BRAND WALLPAPERS -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div>
+            <h3 class="text-lg font-black text-white font-heading flex items-center gap-2">
+              <span>5. Social Media Cover Banners &amp; Wallpapers</span>
               <span class="text-xs font-semibold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">16:9 &amp; Ultra-Wide</span>
             </h3>
             <p class="text-xs text-slate-400">Header artwork for WhatsApp Business, Facebook page, LinkedIn company page, and Zoom virtual background.</p>
@@ -1715,35 +1904,20 @@ Say goodbye to maid absents and housework stress! *maidpro* brings 100% Police-V
     }
 
     const PHONE_NUMBER = "919321034262";
-    const WA_LINK = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent("Hi maidpro! I got your card/pamphlet and would like to book a verified domestic service in Agra.")}`;
+    const WA_LINK = "https://wa.me/message/DSX6JXSZ6KUNM1?src=qr";
 
-    // Initialize QR Codes
+    // Initialize QR Codes with official WhatsApp Business QR
     function initQRCodes() {
       const frontQrContainer = document.getElementById("cardFrontQr");
       const pamphletQrContainer = document.getElementById("pamphletQr");
+      const qrImgSrc = resolveAssetUrl("/brand/maidpro-whatsapp-qr.png");
 
-      if (frontQrContainer && typeof QRCode !== 'undefined') {
-        frontQrContainer.innerHTML = "";
-        new QRCode(frontQrContainer, {
-          text: WA_LINK,
-          width: 56,
-          height: 56,
-          colorDark : "#0f172a",
-          colorLight : "#ffffff",
-          correctLevel : QRCode.CorrectLevel.M
-        });
+      if (frontQrContainer) {
+        frontQrContainer.innerHTML = `<img src="${qrImgSrc}" alt="WhatsApp Business QR Code" class="w-full h-full object-contain">`;
       }
 
-      if (pamphletQrContainer && typeof QRCode !== 'undefined') {
-        pamphletQrContainer.innerHTML = "";
-        new QRCode(pamphletQrContainer, {
-          text: WA_LINK,
-          width: 64,
-          height: 64,
-          colorDark : "#004842",
-          colorLight : "#ffffff",
-          correctLevel : QRCode.CorrectLevel.M
-        });
+      if (pamphletQrContainer) {
+        pamphletQrContainer.innerHTML = `<img src="${qrImgSrc}" alt="WhatsApp Business QR Code" class="w-full h-full object-contain">`;
       }
     }
 
@@ -1765,42 +1939,119 @@ Say goodbye to maid absents and housework stress! *maidpro* brings 100% Police-V
       }
     }
 
-    // Set Business Card Theme: Dark vs Light
+    // Set Business Card Luxury Theme: Emerald vs Obsidian vs Ivory
     function setCardTheme(theme) {
       const frontCard = document.getElementById('cardFrontTarget');
       const backCard = document.getElementById('cardBackTarget');
-      const darkBtn = document.getElementById('themeBtn-dark');
-      const lightBtn = document.getElementById('themeBtn-light');
+      const btnEmerald = document.getElementById('themeBtn-emerald');
+      const btnObsidian = document.getElementById('themeBtn-obsidian');
+      const btnIvory = document.getElementById('themeBtn-ivory');
 
-      if (theme === 'light') {
-        // Change to crisp white
-        frontCard.className = 'card-element relative rounded-2xl shadow-2xl p-6 border border-slate-300 bg-white text-slate-900 flex flex-col justify-between overflow-hidden transition-all duration-300';
-        backCard.className = 'card-element relative rounded-2xl shadow-2xl p-6 border border-slate-300 bg-white text-slate-900 flex flex-col justify-between overflow-hidden transition-all duration-300';
-        
-        frontCard.querySelector('.card-brand').className = 'card-brand font-black text-2xl font-heading tracking-tight text-[#004842] leading-none';
-        frontCard.querySelector('.card-slogan').className = 'card-slogan text-xs font-bold text-emerald-800 uppercase tracking-wider';
-        frontCard.querySelectorAll('.card-tags span').forEach(el => el.className = 'px-2 py-0.5 rounded-md bg-slate-100 border border-slate-300 text-slate-700');
-        frontCard.querySelector('.tracking-wide').className = 'tracking-wide text-emerald-900 text-sm font-black';
+      if (!frontCard || !backCard) return;
 
-        backCard.querySelectorAll('.text-white').forEach(el => { el.className = 'text-slate-900 block font-bold leading-tight'; });
-        backCard.querySelector('.bg-slate-900\\/90').className = 'bg-slate-100 rounded-xl p-2 border border-slate-300 flex items-center justify-between text-[9px] relative z-10 text-slate-800';
+      // Reset button styles
+      [btnEmerald, btnObsidian, btnIvory].forEach(b => {
+        if (b) b.className = 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition';
+      });
 
-        lightBtn.className = 'px-2.5 py-1 rounded-lg bg-teal-700 text-white font-semibold transition';
-        darkBtn.className = 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition';
+      // Clear existing theme classes
+      frontCard.classList.remove('card-theme-emerald', 'card-theme-obsidian', 'card-theme-ivory');
+      backCard.classList.remove('card-theme-emerald', 'card-theme-obsidian', 'card-theme-ivory');
+
+      const brandText = frontCard.querySelector('.card-brand');
+      const subText = frontCard.querySelector('.card-subtext');
+      const slogan = frontCard.querySelector('.card-slogan');
+      const tags = frontCard.querySelectorAll('.card-tags span');
+      const phone = frontCard.querySelector('.card-phone');
+      const location = frontCard.querySelector('.card-location');
+      const guarantee = frontCard.querySelector('.card-guarantee');
+      const pill = frontCard.querySelector('.card-pill');
+      const qrBox = frontCard.querySelector('.card-qr-box');
+      const qrLabel = frontCard.querySelector('.card-qr-label');
+
+      const backTitle = backCard.querySelector('.card-back-title');
+      const backBadge = backCard.querySelector('.card-back-badge');
+      const itemTitles = backCard.querySelectorAll('.card-item-title');
+      const itemSubs = backCard.querySelectorAll('.card-item-sub');
+      const serviceItems = backCard.querySelectorAll('.card-service-item');
+      const backFooter = backCard.querySelector('.card-back-footer');
+      const backWa = backCard.querySelector('.card-back-wa');
+
+      if (theme === 'ivory') {
+        frontCard.classList.add('card-theme-ivory');
+        backCard.classList.add('card-theme-ivory');
+        if (btnIvory) btnIvory.className = 'px-2.5 py-1 rounded-lg bg-teal-700 text-white font-semibold transition';
+
+        if (brandText) brandText.innerHTML = 'maid<span class="text-[#d97706]">pro</span>';
+        if (brandText) brandText.className = 'card-brand font-black text-[26px] font-heading tracking-tight leading-none text-[#004842]';
+        if (subText) subText.className = 'card-subtext text-[7px] font-extrabold uppercase tracking-[0.28em] text-emerald-900 mt-1 font-heading';
+        if (slogan) slogan.className = 'card-slogan text-[10.5px] font-bold tracking-[0.08em] text-emerald-900 uppercase font-heading flex items-center gap-1.5';
+        tags.forEach(t => t.className = 'px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-900 shadow-2xs flex items-center gap-1');
+        if (phone) phone.className = 'card-phone tracking-wider text-emerald-950 text-[15px] font-black font-heading leading-tight';
+        if (location) location.className = 'card-location text-[9.5px] text-slate-600 flex items-center gap-1';
+        if (guarantee) guarantee.className = 'card-guarantee text-[8.5px] text-emerald-800 font-semibold flex items-center gap-1';
+        if (pill) pill.className = 'card-pill flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-[9.5px] font-bold text-emerald-900 shadow-xs';
+        if (qrBox) qrBox.className = 'card-qr-box p-1 bg-white rounded-xl shadow-lg border border-emerald-400';
+        if (qrLabel) qrLabel.className = 'card-qr-label text-[7.5px] font-black text-emerald-900 uppercase tracking-widest mt-1 flex items-center gap-1';
+
+        if (backTitle) backTitle.className = 'card-back-title text-[11px] font-black text-emerald-900 font-heading uppercase tracking-wider';
+        if (backBadge) backBadge.className = 'card-back-badge text-[8.5px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300';
+        serviceItems.forEach(it => it.className = 'card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-emerald-50/60 border border-emerald-200/60');
+        itemTitles.forEach(t => t.className = 'card-item-title text-emerald-950 block font-bold leading-tight');
+        itemSubs.forEach(s => s.className = 'card-item-sub text-slate-600 text-[8.5px]');
+        if (backFooter) backFooter.className = 'card-back-footer bg-emerald-50/90 rounded-xl px-2.5 py-1.5 border border-emerald-200 flex items-center justify-between text-[8.5px] relative z-10 text-emerald-900';
+        if (backWa) backWa.className = 'card-back-wa font-bold text-emerald-900 flex items-center gap-1';
+
+      } else if (theme === 'obsidian') {
+        frontCard.classList.add('card-theme-obsidian');
+        backCard.classList.add('card-theme-obsidian');
+        if (btnObsidian) btnObsidian.className = 'px-2.5 py-1 rounded-lg bg-teal-700 text-white font-semibold transition';
+
+        if (brandText) brandText.innerHTML = 'maid<span class="text-[#f59e0b]">pro</span>';
+        if (brandText) brandText.className = 'card-brand font-black text-[26px] font-heading tracking-tight leading-none text-white drop-shadow-sm';
+        if (subText) subText.className = 'card-subtext text-[7px] font-extrabold uppercase tracking-[0.28em] text-amber-400 mt-1 font-heading';
+        if (slogan) slogan.className = 'card-slogan text-[10.5px] font-bold tracking-[0.08em] text-amber-200/90 uppercase font-heading flex items-center gap-1.5';
+        tags.forEach(t => t.className = 'px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-amber-400/20 text-amber-100/90 shadow-2xs flex items-center gap-1');
+        if (phone) phone.className = 'card-phone tracking-wider text-amber-400 text-[15px] font-black font-heading leading-tight drop-shadow-xs';
+        if (location) location.className = 'card-location text-[9.5px] text-slate-300 flex items-center gap-1';
+        if (guarantee) guarantee.className = 'card-guarantee text-[8.5px] text-emerald-400 font-semibold flex items-center gap-1';
+        if (pill) pill.className = 'card-pill flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 border border-amber-400/30 text-[9.5px] font-bold text-amber-300 backdrop-blur-md shadow-xs';
+        if (qrBox) qrBox.className = 'card-qr-box p-1 bg-white rounded-xl shadow-xl border border-amber-400/60';
+        if (qrLabel) qrLabel.className = 'card-qr-label text-[7.5px] font-black text-amber-400 uppercase tracking-widest mt-1 flex items-center gap-1';
+
+        if (backTitle) backTitle.className = 'card-back-title text-[11px] font-black text-amber-400 font-heading uppercase tracking-wider';
+        if (backBadge) backBadge.className = 'card-back-badge text-[8.5px] font-extrabold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30';
+        serviceItems.forEach(it => it.className = 'card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5');
+        itemTitles.forEach(t => t.className = 'card-item-title text-white block font-bold leading-tight');
+        itemSubs.forEach(s => s.className = 'card-item-sub text-slate-400 text-[8.5px]');
+        if (backFooter) backFooter.className = 'card-back-footer bg-black/80 backdrop-blur-md rounded-xl px-2.5 py-1.5 border border-amber-500/20 flex items-center justify-between text-[8.5px] relative z-10 text-slate-300';
+        if (backWa) backWa.className = 'card-back-wa font-bold text-amber-400 flex items-center gap-1';
+
       } else {
-        // Default luxury dark emerald
-        frontCard.className = 'card-element relative rounded-2xl shadow-2xl p-6 border border-teal-500/30 bg-[#004842] text-white flex flex-col justify-between overflow-hidden transition-all duration-300';
-        backCard.className = 'card-element relative rounded-2xl shadow-2xl p-6 border border-teal-500/30 bg-[#004842] text-white flex flex-col justify-between overflow-hidden transition-all duration-300';
-        
-        frontCard.querySelector('.card-brand').className = 'card-brand font-black text-2xl font-heading tracking-tight text-white leading-none';
-        frontCard.querySelector('.card-slogan').className = 'card-slogan text-xs font-semibold text-teal-200 uppercase tracking-wider';
-        frontCard.querySelectorAll('.card-tags span').forEach(el => el.className = 'px-2 py-0.5 rounded-md bg-slate-800/80 border border-slate-700/60 text-slate-300');
-        frontCard.querySelector('.tracking-wide').className = 'tracking-wide text-amber-300 text-sm font-black';
+        // Emerald Gold (Default)
+        frontCard.classList.add('card-theme-emerald');
+        backCard.classList.add('card-theme-emerald');
+        if (btnEmerald) btnEmerald.className = 'px-2.5 py-1 rounded-lg bg-teal-700 text-white font-semibold transition';
 
-        backCard.querySelectorAll('.text-slate-900').forEach(el => { el.className = 'text-white block font-bold leading-tight'; });
+        if (brandText) brandText.innerHTML = 'maid<span class="text-[#f59e0b]">pro</span>';
+        if (brandText) brandText.className = 'card-brand font-black text-[26px] font-heading tracking-tight leading-none text-white drop-shadow-sm';
+        if (subText) subText.className = 'card-subtext text-[7px] font-extrabold uppercase tracking-[0.28em] text-amber-300/85 mt-1 font-heading';
+        if (slogan) slogan.className = 'card-slogan text-[10.5px] font-bold tracking-[0.08em] text-emerald-100/90 uppercase font-heading flex items-center gap-1.5';
+        tags.forEach(t => t.className = 'px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 shadow-2xs flex items-center gap-1');
+        if (phone) phone.className = 'card-phone tracking-wider text-amber-300 text-[15px] font-black font-heading leading-tight drop-shadow-xs';
+        if (location) location.className = 'card-location text-[9.5px] text-slate-300 flex items-center gap-1';
+        if (guarantee) guarantee.className = 'card-guarantee text-[8.5px] text-teal-300 font-semibold flex items-center gap-1';
+        if (pill) pill.className = 'card-pill flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-400/30 text-[9.5px] font-bold text-emerald-300 backdrop-blur-md shadow-xs';
+        if (qrBox) qrBox.className = 'card-qr-box p-1 bg-white rounded-xl shadow-xl border border-amber-400/40';
+        if (qrLabel) qrLabel.className = 'card-qr-label text-[7.5px] font-black text-amber-300 uppercase tracking-widest mt-1 flex items-center gap-1';
 
-        darkBtn.className = 'px-2.5 py-1 rounded-lg bg-teal-700 text-white font-semibold transition';
-        lightBtn.className = 'px-2.5 py-1 rounded-lg text-slate-400 hover:text-white font-semibold transition';
+        if (backTitle) backTitle.className = 'card-back-title text-[11px] font-black text-amber-300 font-heading uppercase tracking-wider';
+        if (backBadge) backBadge.className = 'card-back-badge text-[8.5px] font-extrabold px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-400/30';
+        serviceItems.forEach(it => it.className = 'card-service-item flex items-start gap-1.5 p-1 rounded-lg bg-white/5 border border-white/5');
+        itemTitles.forEach(t => t.className = 'card-item-title text-white block font-bold leading-tight');
+        itemSubs.forEach(s => s.className = 'card-item-sub text-emerald-200/80 text-[8.5px]');
+        if (backFooter) backFooter.className = 'card-back-footer bg-slate-950/80 backdrop-blur-md rounded-xl px-2.5 py-1.5 border border-white/10 flex items-center justify-between text-[8.5px] relative z-10 text-slate-300';
+        if (backWa) backWa.className = 'card-back-wa font-bold text-amber-300 flex items-center gap-1';
       }
     }
 
@@ -1931,7 +2182,7 @@ Say goodbye to maid absents and housework stress! *maidpro* brings 100% Police-V
     // Run QR Code generator on load
     window.addEventListener('DOMContentLoaded', () => {
       initQRCodes();
-      setCardTheme('dark');
+      setCardTheme('emerald');
     });
   </script>
 

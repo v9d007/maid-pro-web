@@ -13,6 +13,10 @@ export interface BookingDetails {
 export const PHONE_NUMBER = "919321034262";
 export const FORMATTED_PHONE = "+91 9321034262";
 export const BUSINESS_ADDRESS = "Bodla, Khandari, Agra, Uttar Pradesh - 282002";
+export const WHATSAPP_SHORT_CODE = "DSX6JXSZ6KUNM1";
+export const WHATSAPP_BUSINESS_LINK = `https://wa.me/message/${WHATSAPP_SHORT_CODE}`;
+export const WHATSAPP_QR_LINK = `https://wa.me/message/${WHATSAPP_SHORT_CODE}?src=qr`;
+export const WHATSAPP_QR_IMAGE = "/brand/maidpro-whatsapp-qr.png";
 
 export function generateWhatsAppLink(details: BookingDetails): string {
   const parts: string[] = [];
@@ -24,13 +28,15 @@ export function generateWhatsAppLink(details: BookingDetails): string {
 
   const message = `Hi Maid Pro! I want to book a service:\n• ${parts.join("\n• ")}\n\nPlease share details & availability.`;
 
-  return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `${WHATSAPP_BUSINESS_LINK}?text=${encodeURIComponent(message)}`;
 }
 
 export function getDirectWhatsAppChatLink(city?: string): string {
-  const locContext = city ? ` in ${city}` : "";
-  const message = `Hi Maid Pro! I need help with maid / cleaning service${locContext}.`;
-  return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+  if (!city) {
+    return WHATSAPP_QR_LINK;
+  }
+  const message = `Hi Maid Pro! I need help with maid / cleaning service in ${city}.`;
+  return `${WHATSAPP_BUSINESS_LINK}?text=${encodeURIComponent(message)}`;
 }
 
 export function generateServiceBookingWhatsAppLink({
@@ -52,7 +58,7 @@ export function generateServiceBookingWhatsAppLink({
   if (city) parts.push(`City: ${city}`);
 
   const message = `Hi Maid Pro! I want to book:\n• ${parts.join("\n• ")}\n\nPlease share helper availability & confirm my booking.`;
-  return `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `${WHATSAPP_BUSINESS_LINK}?text=${encodeURIComponent(message)}`;
 }
 
 export function getDirectPhoneCallLink(): string {
