@@ -42,7 +42,7 @@ function doPost(e) {
     var doc = SpreadsheetApp.getActiveSpreadsheet();
     var leadSheet = doc.getSheetByName("Inquiries") || doc.getActiveSheet();
     var now = new Date();
-    var timestampStr = Utilities.formatDate(now, "Asia/Kolkata", "dd/MM/yyyy hh:mm a");
+    var timestampStr = Utilities.formatDate(now, "Asia/Kolkata", "dd/MM/yyyy hh:mm:ss a");
     var todayKey = Utilities.formatDate(now, "Asia/Kolkata", "yyyy-MM-dd");
     var todayTitle = "📅  " + Utilities.formatDate(now, "Asia/Kolkata", "EEEE, dd MMMM yyyy") + " — Inquiries";
     
@@ -74,7 +74,7 @@ function doPost(e) {
     
     // Append the verified customer lead row (Column 4 for Feedback/Notes, Col 12 for Candidate Preference)
     leadSheet.appendRow([
-      now,                                                     // 1. (A) Date & Exact Timestamp (Native DateTime)
+      timestampStr,                                            // 1. (A) Date & Exact Timestamp (DD/MM/YYYY hh:mm:ss AM/PM)
       "Website",                                              // 2. (B) Handled By
       "1. New Inquiry",                                        // 3. (C) Status
       data.notes || "",                                        // 4. (D) Feedback/Additional Details (Empty for team notes)

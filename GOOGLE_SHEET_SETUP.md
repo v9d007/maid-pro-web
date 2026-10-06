@@ -31,7 +31,7 @@ function doPost(e) {
     var doc = SpreadsheetApp.getActiveSpreadsheet();
     var data = JSON.parse(e.postData.contents);
     var now = new Date();
-    var timestampFormatted = Utilities.formatDate(now, "Asia/Kolkata", "dd/MM/yyyy hh:mm a");
+    var timestampFormatted = Utilities.formatDate(now, "Asia/Kolkata", "dd/MM/yyyy hh:mm:ss a");
     
     // =========================================================================
     // CASE 1: USER CLICKS & SERVICE INTEREST (Tracked in Tab 2)
