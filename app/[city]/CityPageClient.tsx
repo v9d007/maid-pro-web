@@ -23,6 +23,8 @@ import { ServicesGrid } from "@/components/ServicesGrid";
 import { Testimonials } from "@/components/Testimonials";
 import { AboutSection } from "@/components/AboutSection";
 import { FAQSection } from "@/components/FAQSection";
+import { SalaryRateCard } from "@/components/SalaryRateCard";
+import { MaidBureauComparison } from "@/components/MaidBureauComparison";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 import { ServiceDetailModal } from "@/components/ServiceDetailModal";
@@ -222,10 +224,27 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
         </div>
       </section>
 
-      {/* 5. Core Services Catalog */}
+      {/* 3. Monthly Salary Rates & Slabs (for Kalyan & covered cities) */}
+      {city.salaryRates && city.salaryRates.length > 0 && (
+        <SalaryRateCard
+          cityName={city.name}
+          hiCityName={city.hiName}
+          rates={city.salaryRates}
+          onOpenBooking={handleOpenBooking}
+        />
+      )}
+
+      {/* 4. Core Services Catalog */}
       <ServicesGrid
         onOpenBooking={handleOpenBooking}
         onOpenDetail={handleOpenDetail}
+      />
+
+      {/* 5. Bureau & Agency Comparison (Addresses Sulekha/Bookmybai/Local agency queries) */}
+      <MaidBureauComparison
+        cityName={city.name}
+        hiCityName={city.hiName}
+        onOpenBooking={() => handleOpenBooking(`Domestic Help in ${city.name}`)}
       />
 
       {/* 6. Testimonials */}
@@ -234,8 +253,12 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
       {/* 7. About */}
       <AboutSection city={city} />
 
-      {/* 8. FAQs */}
-      <FAQSection />
+      {/* 8. FAQs (Localized with City Questions) */}
+      <FAQSection
+        cityFaqs={city.faqs}
+        cityName={city.name}
+        hiCityName={city.hiName}
+      />
 
       {/* 9. Footer */}
       <Footer />

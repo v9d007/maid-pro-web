@@ -23,11 +23,14 @@ import { ServicesGrid } from "@/components/ServicesGrid";
 import { Testimonials } from "@/components/Testimonials";
 import { AboutSection } from "@/components/AboutSection";
 import { FAQSection } from "@/components/FAQSection";
+import { SalaryRateCard } from "@/components/SalaryRateCard";
+import { MaidBureauComparison } from "@/components/MaidBureauComparison";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 import { ServiceDetailModal } from "@/components/ServiceDetailModal";
 import { ServiceItem } from "@/data/services";
 import { LocalityInfo } from "@/data/localitiesData";
+import { CITIES_DATA } from "@/data/citiesData";
 import { useLanguage } from "@/context/LanguageContext";
 import { getDirectPhoneCallLink, generateWhatsAppLink } from "@/utils/whatsapp";
 import { trackEvent } from "@/utils/analytics";
@@ -43,6 +46,7 @@ export const LocalityPageClient: React.FC<LocalityPageClientProps> = ({ locality
   const [selectedDetailService, setSelectedDetailService] = useState<ServiceItem | null>(null);
 
   const isHindi = language === "hi";
+  const parentCity = CITIES_DATA[locality.citySlug];
 
   const handleOpenBooking = (serviceName?: string) => {
     if (serviceName) {
@@ -257,22 +261,43 @@ export const LocalityPageClient: React.FC<LocalityPageClientProps> = ({ locality
         </div>
       </section>
 
-      {/* 4. Full Services Grid with Transparent Pricing */}
+      {/* 4. Monthly Salary Rates & Slabs (for Kalyan & covered cities) */}
+      {parentCity?.salaryRates && parentCity.salaryRates.length > 0 && (
+        <SalaryRateCard
+          cityName={`${locality.name}, ${locality.cityName}`}
+          hiCityName={`${locality.hiName}, ${locality.hiCityName}`}
+          rates={parentCity.salaryRates}
+          onOpenBooking={handleOpenBooking}
+        />
+      )}
+
+      {/* 5. Full Services Grid with Transparent Pricing */}
       <ServicesGrid
         onOpenBooking={handleOpenBooking}
         onOpenDetail={handleOpenDetail}
       />
 
-      {/* 5. Customer Testimonials */}
+      {/* 6. Bureau & Agency Comparison */}
+      <MaidBureauComparison
+        cityName={locality.name}
+        hiCityName={locality.hiName}
+        onOpenBooking={() => handleOpenBooking(`Domestic Help in ${locality.name}`)}
+      />
+
+      {/* 7. Customer Testimonials */}
       <Testimonials />
 
-      {/* 6. About Section */}
+      {/* 8. About Section */}
       <AboutSection />
 
-      {/* 7. Frequently Asked Questions */}
-      <FAQSection />
+      {/* 9. Frequently Asked Questions (Localized) */}
+      <FAQSection
+        cityFaqs={parentCity?.faqs}
+        cityName={locality.name}
+        hiCityName={locality.hiName}
+      />
 
-      {/* 8. Global Footer */}
+      {/* 10. Global Footer */}
       <Footer />
 
       {/* Callback / Enquiry Modal */}

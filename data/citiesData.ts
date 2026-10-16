@@ -1,3 +1,20 @@
+export interface CityRateItem {
+  service: string;
+  hiService: string;
+  shift: string;
+  hiShift: string;
+  rate: string;
+  badge?: string;
+  popular?: boolean;
+}
+
+export interface CityFaqItem {
+  question: string;
+  answer: string;
+  hiQuestion?: string;
+  hiAnswer?: string;
+}
+
 export interface CityInfo {
   slug: string;
   name: string;
@@ -20,6 +37,8 @@ export interface CityInfo {
   gbpName?: string;
   verifiedStaffCount: number;
   avgResponseTime: string;
+  salaryRates?: CityRateItem[];
+  faqs?: CityFaqItem[];
   localities: {
     slug: string;
     name: string;
@@ -101,27 +120,139 @@ export const CITIES_DATA: Record<string, CityInfo> = {
     state: "Maharashtra",
     hiState: "महाराष्ट्र (मुंबई एमएमआर)",
     region: "Thane / Mumbai MMR",
-    tagline: "Trusted Verified Housemaids, Cooks & Patient Care in Kalyan & Dombivli",
-    hiTagline: "कल्याण व डोंबिवली (मुंबई) में विश्वसनीय घरेलू मेड, कुक व पेशेंट केयर",
-    description: "Reliable domestic staff across Kalyan West, Khadakpada, Vasant Valley, and Dombivli. Trained for daily sweeping, mopping, utensil washing, Maharashtrian & North Indian cooking, infant babysitting, and 24-hour patient attendants.",
-    hiDescription: "कल्याण पश्चिम, खड़कपाड़ा, वसंत वैली और डोंबिवली के लिए पृष्ठभूमि-सत्यापित घरेलू मेड, कुक और बुजुर्ग देखभाल सहायक। त्वरित सेवा व रिप्लेसमेंट गारंटी।",
+    tagline: "100% Verified Housemaids, Cooks (Veg/Non-Veg), Live-In Maids & Babysitters in Kalyan West & East",
+    hiTagline: "कल्याण पश्चिम व पूर्व में 100% पुलिस-सत्यापित घरेलू मेड, कुक, 24 घंटे लाइव-इन मेड व नानी सेवा",
+    description: "MaidPro is Kalyan's trusted domestic staff and cleaning provider. Connect with Aadhaar & Police-verified part-time maids, full-time live-in maids, expert veg/non-veg cooks, newborn Japa caregivers, patient attendants, and deep house cleaners across Kalyan West, Kalyan East, Khadakpada, and Dombivli with zero advance placement commission and instant backup replacements.",
+    hiDescription: "कल्याण पश्चिम, कल्याण पूर्व, खड़कपाड़ा, वसंत वैली और डोंबिवली के लिए 100% पुलिस-सत्यापित पार्ट-टाइम व 24 घंटे लाइव-इन मेड, शाकाहारी व मांसाहारी कुक, जापा केयर और पेशेंट अटेंडेंट। बिना किसी अग्रिम प्लेसमेंट कमीशन और तुरंत मुफ्त रिप्लेसमेंट के साथ।",
     address: "Vasant Valley Road, Kalyan West, Kadakpada, Kalyan, Maharashtra 421301",
     pincode: "421301",
     geo: { lat: "19.2403", lng: "73.1305" },
     phone: "+919321034262",
     hasGbpVerification: true,
     gbpName: "Maid & Plumber pro solution 4 you Trust - Kalyan",
-    verifiedStaffCount: 95,
+    verifiedStaffCount: 115,
     avgResponseTime: "1 to 3 Hours",
+    salaryRates: [
+      {
+        service: "Part-Time House Maid (Sweeping, Mopping & Vessels)",
+        hiService: "पार्ट-टाइम मेड (झाड़ू, पोछा व बर्तन)",
+        shift: "1 to 2 Hours daily",
+        hiShift: "1 से 2 घंटे प्रतिदिन",
+        rate: "₹2,500 – ₹4,000 / month",
+        badge: "Most Requested",
+        popular: true,
+      },
+      {
+        service: "Home Cook (Veg & Non-Veg, Maharashtrian / North Indian)",
+        hiService: "घरेलू कुक (वेज व नॉन-वेज खाना)",
+        shift: "1 Time Daily (Lunch or Dinner)",
+        hiShift: "1 समय (लंच या डिनर)",
+        rate: "₹3,000 – ₹4,500 / month",
+        badge: "Custom Meals",
+      },
+      {
+        service: "Home Cook (Both Lunch & Dinner Daily)",
+        hiService: "घरेलू कुक (दोनों समय भोजन)",
+        shift: "2 Times Daily (Lunch + Dinner)",
+        hiShift: "दोपहर व रात का खाना",
+        rate: "₹5,500 – ₹8,000 / month",
+        badge: "Full Kitchen",
+        popular: true,
+      },
+      {
+        service: "Full-Time Day Maid (Cleaning + Cooking + Laundry)",
+        hiService: "फुल-डे मेड (सफाई + खाना + कपड़े)",
+        shift: "8 to 10 Hours daily",
+        hiShift: "8 से 10 घंटे प्रतिदिन",
+        rate: "₹11,000 – ₹15,000 / month",
+        badge: "Day Helper",
+      },
+      {
+        service: "24-Hour Live-In Maid (Complete Home Management)",
+        hiService: "24 घंटे लाइव-इन मेड (संपूर्ण घरेलू सहायता)",
+        shift: "24 Hours (Stay-at-home)",
+        hiShift: "24 घंटे रहना और देखभाल",
+        rate: "₹20,000 – ₹25,000 / month",
+        badge: "24hr Live-In",
+        popular: true,
+      },
+      {
+        service: "Japa Maid (Postnatal Newborn & Mother Care)",
+        hiService: "जापा मेड (नवजात शिशु व जच्चा मालिश व देखभाल)",
+        shift: "24 Hours Live-In (30 to 45 Days)",
+        hiShift: "24 घंटे (सवा महीना देखभाल)",
+        rate: "₹25,000 – ₹32,000 / month",
+        badge: "Certified Japa",
+      },
+      {
+        service: "Babysitter & Nanny (Childcare & Play)",
+        hiService: "बेबीसिटर व नानी केयर",
+        shift: "8 to 10 Hours / 24 Hours",
+        hiShift: "8-10 घंटे या 24 घंटे",
+        rate: "₹12,000 – ₹22,000 / month",
+        badge: "Trained Nanny",
+      },
+      {
+        service: "Elderly Care & Bedside Patient Attendant",
+        hiService: "बुजुर्ग व मरीज देखभाल सहायक",
+        shift: "12 Hours / 24 Hours Live-In",
+        hiShift: "12 घंटे या 24 घंटे शिफ्ट",
+        rate: "₹14,000 – ₹24,000 / month",
+        badge: "Tender Care",
+      },
+      {
+        service: "Full House Deep Cleaning (1BHK / 2BHK / 3BHK)",
+        hiService: "फुल होम डीप क्लीनिंग (मशीन स्क्रबिंग)",
+        shift: "Single-day 4-6 Hours Session",
+        hiShift: "सिंगल डे 4-6 घंटे सेशन",
+        rate: "₹1,499 – ₹2,999 / session",
+        badge: "Machine Scrub",
+      },
+    ],
+    faqs: [
+      {
+        question: "How much does a part-time maid cost in Kalyan West and Kalyan East?",
+        answer: "In Kalyan West and Kalyan East, part-time maids for basic sweeping, mopping, and utensil washing (vessels) typically charge ₹2,500 to ₹4,000 per month depending on apartment size (1 BHK vs 2 BHK) and family count. We provide fixed, transparent monthly slabs with zero broker commission.",
+        hiQuestion: "कल्याण पश्चिम और पूर्व में पार्ट-टाइम मेड का मासिक वेतन कितना होता है?",
+        hiAnswer: "कल्याण पश्चिम व पूर्व में 1 BHK और 2 BHK फ्लैट्स के लिए झाड़ू-पोछा और बर्तन मांजने का मासिक वेतन ₹2,500 से ₹4,000 के बीच होता है। मेडप्रो में कोई अतिरिक्त एजेंट कमीशन नहीं होता।"
+      },
+      {
+        question: "Can I hire a veg and non-veg cook for home in Kalyan West Mumbai?",
+        answer: "Yes, absolutely! We connect households with experienced home cooks specialized in Maharashtrian, North Indian, Gujarati, and South Indian cuisines. Whether you need vegetarian meals, chicken/mutton dishes, or coastal fish curry, our cooks handle breakfast, lunch, and dinner with complete kitchen hygiene.",
+        hiQuestion: "क्या कल्याण में वेज और नॉन-वेज दोनों तरह का खाना बनाने वाले कुक मिलते हैं?",
+        hiAnswer: "हाँ, बिल्कुल! हमारे पास महाराष्ट्रीयन, नॉर्थ इंडियन, गुजराती और साउथ इंडियन खाना बनाने वाले अनुभवी रसोइये हैं जो शाकाहारी व मांसाहारी भोजन शुद्धता और स्वच्छता के साथ तैयार करते हैं।"
+      },
+      {
+        question: "Do you provide 24 hours live-in maids and Japa maids in Kalyan?",
+        answer: "Yes. For busy families, working couples, and households requiring round-the-clock help, we provide background-verified 24-hour live-in maids (₹20,000 – ₹25,000/mo) and certified postnatal Japa maids (₹25,000 – ₹32,000/mo) for traditional newborn baby massage, feeding, and new mother recovery care.",
+        hiQuestion: "क्या कल्याण में 24 घंटे लाइव-इन मेड और जापा मेड की सुविधा उपलब्ध है?",
+        hiAnswer: "हाँ! हम कल्याण और डोंबिवली में 24 घंटे रहने वाली लाइव-इन मेड (₹20,000 - ₹25,000/माह) और नवजात शिशु व जच्चा देखभाल के लिए अनुभवी जापा मेड (₹25,000 - ₹32,000/माह) उपलब्ध कराते हैं।"
+      },
+      {
+        question: "How are domestic helpers verified in Kalyan (Mumbai MMR)?",
+        answer: "Every helper undergoes mandatory government UIDAI Aadhaar verification, permanent and local address checks, and Thane Police background verification assistance. We provide client identity records prior to placement for total family safety.",
+        hiQuestion: "कल्याण में घरेलू सहायकों का सत्यापन (Verification) कैसे किया जाता है?",
+        hiAnswer: "प्रत्येक मेड, कुक और आया का यूआईडीएआई (आधार कार्ड) प्रमाणीकरण, निवास सत्यापन और ठाणे पुलिस वेरिफिकेशन रिकॉर्ड चेक किया जाता है ताकि आपके परिवार की सुरक्षा 100% सुनिश्चित रहे।"
+      },
+      {
+        question: "Why choose MaidPro over traditional maid bureaus or Sulekha / BookMyBai in Kalyan?",
+        answer: "Unlike traditional agencies that charge 1 month's salary upfront as non-refundable placement commission, MaidPro charges zero advance commission. You pay directly, receive 3-month free instant backup replacements within 24–48 hours if your helper is absent or leaves, and have a dedicated local coordinator reachable on +91 93210 34262.",
+        hiQuestion: "कल्याण में अन्य एजेंसियों या सुलेखा / बुकमाईबाई की तुलना में मेडप्रो क्यों बेहतर है?",
+        hiAnswer: "पारंपरिक एजेंसियां 1 महीने का पूरा वेतन कमीशन के रूप में अग्रिम ले लेती हैं। मेडप्रो में कोई अग्रिम एजेंट कमीशन नहीं है, मेड की अनुपस्थिति पर 24-48 घंटे में तुरंत मुफ्त रिप्लेसमेंट मिलता है और पूरा पारदर्शी सपोर्ट दिया जाता है।"
+      }
+    ],
     localities: [
       { slug: "khadakpada", name: "Khadakpada", hiName: "खड़कपाड़ा", pincode: "421301", landmarks: ["Khadakpada Circle", "Godrej Hill Link", "Birla College Road"] },
       { slug: "vasant-valley", name: "Vasant Valley", hiName: "वसंत वैली", pincode: "421301", landmarks: ["Vasant Valley Complex", "Gandhar Nagar", "Wayle Nagar Link"] },
       { slug: "kalyan-west", name: "Kalyan West", hiName: "कल्याण पश्चिम", pincode: "421301", landmarks: ["Station Road", "Syndicate", "Rambaug", "Chikan Ghar"] },
+      { slug: "kalyan-east", name: "Kalyan East", hiName: "कल्याण पूर्व", pincode: "421306", landmarks: ["Katemanivali", "Chinchpada", "Tisgaon", "Kolsewadi", "Netivali"] },
       { slug: "dombivli-east", name: "Dombivli East", hiName: "डोंबिवली पूर्व", pincode: "421201", landmarks: ["Manpada Road", "MIDC Residential", "Lodha Palava Link"] },
       { slug: "dombivli-west", name: "Dombivli West", hiName: "डोंबिवली पश्चिम", pincode: "421202", landmarks: ["Gupte Road", "Reti Bunder", "Vishnunagar"] },
+      { slug: "palava", name: "Lodha Palava", hiName: "लोढा पलावा", pincode: "421204", landmarks: ["Palava Phase 1 & 2", "Kalyan-Shil Road", "Casa Bella", "Lakeshore Greens"] },
       { slug: "wayle-nagar", name: "Wayle Nagar", hiName: "वायले नगर", pincode: "421301", landmarks: ["Wayle Nagar Garden", "Murbad Road Link"] },
       { slug: "gandhinagar-kalyan", name: "Gandhinagar", hiName: "गांधीनगर", pincode: "421301", landmarks: ["Tilak Chowk", "Bail Bazar", "Shivaji Chowk"] },
       { slug: "birla-college-road", name: "Birla College Road", hiName: "बिरला कॉलेज रोड", pincode: "421301", landmarks: ["BK Birla College", "Chikanghar", "Yogi Dham"] },
+      { slug: "shahad", name: "Shahad", hiName: "शहाड", pincode: "421103", landmarks: ["Century Rayon Colony", "Shahad Station", "Murbad Road", "Waldhuni"] },
     ]
   },
   jaipur: {
