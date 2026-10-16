@@ -39,6 +39,25 @@ function createLocalityInfo(
   const baseLat = parseFloat(city.geo.lat) + geoOffset.lat;
   const baseLng = parseFloat(city.geo.lng) + geoOffset.lng;
 
+  let customMetaTitle = `Maid Service in ${name} ${city.name} | Verified Housemaids & Cooks - MaidPro`;
+  let customMetaDesc = `Hire 100% police-verified housemaids, cooks, babysitters & deep cleaning in ${name}, ${city.name} (${pincode}). Instant free replacement & zero advance fee. Call/WhatsApp: +91 93210 34262.`;
+
+  if (citySlug === "kalyan-mumbai") {
+    if (slug === "kalyan-west") {
+      customMetaTitle = `Maid Service in Kalyan West | Verified Housemaids, Cooks & Agency - MaidPro`;
+      customMetaDesc = `Hire 100% Aadhaar-verified housemaids, veg/non-veg cooks, 24hr live-in maids & nannies in Kalyan West (421301). Zero advance fee & free replacement. Call/WhatsApp: +91 93210 34262.`;
+    } else if (slug === "kalyan-east") {
+      customMetaTitle = `Housemaid Services in Kalyan East | Verified Domestic Help & Agency - MaidPro`;
+      customMetaDesc = `Hire background-checked housemaids, cooks, patient care & babysitters in Kalyan East (421306). No agency commission & instant replacement. Call/WhatsApp: +91 93210 34262.`;
+    } else if (slug === "khadakpada") {
+      customMetaTitle = `Maid Service in Khadakpada Kalyan | Verified Housemaids & Home Cooks - MaidPro`;
+      customMetaDesc = `Police-verified domestic maids, cooks & deep cleaning in Khadakpada, Kalyan West. Instant trial & transparent monthly rates. Call/WhatsApp: +91 93210 34262.`;
+    } else if (slug === "dombivli-east") {
+      customMetaTitle = `Maid Service in Dombivli East & Palava | Verified Housemaids & Cooks - MaidPro`;
+      customMetaDesc = `Hire verified housemaids, daily cooks & nannies in Dombivli East & Lodha Palava. Zero advance fee & 24h replacement. Call/WhatsApp: +91 93210 34262.`;
+    }
+  }
+
   return {
     slug,
     name,
@@ -59,8 +78,8 @@ function createLocalityInfo(
     },
     verifiedStaffCount: staffCount,
     avgResponseTime: city.avgResponseTime,
-    metaTitle: `Maid Service in ${name} ${city.name} | Verified Housemaids & Cooks - MaidPro`,
-    metaDesc: `Hire 100% police-verified housemaids, cooks, babysitters & deep cleaning in ${name}, ${city.name} (${pincode}). Instant free replacement, zero advance fee & transparent salary slabs.`,
+    metaTitle: customMetaTitle,
+    metaDesc: customMetaDesc,
   };
 }
 

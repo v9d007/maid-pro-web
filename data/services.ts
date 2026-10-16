@@ -170,9 +170,10 @@ export const COMMON_DOMESTIC_INCLUSION_TABS: InclusionTab[] = [
     icon: "ChefHat",
     image: "/images/services/all_in_one.jpg",
     trainedTo: [
-      "Fresh vegetarian home meals (soft rotis/phulkas, sabzi, dal, rice)",
+      "Fresh vegetarian & non-veg home meals (soft rotis/phulkas, sabzi, dal, curries, rice)",
+      "Maharashtrian, North Indian, Gujarati & regional cooking preparations",
       "Morning breakfast prep (poha, parathas, upma, sandwiches & tea/coffee)",
-      "Vegetable chopping, peeling, kneading fresh dough & prep work",
+      "Vegetable chopping, non-veg cleaning, kneading fresh dough & prep work",
       "Post-cooking gas stove wiping, slab cleaning & kitchen counter hygiene",
       "Customized spice, salt & oil balancing according to family preference"
     ],
@@ -301,7 +302,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     id: "house-maid-hourly",
     stepNumber: "01",
     title: "House Maid & Home Cooking Service",
-    shortDesc: "Agra's trusted verified maids & home cooks for sweeping, mopping, utensil scrub, fresh home cooking (roti, sabzi, dal) & daily chores at the exact same transparent rates.",
+    shortDesc: "Trusted verified maids & home cooks for sweeping, mopping, utensil scrub, fresh home cooking (veg & non-veg) & daily chores at transparent rates.",
     priceTag: "₹399/-",
     badge: "Maid & Cook at Same Rate",
     category: "maid_care",
