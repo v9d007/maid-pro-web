@@ -325,13 +325,14 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       { hours: "Full Day Work (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Housekeeping + Cooking" }
     ],
     monthlySlabs: [
-      { hours: "2 Hours / day", rate: "₹5,000 / month", badge: "Starter", note: "Housekeeping or 1-Time Cooking" },
-      { hours: "3 Hours / day", rate: "₹6,000 / month", note: "Cleaning + Light Cooking" },
-      { hours: "4 Hours / day", rate: "₹7,000 / month", badge: "Most Popular", note: "Full Cleaning + Cooking" },
-      { hours: "5 Hours / day", rate: "₹8,000 to ₹9,000 / month" },
-      { hours: "6 Hours / day", rate: "₹9,000 to ₹10,000 / month" },
-      { hours: "7 Hours / day", rate: "₹10,000 to ₹11,000 / month" },
-      { hours: "8 Hours / day", rate: "₹12,000 to ₹13,000 / month", badge: "Full Shift" }
+      { hours: "1 to 1.5 Hours / day", rate: "₹2,500 – ₹3,500 / mo", badge: "Part-Time", note: "Sweeping, Mopping or Utensil Scrub" },
+      { hours: "2 Hours / day", rate: "₹3,500 – ₹4,500 / mo", badge: "Starter", note: "Housekeeping & Vessels" },
+      { hours: "Home Cook (1 Meal Daily)", rate: "₹3,000 – ₹4,500 / mo", badge: "Cook (1 Time)", note: "Fresh Lunch or Dinner (Veg / Non-Veg)" },
+      { hours: "Home Cook (2 Meals Daily)", rate: "₹5,500 – ₹7,500 / mo", badge: "Cook (2 Times)", note: "Both Lunch + Dinner Preparation" },
+      { hours: "3 to 4 Hours / day", rate: "₹6,500 – ₹8,000 / mo", badge: "Most Popular", note: "Full Cleaning + Home Cooking" },
+      { hours: "5 to 6 Hours / day", rate: "₹8,500 – ₹10,500 / mo", note: "Deep Routine Help & Chores" },
+      { hours: "8 to 10 Hours / day", rate: "₹11,000 – ₹14,000 / mo", badge: "Full Day", note: "Full Day Maid / Housekeeper" },
+      { hours: "24 Hours Live-In Maid", rate: "₹20,000 – ₹25,000 / mo", badge: "24hr Live-In", note: "Round-the-Clock Stay-at-Home Helper" }
     ],
     inclusionTabs: [
       COMMON_DOMESTIC_INCLUSION_TABS[0], // Housekeeping
@@ -361,13 +362,14 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "सफाई व कुकिंग सहायता" }
       ],
       monthlySlabs: [
-        { hours: "2 घंटे / दिन", rate: "₹5,000 / माह", badge: "स्टार्टर", note: "सफाई या 1 समय का खाना" },
-        { hours: "3 घंटे / दिन", rate: "₹6,000 / माह", note: "सफाई + हल्का खाना" },
-        { hours: "4 घंटे / दिन", rate: "₹7,000 / माह", badge: "सबसे लोकप्रिय", note: "पूरी सफाई + कुकिंग" },
-        { hours: "5 घंटे / दिन", rate: "₹8,000 से ₹9,000 / माह" },
-        { hours: "6 घंटे / दिन", rate: "₹9,000 से ₹10,000 / माह" },
-        { hours: "7 घंटे / दिन", rate: "₹10,000 से ₹11,000 / माह" },
-        { hours: "8 घंटे / दिन", rate: "₹12,000 से ₹13,000 / माह", badge: "फुल शिफ्ट" }
+        { hours: "1 से 1.5 घंटे / दिन", rate: "₹2,500 – ₹3,500 / माह", badge: "पार्ट-टाइम", note: "झाड़ू-पोछा या बर्तन मांजना" },
+        { hours: "2 घंटे / दिन", rate: "₹3,500 – ₹4,500 / माह", badge: "स्टार्टर", note: "सफाई व बर्तन" },
+        { hours: "घरेलू कुक (1 समय भोजन)", rate: "₹3,000 – ₹4,500 / माह", badge: "कुक (1 समय)", note: "दोपहर या रात का ताजा खाना" },
+        { hours: "घरेलू कुक (दोनों समय भोजन)", rate: "₹5,500 – ₹7,500 / माह", badge: "कुक (2 समय)", note: "दोपहर व रात का खाना (वेज/नॉन-वेज)" },
+        { hours: "3 से 4 घंटे / दिन", rate: "₹6,500 – ₹8,000 / माह", badge: "सबसे लोकप्रिय", note: "पूरी सफाई + कुकिंग" },
+        { hours: "5 से 6 घंटे / दिन", rate: "₹8,500 से ₹10,500 / माह", note: "विस्तृत दैनिक कामकाज" },
+        { hours: "8 से 10 घंटे / दिन", rate: "₹11,000 से ₹14,000 / माह", badge: "फुल डे", note: "फुल डे मेड व घरेलू सहायक" },
+        { hours: "24 घंटे लाइव-इन मेड", rate: "₹20,000 से ₹25,000 / माह", badge: "24hr लाइव-इन", note: "24 घंटे घर पर रहने वाली मेड" }
       ]
     },
   },
@@ -466,11 +468,11 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Daytime Child Support" }
     ],
     monthlySlabs: [
-      { hours: "4 Hours / day (Part-time Nanny)", rate: "₹8,000 / month" },
-      { hours: "8 Hours / day (Full Day Nanny)", rate: "₹12,000 to ₹14,000 / month", badge: "Day Nanny" },
-      { hours: "10-12 Hours / day", rate: "₹15,000 to ₹17,000 / month" },
-      { hours: "24 Hours Live-In (Nanny / Baby Care + House Help)", rate: "₹23,000 to ₹24,000 / month", badge: "24hr Nanny" },
-      { hours: "24 Hours Live-In (Japa Maid - Newborn & Mother Care)", rate: "₹24,000 to ₹28,000 / month", badge: "24hr Japa" }
+      { hours: "4 Hours / day (Part-time Nanny)", rate: "₹7,000 – ₹8,500 / month", note: "Half-Day Childcare & Play" },
+      { hours: "8 to 10 Hours / day (Full Day Nanny)", rate: "₹12,000 – ₹15,000 / month", badge: "Day Nanny", note: "Daytime Childcare & Feeding" },
+      { hours: "12 Hours / day", rate: "₹15,000 – ₹18,000 / month", note: "Extended Shift Nanny" },
+      { hours: "24 Hours Live-In Nanny", rate: "₹20,000 – ₹24,000 / month", badge: "24hr Nanny", note: "Round-the-Clock Childcare" },
+      { hours: "24 Hours Live-In (Japa Maid - Newborn & Mother Care)", rate: "₹25,000 – ₹32,000 / month", badge: "Certified Japa", note: "Postnatal Massage, Bathing & Care" }
     ],
     inclusionTabs: [
       COMMON_DOMESTIC_INCLUSION_TABS[3], // Nanny Care
@@ -489,11 +491,11 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "दिनभर शिशु देखभाल" }
       ],
       monthlySlabs: [
-        { hours: "4 घंटे / दिन (पार्ट-टाइम नानी)", rate: "₹8,000 / माह" },
-        { hours: "8 घंटे / दिन (फुल डे नानी)", rate: "₹12,000 से ₹14,000 / माह", badge: "डे नानी" },
-        { hours: "10-12 घंटे / दिन", rate: "₹15,000 से ₹17,000 / माह" },
-        { hours: "24 घंटे (नानी / बेबी केयर + मेड)", rate: "₹23,000 से ₹24,000 / माह", badge: "24hr नानी" },
-        { hours: "24 घंटे (जापा मेड - जच्चा-बच्चा देखभाल)", rate: "₹24,000 से ₹28,000 / माह", badge: "24hr जापा" }
+        { hours: "4 घंटे / दिन (पार्ट-टाइम नानी)", rate: "₹7,000 – ₹8,500 / माह", note: "हाफ-डे शिशु देखभाल व खेल" },
+        { hours: "8 से 10 घंटे / दिन (फुल डे नानी)", rate: "₹12,000 से ₹15,000 / माह", badge: "डे नानी", note: "दिनभर शिशु देखभाल व आहार" },
+        { hours: "12 घंटे / दिन", rate: "₹15,000 से ₹18,000 / माह", note: "विस्तृत शिफ्ट नानी" },
+        { hours: "24 घंटे (लाइव-इन नानी)", rate: "₹20,000 से ₹24,000 / माह", badge: "24hr नानी", note: "24 घंटे शिशु देखभाल" },
+        { hours: "24 घंटे (जापा मेड - जच्चा-बच्चा देखभाल)", rate: "₹25,000 से ₹32,000 / माह", badge: "सर्टिफाइड जापा", note: "नवजात शिशु व जच्चा मालिश व देखभाल" }
       ]
     },
   },
@@ -514,10 +516,9 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Bedside Attendant" }
     ],
     monthlySlabs: [
-      { hours: "8 Hours / day (Day Shift)", rate: "₹12,000 to ₹13,000 / month", badge: "Day Shift" },
-      { hours: "10 Hours / day", rate: "₹14,000 to ₹15,000 / month" },
-      { hours: "12 Hours / day (Full Day Shift)", rate: "₹15,000 to ₹17,000 / month", badge: "12hr Shift" },
-      { hours: "24 Hours Live-In (Bedside Patient Care)", rate: "₹22,000 to ₹25,000 / month", badge: "24hr Live-In" }
+      { hours: "8 Hours / day (Day Shift)", rate: "₹12,000 to ₹14,000 / month", badge: "Day Shift", note: "Elderly Assistance & Walk Support" },
+      { hours: "10 to 12 Hours / day (Full Day Shift)", rate: "₹14,000 to ₹17,000 / month", badge: "12hr Shift", note: "Bedside Monitoring & Diet" },
+      { hours: "24 Hours Live-In (Bedside Patient Care)", rate: "₹20,000 to ₹25,000 / month", badge: "24hr Live-In", note: "Round-the-Clock Attendant" }
     ],
     inclusionTabs: [
       COMMON_DOMESTIC_INCLUSION_TABS[4], // Elder Care
@@ -535,10 +536,9 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "मरीज की देखरेख" }
       ],
       monthlySlabs: [
-        { hours: "8 घंटे / दिन (डे शिफ्ट)", rate: "₹12,000 से ₹13,000 / माह", badge: "डे शिफ्ट" },
-        { hours: "10 घंटे / दिन", rate: "₹14,000 से ₹15,000 / माह" },
-        { hours: "12 घंटे / दिन (12 घंटे की शिफ्ट)", rate: "₹15,000 से ₹17,000 / माह", badge: "12hr शिफ्ट" },
-        { hours: "24 घंटे (लाइव-इन मरीज देखभाल)", rate: "₹22,000 से ₹25,000 / माह", badge: "24hr लाइव-इन" }
+        { hours: "8 घंटे / दिन (डे शिफ्ट)", rate: "₹12,000 से ₹14,000 / माह", badge: "डे शिफ्ट", note: "बुजुर्गों का सहारा व देखभाल" },
+        { hours: "10 से 12 घंटे / दिन (12 घंटे शिफ्ट)", rate: "₹14,000 से ₹17,000 / माह", badge: "12hr शिफ्ट", note: "समय पर दवा व भोजन की देखरेख" },
+        { hours: "24 घंटे (लाइव-इन मरीज देखभाल)", rate: "₹20,000 से ₹25,000 / माह", badge: "24hr लाइव-इन", note: "24 घंटे लगातार बेडसाइड सहायक" }
       ]
     },
   },
