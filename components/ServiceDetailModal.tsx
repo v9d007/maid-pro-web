@@ -32,6 +32,7 @@ interface ServiceDetailModalProps {
   service: ServiceItem | null;
   onClose: () => void;
   onRequestCallback: (serviceName: string) => void;
+  cityOrLocality?: string;
 }
 
 const TAB_ICON_MAP: Record<string, React.ElementType> = {
@@ -52,6 +53,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   service,
   onClose,
   onRequestCallback,
+  cityOrLocality,
 }) => {
   const { language, t } = useLanguage();
   const [pricingMode, setPricingMode] = useState<"monthly" | "single_day">("monthly");
@@ -149,7 +151,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       serviceName: details.title,
       planType: selectedSlab?.hours,
       slabRate: selectedSlab?.rate,
-      locality: "Agra",
+      locality: cityOrLocality || "Your City",
     });
     window.open(link, "_blank");
   };
@@ -207,7 +209,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 </span>
                 <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-300">
                   <Star className="w-3.5 h-3.5 fill-amber-300" />
-                  <span>4.6 (Agra)</span>
+                  <span>4.8 (Verified)</span>
                 </span>
               </div>
               <h2 className="text-lg sm:text-2xl font-extrabold font-heading text-white drop-shadow-sm leading-tight">

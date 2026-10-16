@@ -23,7 +23,6 @@ import { ServicesGrid } from "@/components/ServicesGrid";
 import { Testimonials } from "@/components/Testimonials";
 import { AboutSection } from "@/components/AboutSection";
 import { FAQSection } from "@/components/FAQSection";
-import { SalaryRateCard } from "@/components/SalaryRateCard";
 import { MaidBureauComparison } from "@/components/MaidBureauComparison";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
@@ -224,17 +223,7 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
         </div>
       </section>
 
-      {/* 3. Monthly Salary Rates & Slabs (for Kalyan & covered cities) */}
-      {city.salaryRates && city.salaryRates.length > 0 && (
-        <SalaryRateCard
-          cityName={city.name}
-          hiCityName={city.hiName}
-          rates={city.salaryRates}
-          onOpenBooking={handleOpenBooking}
-        />
-      )}
-
-      {/* 4. Core Services Catalog */}
+      {/* 3. Core Services Catalog */}
       <ServicesGrid
         onOpenBooking={handleOpenBooking}
         onOpenDetail={handleOpenDetail}
@@ -276,6 +265,7 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
         service={selectedDetailService}
         onClose={handleCloseDetail}
         onRequestCallback={handleRequestCallbackFromDetail}
+        cityOrLocality={city.name}
       />
     </main>
   );
