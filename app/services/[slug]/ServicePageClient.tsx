@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -24,7 +24,9 @@ import {
   Users,
   Building2,
   Maximize2,
-  Truck
+  Truck,
+  MapPin,
+  ChevronDown,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { ServicesGrid } from "@/components/ServicesGrid";
@@ -32,7 +34,8 @@ import { Testimonials } from "@/components/Testimonials";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 import { ServiceDetailModal } from "@/components/ServiceDetailModal";
-import { ServiceItem, PricingSlab, getServiceDetails } from "@/data/services";
+import { ServiceItem, PricingSlab, getServiceDetails, getCityTier } from "@/data/services";
+import { ALL_CITIES } from "@/data/citiesData";
 import { ServicePageInfo } from "@/data/servicePagesData";
 import { useLanguage } from "@/context/LanguageContext";
 import { getDirectPhoneCallLink, generateServiceBookingWhatsAppLink } from "@/utils/whatsapp";
@@ -64,9 +67,14 @@ export const ServicePageClient: React.FC<ServicePageClientProps> = ({ pageInfo, 
   const [pricingMode, setPricingMode] = useState<"monthly" | "hourly">(
     service.monthlySlabs && service.monthlySlabs.length > 0 ? "monthly" : "hourly"
   );
+  const [selectedCity, setSelectedCity] = useState<string>("all_india");
   const [selectedSlabIndex, setSelectedSlabIndex] = useState(0);
 
-  const details = getServiceDetails(service, language);
+  useEffect(() => {
+    setSelectedSlabIndex(0);
+  }, [pricingMode, selectedCity]);
+
+  const details = getServiceDetails(service, language, selectedCity);
   const isHindi = language === "hi";
 
   const hasMonthly = details.monthlySlabs && details.monthlySlabs.length > 0;
@@ -108,13 +116,16 @@ export const ServicePageClient: React.FC<ServicePageClientProps> = ({ pageInfo, 
       service: details.title,
       shift: selectedSlab?.hours,
       rate: selectedSlab?.rate,
+      city: selectedCity,
     });
+
+    const effectiveLocality = selectedCity === "all_india" ? "Your City" : selectedCity;
 
     const link = generateServiceBookingWhatsAppLink({
       serviceName: details.title,
       planType: selectedSlab?.hours,
       slabRate: selectedSlab?.rate,
-      locality: "Agra",
+      locality: effectiveLocality,
     });
     window.open(link, "_blank");
   };
@@ -322,6 +333,44 @@ export const ServicePageClient: React.FC<ServicePageClientProps> = ({ pageInfo, 
               </p>
             </div>
 
+            {/* Location Selector Bar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3.5 bg-white dark:bg-slate-800/80 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-primary/10 dark:bg-emerald-500/15 text-primary dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 font-heading">
+                    {isHindi ? "अपने शहर/इलाके की दरें चुनें" : "Select Your City for Verified Rates"}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                    {selectedCity === "all_india"
+                      ? (isHindi ? "अखिल भारतीय मूल्य सीमा दिखाई जा रही है" : "Showing Pan-India price range across all tiers")
+                      : (isHindi ? `${selectedCity} के लिए सत्यापित स्टाफ दरें` : `Exact verified staff rates for ${selectedCity}`)}
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative inline-flex items-center w-full sm:w-auto">
+                <select
+                  value={selectedCity}
+                  onChange={(e) => setSelectedCity(e.target.value)}
+                  className="appearance-none w-full sm:w-auto bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs font-bold pl-3 pr-8 py-2 rounded-xl border border-slate-300 dark:border-slate-700 shadow-2xs hover:border-primary focus:outline-hidden focus:ring-1 focus:ring-primary cursor-pointer transition"
+                  aria-label="Select location for pricing"
+                >
+                  <option value="all_india">
+                    {isHindi ? "🇮🇳 अखिल भारतीय (मूल्य सीमा)" : "🇮🇳 All-India (Price Range)"}
+                  </option>
+                  {ALL_CITIES.map((c) => (
+                    <option key={c.slug} value={c.name}>
+                      {isHindi ? c.hiName : c.name} ({getCityTier(c.slug) === "metro" ? (isHindi ? "मेट्रो दर" : "Metro Rate") : (isHindi ? "मानक दर" : "Standard Rate")})
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 pointer-events-none" />
+              </div>
+            </div>
+
             {/* Pricing Mode Toggle */}
             {hasMonthly && hasSingleDay && (
               <div className="flex justify-center">
@@ -458,6 +507,7 @@ export const ServicePageClient: React.FC<ServicePageClientProps> = ({ pageInfo, 
       <ServicesGrid
         onOpenBooking={handleOpenBooking}
         onOpenDetail={(srv) => setSelectedDetailService(srv)}
+        cityOrLocality={selectedCity}
       />
 
       {/* 8. Testimonials */}
@@ -475,6 +525,7 @@ export const ServicePageClient: React.FC<ServicePageClientProps> = ({ pageInfo, 
           setSelectedDetailService(null);
           handleOpenBooking(srvName);
         }}
+        cityOrLocality={selectedCity}
       />
 
       {/* 11. Interactive Booking & Estimator Modal */}
@@ -482,6 +533,7 @@ export const ServicePageClient: React.FC<ServicePageClientProps> = ({ pageInfo, 
         isOpen={isBookingOpen}
         onClose={handleCloseBooking}
         initialService={details.title}
+        initialCity={selectedCity !== "all_india" ? selectedCity : undefined}
       />
     </main>
   );

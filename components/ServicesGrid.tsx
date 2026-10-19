@@ -21,6 +21,7 @@ import { trackEvent } from "@/utils/analytics";
 interface ServicesGridProps {
   onOpenBooking: (serviceName?: string) => void;
   onOpenDetail?: (service: ServiceItem) => void;
+  cityOrLocality?: string;
 }
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -34,7 +35,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Users,
 };
 
-export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpenDetail }) => {
+export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpenDetail, cityOrLocality }) => {
   const { language, t } = useLanguage();
 
   const handleCardClick = (service: ServiceItem, title: string) => {
@@ -72,7 +73,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {SERVICES_CATALOG.map((service) => {
             const Icon = ICON_MAP[service.icon] || Sparkles;
-            const details = getServiceDetails(service, language);
+            const details = getServiceDetails(service, language, cityOrLocality);
 
             return (
               <div
@@ -102,6 +103,22 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onOpenBooking, onOpe
                     {/* Soft dimming tint layer to soften contrast with dark green */}
                     <div className="absolute inset-0 bg-slate-900/15 group-hover:bg-slate-900/5 transition-colors duration-300 pointer-events-none z-10" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none z-10" />
+
+                    {/* Price Tag Badge */}
+                    <div className="absolute top-3 left-3 z-20">
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/95 dark:bg-slate-900/90 text-primary dark:text-emerald-400 backdrop-blur-md shadow-xs border border-slate-200/60 dark:border-slate-700">
+                        {details.priceTag}
+                      </span>
+                    </div>
+
+                    {/* Popular / Special Badge */}
+                    {details.badge && (
+                      <div className="absolute top-3 right-3 z-20">
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-primary text-white shadow-xs">
+                          {details.badge}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Main Body */}
