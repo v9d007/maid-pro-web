@@ -23,7 +23,6 @@ import { ServicesGrid } from "@/components/ServicesGrid";
 import { Testimonials } from "@/components/Testimonials";
 import { AboutSection } from "@/components/AboutSection";
 import { FAQSection } from "@/components/FAQSection";
-import { SalaryRateCard } from "@/components/SalaryRateCard";
 import { MaidBureauComparison } from "@/components/MaidBureauComparison";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
@@ -261,17 +260,7 @@ export const LocalityPageClient: React.FC<LocalityPageClientProps> = ({ locality
         </div>
       </section>
 
-      {/* 4. Monthly Salary Rates & Slabs (for Kalyan & covered cities) */}
-      {parentCity?.salaryRates && parentCity.salaryRates.length > 0 && (
-        <SalaryRateCard
-          cityName={`${locality.name}, ${locality.cityName}`}
-          hiCityName={`${locality.hiName}, ${locality.hiCityName}`}
-          rates={parentCity.salaryRates}
-          onOpenBooking={handleOpenBooking}
-        />
-      )}
-
-      {/* 5. Full Services Grid with Transparent Pricing */}
+      {/* 4. Full Services Grid with Transparent Pricing */}
       <ServicesGrid
         onOpenBooking={handleOpenBooking}
         onOpenDetail={handleOpenDetail}
@@ -315,6 +304,7 @@ export const LocalityPageClient: React.FC<LocalityPageClientProps> = ({ locality
         service={selectedDetailService}
         onClose={handleCloseDetail}
         onRequestCallback={handleRequestCallbackFromDetail}
+        cityOrLocality={`${locality.name}, ${locality.cityName}`}
       />
     </main>
   );
