@@ -46,9 +46,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   );
   
   const activeCityData = CITIES_DATA[selectedCitySlug] || CITIES_DATA["agra"];
-  const cityLocalities = activeCityData.localities;
+  const cityLocalities = activeCityData?.localities || [];
 
   const [locality, setLocality] = useState(initialLocality || cityLocalities[0]?.name || "Khandari");
+  const [customLocality, setCustomLocality] = useState("");
+  const [customCity, setCustomCity] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -72,6 +74,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   }, [initialCity, currentCity.slug]);
 
   useEffect(() => {
+    if (selectedCitySlug === "other_city") {
+      setLocality("Other / Nearby Area");
+      return;
+    }
     const locs = CITIES_DATA[selectedCitySlug]?.localities || [];
     if (locs.length > 0 && (!initialLocality || !locs.some((l) => l.name === locality))) {
       setLocality(locs[0].name);
@@ -85,7 +91,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       setIsSubmitting(false);
       trackEvent("callback_modal_opened", {
         service: initialService,
-        city: activeCityData.name,
+        city: activeCityData?.name || "Agra",
         locality,
       });
     }
@@ -106,8 +112,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     };
   }, [isOpen, onClose]);
 
+  const effectiveCityName =
+    selectedCitySlug === "other_city" && customCity.trim()
+      ? customCity.trim()
+      : activeCityData?.name || "Agra";
+
+  const effectiveLocality =
+    (locality === "Other / Nearby Area" || selectedCitySlug === "other_city") && customLocality.trim()
+      ? customLocality.trim()
+      : locality;
+
+  const isCityValid = selectedCitySlug !== "other_city" || customCity.trim().length >= 2;
+  const isLocalityValid =
+    (locality !== "Other / Nearby Area" && selectedCitySlug !== "other_city") ||
+    customLocality.trim().length >= 2;
+
   const isFormValid =
-    name.trim().length >= 2 && phone.trim().replace(/\D/g, "").length >= 10;
+    name.trim().length >= 2 &&
+    phone.trim().replace(/\D/g, "").length >= 10 &&
+    isCityValid &&
+    isLocalityValid;
 
   const handleSubmitEnquiry = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -123,15 +147,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         name: trimmedName,
         phone: trimmedPhone,
         service,
-        city: activeCityData.name,
-        locality: locality,
+        city: effectiveCityName,
+        locality: effectiveLocality,
       });
 
       // 2. Track analytics conversion event
       trackEvent("enquiry_submitted", {
         service,
-        city: activeCityData.name,
-        locality,
+        city: effectiveCityName,
+        locality: effectiveLocality,
         name: trimmedName,
       });
 
@@ -189,11 +213,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto leading-relaxed">
                 {language === "hi" ? (
                   <>
-                    धन्यवाद <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! हमारी {activeCityData.hiName} टीम विवरण की पुष्टि के लिए जल्द ही <strong className="text-primary dark:text-emerald-400">{phone}</strong> पर कॉल करेगी।
+                    धन्यवाद <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! हमारी {effectiveCityName} टीम विवरण की पुष्टि के लिए जल्द ही <strong className="text-primary dark:text-emerald-400">{phone}</strong> पर कॉल करेगी।
                   </>
                 ) : (
                   <>
-                    Thank you <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! Our {activeCityData.name} coordinator will call you back shortly on <strong className="text-primary dark:text-emerald-400">{phone}</strong> to confirm your booking.
+                    Thank you <strong className="text-slate-900 dark:text-slate-100">{name}</strong>! Our {effectiveCityName} coordinator will call you back shortly on <strong className="text-primary dark:text-emerald-400">{phone}</strong> to confirm your booking.
                   </>
                 )}
               </p>
@@ -206,7 +230,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   {t.booking.successDetailsTitle}
                 </span>
                 <span className="text-[11px] font-bold text-primary dark:text-emerald-400 bg-primary/10 dark:bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
-                  {locality}, {activeCityData.name}
+                  {effectiveLocality}, {effectiveCityName}
                 </span>
               </div>
 
@@ -221,16 +245,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <a
                 href={generateWhatsAppLink({
                   service,
-                  locality: `${locality}, ${activeCityData.name}`,
-                  customNotes: `Name: ${name} | Phone: ${phone} | City: ${activeCityData.name}`,
+                  locality: `${effectiveLocality}, ${effectiveCityName}`,
+                  customNotes: `Name: ${name} | Phone: ${phone} | City: ${effectiveCityName}`,
                 })}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
                   trackEvent("success_whatsapp_chat_click", {
                     service,
-                    city: activeCityData.name,
-                    locality,
+                    city: effectiveCityName,
+                    locality: effectiveLocality,
                   })
                 }
                 className="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-emerald-600 active:scale-98 transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
@@ -304,7 +328,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <select
                     value={selectedCitySlug}
-                    onChange={(e) => setSelectedCitySlug(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setSelectedCitySlug(val);
+                      if (val === "other_city") {
+                        setLocality("Other / Nearby Area");
+                      }
+                    }}
                     className="w-full pl-9 pr-8 py-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:border-transparent focus:outline-none transition appearance-none cursor-pointer"
                   >
                     {ALL_CITIES.map((c) => (
@@ -312,6 +342,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         {language === "hi" ? c.hiName : c.name} ({c.state})
                       </option>
                     ))}
+                    <option value="other_city">
+                      {language === "hi" ? "अन्य शहर (Other City)" : "Other City / अन्य शहर"}
+                    </option>
                   </select>
                   <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
@@ -320,13 +353,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Locality in City Dropdown */}
               <div className="space-y-1.5">
                 <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">
-                  {language === "hi" ? `${activeCityData.hiName} में क्षेत्र / इलाका` : `Locality in ${activeCityData.name}`}
+                  {selectedCitySlug === "other_city"
+                    ? (language === "hi" ? "क्षेत्र / इलाका" : "Locality / Area")
+                    : (language === "hi" ? `${activeCityData?.hiName || "शहर"} में क्षेत्र` : `Locality in ${activeCityData?.name || "City"}`)}
                 </label>
                 <div className="relative">
                   <select
                     value={locality}
                     onChange={(e) => setLocality(e.target.value)}
-                    className="w-full pl-3.5 pr-8 py-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:border-transparent focus:outline-none transition appearance-none cursor-pointer"
+                    disabled={selectedCitySlug === "other_city"}
+                    className="w-full pl-3.5 pr-8 py-2.5 text-xs sm:text-sm font-semibold bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:border-transparent focus:outline-none transition appearance-none cursor-pointer disabled:opacity-60"
                   >
                     {cityLocalities.map((loc) => (
                       <option key={loc.slug} value={loc.name}>
@@ -334,13 +370,53 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       </option>
                     ))}
                     <option value="Other / Nearby Area">
-                      {language === "hi" ? "अन्य नजदीकी क्षेत्र" : "Other / Nearby Area"}
+                      {language === "hi" ? "अन्य नजदीकी क्षेत्र (अपना इलाका लिखें)" : "Other / Nearby Area (Type below)"}
                     </option>
                   </select>
                   <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
             </div>
+
+            {/* Custom City Input (if Other City selected) */}
+            {selectedCitySlug === "other_city" && (
+              <div className="space-y-1.5 animate-in fade-in-50 duration-200">
+                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">
+                  {language === "hi" ? "अपने शहर का नाम लिखें" : "Enter your City name"} <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <MapPin className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-primary dark:text-emerald-400" />
+                  <input
+                    type="text"
+                    required
+                    placeholder={language === "hi" ? "उदा. बरेली, कानपुर, पुणे, लखनऊ" : "e.g. Bareilly, Kanpur, Pune, Lucknow"}
+                    value={customCity}
+                    onChange={(e) => setCustomCity(e.target.value)}
+                    className="w-full pl-10 pr-3.5 py-2.5 text-xs sm:text-sm bg-slate-50 dark:bg-slate-900 border border-primary/50 dark:border-emerald-500/50 rounded-xl text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:outline-none transition shadow-2xs"
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Custom Locality Input (when 'Other / Nearby Area' or 'other_city' is selected) */}
+            {(locality === "Other / Nearby Area" || selectedCitySlug === "other_city") && (
+              <div className="space-y-1.5 animate-in fade-in-50 duration-200">
+                <label className="block text-xs font-bold text-slate-800 dark:text-slate-200">
+                  {language === "hi" ? "अपनी कॉलोनी / सोसाइटी / इलाके का नाम लिखें" : "Enter your Area / Society / Landmark"} <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <MapPin className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-primary dark:text-emerald-400" />
+                  <input
+                    type="text"
+                    required
+                    placeholder={language === "hi" ? "उदा. रॉयल पाम्स, सेक्टर 4, स्टेशन रोड" : "e.g. Royal Palms, Sector 4, Station Road"}
+                    value={customLocality}
+                    onChange={(e) => setCustomLocality(e.target.value)}
+                    className="w-full pl-10 pr-3.5 py-2.5 text-xs sm:text-sm bg-slate-50 dark:bg-slate-900 border border-primary/50 dark:border-emerald-500/50 rounded-xl text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-primary dark:focus:ring-emerald-500 focus:outline-none transition shadow-2xs"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* 3. Full Name */}
             <div className="space-y-1.5">

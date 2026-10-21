@@ -21,8 +21,11 @@ import {
   Info,
   Check,
   Star,
+  MapPin,
+  ChevronDown,
 } from "lucide-react";
-import { ServiceItem, PricingSlab, InclusionTab, getServiceDetails } from "@/data/services";
+import { ServiceItem, PricingSlab, InclusionTab, getServiceDetails, getCityTier } from "@/data/services";
+import { ALL_CITIES } from "@/data/citiesData";
 import { generateServiceBookingWhatsAppLink } from "@/utils/whatsapp";
 import { useLanguage } from "@/context/LanguageContext";
 import { trackEvent } from "@/utils/analytics";
@@ -59,6 +62,13 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
   const [pricingMode, setPricingMode] = useState<"monthly" | "single_day">("monthly");
   const [selectedSlabIndex, setSelectedSlabIndex] = useState<number>(0);
   const [activeTabId, setActiveTabId] = useState<string>("");
+  const [activeCitySelection, setActiveCitySelection] = useState<string>(cityOrLocality || "all_india");
+
+  useEffect(() => {
+    if (cityOrLocality) {
+      setActiveCitySelection(cityOrLocality);
+    }
+  }, [cityOrLocality]);
 
   useEffect(() => {
     if (service && isOpen) {
@@ -80,13 +90,14 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       trackEvent("service_modal_view", {
         service_id: service.id,
         service_title: service.title,
+        selected_city: activeCitySelection,
       });
     }
   }, [service, isOpen]);
 
   useEffect(() => {
     setSelectedSlabIndex(0);
-  }, [pricingMode]);
+  }, [pricingMode, activeCitySelection]);
 
   // Handle ESC key to close
   useEffect(() => {
@@ -105,7 +116,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
   if (!isOpen || !service) return null;
 
-  const details = getServiceDetails(service, language);
+  const details = getServiceDetails(service, language, activeCitySelection);
   const hasMonthly = details.monthlySlabs && details.monthlySlabs.length > 0;
   const hasSingleDay = details.singleDayHourly && details.singleDayHourly.length > 0;
 
@@ -136,6 +147,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       service_title: details.title,
       hours: slab.hours,
       rate: slab.rate,
+      location: activeCitySelection,
     });
   };
 
@@ -145,13 +157,19 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
       service_title: details.title,
       hours: selectedSlab?.hours,
       rate: selectedSlab?.rate,
+      location: activeCitySelection,
     });
+
+    const effectiveLocality =
+      activeCitySelection === "all_india"
+        ? (cityOrLocality || "Your City")
+        : activeCitySelection;
 
     const link = generateServiceBookingWhatsAppLink({
       serviceName: details.title,
       planType: selectedSlab?.hours,
       slabRate: selectedSlab?.rate,
-      locality: cityOrLocality || "Your City",
+      locality: effectiveLocality,
     });
     window.open(link, "_blank");
   };
@@ -229,7 +247,8 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
           {/* Transparent Pricing Slabs Section */}
           <div className="bg-slate-50 dark:bg-slate-900/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-800 space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            {/* Header + Location Selector Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-2.5 border-b border-slate-200/70 dark:border-slate-800">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-primary dark:text-emerald-400 block">
                   {language === "hi" ? "पारदर्शी दरें" : "Transparent Pricing Details"}
@@ -237,6 +256,45 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 font-heading">
                   {language === "hi" ? "अपनी आवश्यकता अनुसार प्लान चुनें:" : "Select Plan According to Your Needs:"}
                 </h3>
+              </div>
+
+              {/* Location Selector Pill */}
+              <div className="flex items-center gap-1.5 self-start sm:self-auto">
+                <div className="relative inline-flex items-center">
+                  <MapPin className="w-3.5 h-3.5 text-primary dark:text-emerald-400 absolute left-2.5 pointer-events-none" />
+                  <select
+                    value={activeCitySelection}
+                    onChange={(e) => setActiveCitySelection(e.target.value)}
+                    className="appearance-none bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-xs font-bold pl-8 pr-7 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 shadow-2xs hover:border-primary focus:outline-hidden focus:ring-1 focus:ring-primary cursor-pointer transition"
+                    aria-label="Select location for pricing"
+                  >
+                    <option value="all_india">
+                      {language === "hi" ? "🇮🇳 अखिल भारतीय (मूल्य सीमा)" : "🇮🇳 All-India (Price Range)"}
+                    </option>
+                    {ALL_CITIES.map((c) => (
+                      <option key={c.slug} value={c.name}>
+                        {language === "hi" ? c.hiName : c.name} ({getCityTier(c.slug) === "metro" ? (language === "hi" ? "मेट्रो दर" : "Metro Rate") : (language === "hi" ? "मानक दर" : "Standard Rate")})
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2 pointer-events-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Sub-bar: Mode Switcher & Pricing Note */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-0.5">
+              <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Info className="w-3.5 h-3.5 text-primary dark:text-emerald-400 shrink-0" />
+                <span>
+                  {activeCitySelection === "all_india"
+                    ? (language === "hi"
+                        ? "अखिल भारतीय मूल्य सीमा दिखाई जा रही है। शहर चुनें।"
+                        : "Showing Pan-India price range. Select city for exact rate.")
+                    : (language === "hi"
+                        ? `${activeCitySelection} हेतु 100% सत्यापित स्टाफ दरें`
+                        : `Exact verified staff rates for ${activeCitySelection}`)}
+                </span>
               </div>
 
               {/* Mode Switcher */}

@@ -227,6 +227,7 @@ export const CityPageClient: React.FC<CityPageClientProps> = ({ city }) => {
       <ServicesGrid
         onOpenBooking={handleOpenBooking}
         onOpenDetail={handleOpenDetail}
+        cityOrLocality={city.name}
       />
 
       {/* 5. Bureau & Agency Comparison (Addresses Sulekha/Bookmybai/Local agency queries) */}

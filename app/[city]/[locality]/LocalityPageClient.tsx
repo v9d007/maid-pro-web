@@ -264,6 +264,7 @@ export const LocalityPageClient: React.FC<LocalityPageClientProps> = ({ locality
       <ServicesGrid
         onOpenBooking={handleOpenBooking}
         onOpenDetail={handleOpenDetail}
+        cityOrLocality={`${locality.name}, ${locality.cityName}`}
       />
 
       {/* 6. Bureau & Agency Comparison */}
