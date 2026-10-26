@@ -86,7 +86,7 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageInfo> = {
     faqs: [
       {
         question: "Are home cooks charged at the same rate as housemaids?",
-        answer: "Yes, our domestic home cooking and housekeeping services are available at the exact same transparent rates starting from ₹299/session or ₹2,500/month."
+        answer: "Yes, our domestic home cooking and housekeeping services are available at the exact same transparent rates starting from ₹399 (minimum 2 hours booking) or ₹2,500/month."
       },
       {
         question: "Are your cooks trained in hygienic kitchen practices?",
