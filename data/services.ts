@@ -117,14 +117,13 @@ export const TIER_PRICING_OVERRIDES: Record<
   "house-maid-hourly": {
     tier2: {
       en: {
-        priceTag: "₹249/-",
+        priceTag: "₹399/hr",
         singleDayHourly: [
-          { hours: "1 Hour", rate: "₹249", note: "Emergency Quick Help / Cooking" },
-          { hours: "2 Hours (Mandatory min)", rate: "₹399", originalRate: "₹498", badge: "Save ₹99", note: "Cleaning / Cooking 1 Meal" },
-          { hours: "3 Hours", rate: "₹549", originalRate: "₹747", badge: "Save ₹198", note: "Cleaning + Cooking + Dishes" },
-          { hours: "4 Hours (Half Day)", rate: "₹649", originalRate: "₹996", badge: "Save ₹347", note: "Half-Day Maid / Cook" },
-          { hours: "5 Hours", rate: "₹799", originalRate: "₹1,245", badge: "Save ₹446", note: "Deep Routine Help" },
-          { hours: "Full Day Work (8-9 hrs)", rate: "₹899", originalRate: "₹1,992", badge: "Save ₹1,093", note: "Housekeeping + Cooking" },
+          { hours: "2 Hours (Minimum Booking)", rate: "₹699", originalRate: "₹798", badge: "Save ₹100", note: "Cleaning / Cooking 1 Meal (Min 2 hrs required)" },
+          { hours: "3 Hours", rate: "₹999", originalRate: "₹1,197", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes" },
+          { hours: "4 Hours (Half Day)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Half-Day Maid / Cook" },
+          { hours: "5 Hours", rate: "₹1,399", originalRate: "₹1,995", badge: "Save ₹600", note: "Deep Routine Help" },
+          { hours: "Full Day Work (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Housekeeping + Cooking" },
         ],
         monthlySlabs: [
           { hours: "1 to 1.5 Hours / day", rate: "₹2,000 – ₹3,000 / mo", badge: "Part-Time", note: "Sweeping, Mopping or Utensil Scrub" },
@@ -138,14 +137,13 @@ export const TIER_PRICING_OVERRIDES: Record<
         ],
       },
       hi: {
-        priceTag: "₹249/-",
+        priceTag: "₹399/घंटा",
         singleDayHourly: [
-          { hours: "1 घंटा", rate: "₹249", note: "क्विक इमरजेंसी हेल्प / कुकिंग" },
-          { hours: "2 घंटे (अनिवार्य)", rate: "₹399", originalRate: "₹498", badge: "₹99 छूट", note: "सफाई / 1 समय का खाना" },
-          { hours: "3 घंटे", rate: "₹549", originalRate: "₹747", badge: "₹198 छूट", note: "सफाई + खाना + बर्तन" },
-          { hours: "4 घंटे (हाफ-डे)", rate: "₹649", originalRate: "₹996", badge: "₹347 छूट", note: "हाफ-डे मेड / कुक" },
-          { hours: "5 घंटे", rate: "₹799", originalRate: "₹1,245", badge: "₹446 छूट", note: "विस्तृत सहायता" },
-          { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹899", originalRate: "₹1,992", badge: "₹1,093 छूट", note: "सफाई व कुकिंग सहायता" },
+          { hours: "2 घंटे (न्यूनतम बुकिंग)", rate: "₹699", originalRate: "₹798", badge: "₹100 छूट", note: "सफाई / 1 समय का खाना (न्यूनतम 2 घंटे अनिवार्य)" },
+          { hours: "3 घंटे", rate: "₹999", originalRate: "₹1,197", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन" },
+          { hours: "4 घंटे (हाफ-डे)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "हाफ-डे मेड / कुक" },
+          { hours: "5 घंटे", rate: "₹1,399", originalRate: "₹1,995", badge: "₹600 छूट", note: "विस्तृत सहायता" },
+          { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "सफाई व कुकिंग सहायता" },
         ],
         monthlySlabs: [
           { hours: "1 से 1.5 घंटे / दिन", rate: "₹2,000 – ₹3,000 / माह", badge: "पार्ट-टाइम", note: "झाड़ू-पोछा या बर्तन मांजना" },
@@ -161,14 +159,13 @@ export const TIER_PRICING_OVERRIDES: Record<
     },
     metro: {
       en: {
-        priceTag: "₹299/-",
+        priceTag: "₹399/hr",
         singleDayHourly: [
-          { hours: "1 Hour", rate: "₹299", note: "Emergency Quick Help / Cooking" },
-          { hours: "2 Hours (Mandatory min)", rate: "₹499", originalRate: "₹598", badge: "Save ₹99", note: "Cleaning / Cooking 1 Meal" },
-          { hours: "3 Hours", rate: "₹649", originalRate: "₹897", badge: "Save ₹248", note: "Cleaning + Cooking + Dishes" },
-          { hours: "4 Hours (Half Day)", rate: "₹749", originalRate: "₹1,196", badge: "Save ₹447", note: "Half-Day Maid / Cook" },
-          { hours: "5 Hours", rate: "₹899", originalRate: "₹1,495", badge: "Save ₹596", note: "Deep Routine Help" },
-          { hours: "Full Day Work (8-9 hrs)", rate: "₹1,099", originalRate: "₹2,392", badge: "Save ₹1,293", note: "Housekeeping + Cooking" },
+          { hours: "2 Hours (Minimum Booking)", rate: "₹699", originalRate: "₹798", badge: "Save ₹100", note: "Cleaning / Cooking 1 Meal (Min 2 hrs required)" },
+          { hours: "3 Hours", rate: "₹999", originalRate: "₹1,197", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes" },
+          { hours: "4 Hours (Half Day)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Half-Day Maid / Cook" },
+          { hours: "5 Hours", rate: "₹1,399", originalRate: "₹1,995", badge: "Save ₹600", note: "Deep Routine Help" },
+          { hours: "Full Day Work (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Housekeeping + Cooking" },
         ],
         monthlySlabs: [
           { hours: "1 to 1.5 Hours / day", rate: "₹2,500 – ₹3,500 / mo", badge: "Part-Time", note: "Sweeping, Mopping or Utensil Scrub" },
@@ -182,14 +179,13 @@ export const TIER_PRICING_OVERRIDES: Record<
         ],
       },
       hi: {
-        priceTag: "₹299/-",
+        priceTag: "₹399/घंटा",
         singleDayHourly: [
-          { hours: "1 घंटा", rate: "₹299", note: "क्विक इमरजेंसी हेल्प / कुकिंग" },
-          { hours: "2 घंटे (अनिवार्य)", rate: "₹499", originalRate: "₹598", badge: "₹99 छूट", note: "सफाई / 1 समय का खाना" },
-          { hours: "3 घंटे", rate: "₹649", originalRate: "₹897", badge: "₹248 छूट", note: "सफाई + खाना + बर्तन" },
-          { hours: "4 घंटे (हाफ-डे)", rate: "₹749", originalRate: "₹1,196", badge: "₹447 छूट", note: "हाफ-डे मेड / कुक" },
-          { hours: "5 घंटे", rate: "₹899", originalRate: "₹1,495", badge: "₹596 छूट", note: "विस्तृत सहायता" },
-          { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹1,099", originalRate: "₹2,392", badge: "₹1,293 छूट", note: "सफाई व कुकिंग सहायता" },
+          { hours: "2 घंटे (न्यूनतम बुकिंग)", rate: "₹699", originalRate: "₹798", badge: "₹100 छूट", note: "सफाई / 1 समय का खाना (न्यूनतम 2 घंटे अनिवार्य)" },
+          { hours: "3 घंटे", rate: "₹999", originalRate: "₹1,197", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन" },
+          { hours: "4 घंटे (हाफ-डे)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "हाफ-डे मेड / कुक" },
+          { hours: "5 घंटे", rate: "₹1,399", originalRate: "₹1,995", badge: "₹600 छूट", note: "विस्तृत सहायता" },
+          { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "सफाई व कुकिंग सहायता" },
         ],
         monthlySlabs: [
           { hours: "1 से 1.5 घंटे / दिन", rate: "₹2,500 – ₹3,500 / माह", badge: "पार्ट-टाइम", note: "झाड़ू-पोछा या बर्तन मांजना" },
@@ -209,10 +205,10 @@ export const TIER_PRICING_OVERRIDES: Record<
       en: {
         priceTag: "₹4,500/mo",
         singleDayHourly: [
-          { hours: "2 Hours", rate: "₹399", originalRate: "₹498", badge: "Save ₹99", note: "Cleaning + Dishes / Cooking" },
-          { hours: "3 Hours", rate: "₹549", originalRate: "₹747", badge: "Save ₹198", note: "Cleaning + Cooking + Dishes + Laundry" },
-          { hours: "4 Hours (Half Day)", rate: "₹649", originalRate: "₹996", badge: "Save ₹347", note: "Half-Day Multi-Task Help" },
-          { hours: "Full Day (8-9 hrs)", rate: "₹899", originalRate: "₹1,992", badge: "Save ₹1,093", note: "Complete Home & Cooking Help" },
+          { hours: "2 Hours (Minimum Booking)", rate: "₹699", originalRate: "₹798", badge: "Save ₹100", note: "Cleaning + Dishes / Cooking (Min 2 hrs required)" },
+          { hours: "3 Hours", rate: "₹999", originalRate: "₹1,197", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes + Laundry" },
+          { hours: "4 Hours (Half Day)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Half-Day Multi-Task Help" },
+          { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Complete Home & Cooking Help" },
         ],
         monthlySlabs: [
           { hours: "2 Hours / day", rate: "₹4,500 / month", badge: "Starter" },
@@ -227,10 +223,10 @@ export const TIER_PRICING_OVERRIDES: Record<
       hi: {
         priceTag: "₹4,500/माह",
         singleDayHourly: [
-          { hours: "2 घंटे", rate: "₹399", originalRate: "₹498", badge: "₹99 छूट", note: "सफाई + बर्तन / कुकिंग" },
-          { hours: "3 घंटे", rate: "₹549", originalRate: "₹747", badge: "₹198 छूट", note: "सफाई + खाना + बर्तन + कपड़े" },
-          { hours: "4 घंटे (हाफ-डे)", rate: "₹649", originalRate: "₹996", badge: "₹347 छूट", note: "हाफ-डे सभी काम" },
-          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹899", originalRate: "₹1,992", badge: "₹1,093 छूट", note: "संपूर्ण घरेलू व कुकिंग सहायता" },
+          { hours: "2 घंटे (न्यूनतम बुकिंग)", rate: "₹699", originalRate: "₹798", badge: "₹100 छूट", note: "सफाई + बर्तन / कुकिंग (न्यूनतम 2 घंटे अनिवार्य)" },
+          { hours: "3 घंटे", rate: "₹999", originalRate: "₹1,197", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन + कपड़े" },
+          { hours: "4 घंटे (हाफ-डे)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "हाफ-डे सभी काम" },
+          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "संपूर्ण घरेलू व कुकिंग सहायता" },
         ],
         monthlySlabs: [
           { hours: "2 घंटे / दिन", rate: "₹4,500 / माह", badge: "स्टार्टर" },
@@ -247,10 +243,10 @@ export const TIER_PRICING_OVERRIDES: Record<
       en: {
         priceTag: "₹5,000/mo",
         singleDayHourly: [
-          { hours: "2 Hours", rate: "₹499", originalRate: "₹598", badge: "Save ₹99", note: "Cleaning + Dishes / Cooking" },
-          { hours: "3 Hours", rate: "₹649", originalRate: "₹897", badge: "Save ₹248", note: "Cleaning + Cooking + Dishes + Laundry" },
-          { hours: "4 Hours (Half Day)", rate: "₹749", originalRate: "₹1,196", badge: "Save ₹447", note: "Half-Day Multi-Task Help" },
-          { hours: "Full Day (8-9 hrs)", rate: "₹1,099", originalRate: "₹2,392", badge: "Save ₹1,293", note: "Complete Home & Cooking Help" },
+          { hours: "2 Hours (Minimum Booking)", rate: "₹699", originalRate: "₹798", badge: "Save ₹100", note: "Cleaning + Dishes / Cooking (Min 2 hrs required)" },
+          { hours: "3 Hours", rate: "₹999", originalRate: "₹1,197", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes + Laundry" },
+          { hours: "4 Hours (Half Day)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Half-Day Multi-Task Help" },
+          { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Complete Home & Cooking Help" },
         ],
         monthlySlabs: [
           { hours: "2 Hours / day", rate: "₹5,000 / month", badge: "Starter" },
@@ -265,10 +261,10 @@ export const TIER_PRICING_OVERRIDES: Record<
       hi: {
         priceTag: "₹5,000/माह",
         singleDayHourly: [
-          { hours: "2 घंटे", rate: "₹499", originalRate: "₹598", badge: "₹99 छूट", note: "सफाई + बर्तन / कुकिंग" },
-          { hours: "3 घंटे", rate: "₹649", originalRate: "₹897", badge: "₹248 छूट", note: "सफाई + खाना + बर्तन + कपड़े" },
-          { hours: "4 घंटे (हाफ-डे)", rate: "₹749", originalRate: "₹1,196", badge: "₹447 छूट", note: "हाफ-डे सभी काम" },
-          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,099", originalRate: "₹2,392", badge: "₹1,293 छूट", note: "संपूर्ण घरेलू व कुकिंग सहायता" },
+          { hours: "2 घंटे (न्यूनतम बुकिंग)", rate: "₹699", originalRate: "₹798", badge: "₹100 छूट", note: "सफाई + बर्तन / कुकिंग (न्यूनतम 2 घंटे अनिवार्य)" },
+          { hours: "3 घंटे", rate: "₹999", originalRate: "₹1,197", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन + कपड़े" },
+          { hours: "4 घंटे (हाफ-डे)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "हाफ-डे सभी काम" },
+          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "संपूर्ण घरेलू व कुकिंग सहायता" },
         ],
         monthlySlabs: [
           { hours: "2 घंटे / दिन", rate: "₹5,000 / माह", badge: "स्टार्टर" },
@@ -287,8 +283,8 @@ export const TIER_PRICING_OVERRIDES: Record<
       en: {
         priceTag: "₹6,000/mo",
         singleDayHourly: [
-          { hours: "4 Hours (Half Day Nanny)", rate: "₹649", originalRate: "₹996", badge: "Save ₹347", note: "Emergency Babysitting" },
-          { hours: "Full Day (8-9 hrs)", rate: "₹899", originalRate: "₹1,992", badge: "Save ₹1,093", note: "Daytime Child Support" },
+          { hours: "4 Hours (Half Day Nanny)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Emergency Babysitting" },
+          { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Daytime Child Support" },
         ],
         monthlySlabs: [
           { hours: "4 Hours / day (Part-time Nanny)", rate: "₹6,000 – ₹7,500 / month", note: "Half-Day Childcare & Play" },
@@ -301,8 +297,8 @@ export const TIER_PRICING_OVERRIDES: Record<
       hi: {
         priceTag: "₹6,000/माह",
         singleDayHourly: [
-          { hours: "4 घंटे (हाफ डे नानी)", rate: "₹649", originalRate: "₹996", badge: "₹347 छूट", note: "इमरजेंसी बेबीसिटिंग" },
-          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹899", originalRate: "₹1,992", badge: "₹1,093 छूट", note: "दिनभर शिशु देखभाल" },
+          { hours: "4 घंटे (हाफ डे नानी)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "इमरजेंसी बेबीसिटिंग" },
+          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "दिनभर शिशु देखभाल" },
         ],
         monthlySlabs: [
           { hours: "4 घंटे / दिन (पार्ट-टाइम नानी)", rate: "₹6,000 – ₹7,500 / माह", note: "हाफ-डे शिशु देखभाल व खेल" },
@@ -317,8 +313,8 @@ export const TIER_PRICING_OVERRIDES: Record<
       en: {
         priceTag: "₹7,000/mo",
         singleDayHourly: [
-          { hours: "4 Hours (Half Day Nanny)", rate: "₹749", originalRate: "₹1,196", badge: "Save ₹447", note: "Emergency Babysitting" },
-          { hours: "Full Day (8-9 hrs)", rate: "₹1,099", originalRate: "₹2,392", badge: "Save ₹1,293", note: "Daytime Child Support" },
+          { hours: "4 Hours (Half Day Nanny)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Emergency Babysitting" },
+          { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Daytime Child Support" },
         ],
         monthlySlabs: [
           { hours: "4 Hours / day (Part-time Nanny)", rate: "₹7,000 – ₹8,500 / month", note: "Half-Day Childcare & Play" },
@@ -331,8 +327,8 @@ export const TIER_PRICING_OVERRIDES: Record<
       hi: {
         priceTag: "₹7,000/माह",
         singleDayHourly: [
-          { hours: "4 घंटे (हाफ डे नानी)", rate: "₹749", originalRate: "₹1,196", badge: "₹447 छूट", note: "इमरजेंसी बेबीसिटिंग" },
-          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,099", originalRate: "₹2,392", badge: "₹1,293 छूट", note: "दिनभर शिशु देखभाल" },
+          { hours: "4 घंटे (हाफ डे नानी)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "इमरजेंसी बेबीसिटिंग" },
+          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "दिनभर शिशु देखभाल" },
         ],
         monthlySlabs: [
           { hours: "4 घंटे / दिन (पार्ट-टाइम नानी)", rate: "₹7,000 – ₹8,500 / माह", note: "हाफ-डे शिशु देखभाल व खेल" },
@@ -349,7 +345,7 @@ export const TIER_PRICING_OVERRIDES: Record<
       en: {
         priceTag: "₹10,000/mo",
         singleDayHourly: [
-          { hours: "Full Day (8-9 hrs)", rate: "₹899", originalRate: "₹1,992", badge: "Save ₹1,093", note: "Bedside Attendant" },
+          { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Bedside Attendant" },
         ],
         monthlySlabs: [
           { hours: "8 Hours / day (Day Shift)", rate: "₹10,000 to ₹12,000 / month", badge: "Day Shift", note: "Elderly Assistance & Walk Support" },
@@ -360,7 +356,7 @@ export const TIER_PRICING_OVERRIDES: Record<
       hi: {
         priceTag: "₹10,000/माह",
         singleDayHourly: [
-          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹899", originalRate: "₹1,992", badge: "₹1,093 छूट", note: "मरीज की देखरेख" },
+          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "मरीज की देखरेख" },
         ],
         monthlySlabs: [
           { hours: "8 घंटे / दिन (डे शिफ्ट)", rate: "₹10,000 से ₹12,000 / माह", badge: "डे शिफ्ट", note: "बुजुर्गों का सहारा व देखभाल" },
@@ -373,7 +369,7 @@ export const TIER_PRICING_OVERRIDES: Record<
       en: {
         priceTag: "₹12,000/mo",
         singleDayHourly: [
-          { hours: "Full Day (8-9 hrs)", rate: "₹1,099", originalRate: "₹2,392", badge: "Save ₹1,293", note: "Bedside Attendant" },
+          { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Bedside Attendant" },
         ],
         monthlySlabs: [
           { hours: "8 Hours / day (Day Shift)", rate: "₹12,000 to ₹14,000 / month", badge: "Day Shift", note: "Elderly Assistance & Walk Support" },
@@ -384,7 +380,7 @@ export const TIER_PRICING_OVERRIDES: Record<
       hi: {
         priceTag: "₹12,000/माह",
         singleDayHourly: [
-          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,099", originalRate: "₹2,392", badge: "₹1,293 छूट", note: "मरीज की देखरेख" },
+          { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "मरीज की देखरेख" },
         ],
         monthlySlabs: [
           { hours: "8 घंटे / दिन (डे शिफ्ट)", rate: "₹12,000 से ₹14,000 / माह", badge: "डे शिफ्ट", note: "बुजुर्गों का सहारा व देखभाल" },
@@ -666,7 +662,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     stepNumber: "01",
     title: "House Maid & Home Cooking Service",
     shortDesc: "Trusted verified maids & home cooks for sweeping, mopping, utensil scrub, fresh home cooking (veg & non-veg) & daily chores at transparent rates.",
-    priceTag: "₹249 – ₹299",
+    priceTag: "₹399/hr",
     badge: "Maid & Cook at Same Rate",
     category: "maid_care",
     icon: "Clock",
@@ -678,14 +674,13 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       "100% Police & Aadhaar verified staff"
     ],
     equipmentNotice: "Please provide all necessary equipments, detergents, broom, mop and cooking ingredients for the helper.",
-    pricingTerms: "At least 2 hr service is mandatory for single-day on-demand bookings. Maid and home cooking services are provided at the exact same transparent rates.",
+    pricingTerms: "Base rate is ₹399/hr. Minimum 2 hours booking is mandatory for on-demand single-day domestic help. Maid and home cooking services are provided at the exact same transparent rates.",
     singleDayHourly: [
-      { hours: "1 Hour", rate: "₹249 – ₹299", note: "Emergency Quick Help / Cooking" },
-      { hours: "2 Hours (Mandatory min)", rate: "₹399 – ₹499", badge: "Save ₹100", note: "Cleaning / Cooking 1 Meal" },
-      { hours: "3 Hours", rate: "₹549 – ₹649", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes" },
-      { hours: "4 Hours (Half Day)", rate: "₹649 – ₹749", badge: "Save ₹350", note: "Half-Day Maid / Cook" },
-      { hours: "5 Hours", rate: "₹799 – ₹899", badge: "Save ₹500", note: "Deep Routine Help" },
-      { hours: "Full Day Work (8-9 hrs)", rate: "₹899 – ₹1,099", badge: "Save ₹1,000+", note: "Housekeeping + Cooking" }
+      { hours: "2 Hours (Minimum Booking)", rate: "₹699", originalRate: "₹798", badge: "Save ₹100", note: "Cleaning / Cooking 1 Meal (₹350/hr • Min 2 hrs)" },
+      { hours: "3 Hours", rate: "₹999", originalRate: "₹1,197", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes" },
+      { hours: "4 Hours (Half Day)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Half-Day Maid / Cook" },
+      { hours: "5 Hours", rate: "₹1,399", originalRate: "₹1,995", badge: "Save ₹600", note: "Deep Routine Help" },
+      { hours: "Full Day Work (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Housekeeping + Cooking" }
     ],
     monthlySlabs: [
       { hours: "1 to 1.5 Hours / day", rate: "₹2,000 – ₹3,500 / mo", badge: "Part-Time", note: "Sweeping, Mopping or Utensil Scrub" },
@@ -706,7 +701,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     hi: {
       title: "घरेलू मेड व कुक सेवा (सफाई व खाना)",
       shortDesc: "झाड़ू-पोछा, बर्तन, ताजा घरेलू खाना (रोटी, सब्जी, दाल) व दैनिक कामकाज के लिए 100% पुलिस सत्यापित मेड व कुक — दोनों एक ही किफायती दर पर।",
-      priceTag: "₹249 – ₹299",
+      priceTag: "₹399/घंटा",
       badge: "समान दरों पर मेड व कुक",
       features: [
         "झाड़ू, पोछा, बर्तन व ताजा घरेलू खाना बनाना",
@@ -715,14 +710,13 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         "100% पुलिस व आधार सत्यापित स्टाफ"
       ],
       equipmentNotice: "कृपया मेड/कुक के लिए झाड़ू, पोछा, बाल्टी, सर्फ व राशन सामग्री उपलब्ध कराएं।",
-      pricingTerms: "सिंगल डे ऑन-डिमांड बुकिंग के लिए कम से कम 2 घंटे की सेवा अनिवार्य है। मेड और कुक दोनों सेवाएं समान पारदर्शी दरों पर उपलब्ध हैं।",
+      pricingTerms: "सिंगल डे ऑन-डिमांड घरेलू सहायता के लिए बेस रेट ₹399/घंटा है और न्यूनतम 2 घंटे की बुकिंग अनिवार्य है। मेड और कुक दोनों सेवाएं समान पारदर्शी दरों पर उपलब्ध हैं।",
       singleDayHourly: [
-        { hours: "1 घंटा", rate: "₹249 – ₹299", note: "क्विक इमरजेंसी हेल्प / कुकिंग" },
-        { hours: "2 घंटे (अनिवार्य)", rate: "₹399 – ₹499", badge: "₹100 छूट", note: "सफाई / 1 समय का खाना" },
-        { hours: "3 घंटे", rate: "₹549 – ₹649", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन" },
-        { hours: "4 घंटे (हाफ-डे)", rate: "₹649 – ₹749", badge: "₹350 छूट", note: "हाफ-डे मेड / कुक" },
-        { hours: "5 घंटे", rate: "₹799 – ₹899", badge: "₹500 छूट", note: "विस्तृत सहायता" },
-        { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹899 – ₹1,099", badge: "₹1,000+ छूट", note: "सफाई व कुकिंग सहायता" }
+        { hours: "2 घंटे (न्यूनतम बुकिंग)", rate: "₹699", originalRate: "₹798", badge: "₹100 छूट", note: "सफाई / 1 समय का खाना (₹350/घंटा • न्यूनतम 2 घंटे)" },
+        { hours: "3 घंटे", rate: "₹999", originalRate: "₹1,197", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन" },
+        { hours: "4 घंटे (हाफ-डे)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "हाफ-डे मेड / कुक" },
+        { hours: "5 घंटे", rate: "₹1,399", originalRate: "₹1,995", badge: "₹600 छूट", note: "विस्तृत सहायता" },
+        { hours: "फुल डे वर्क (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "सफाई व कुकिंग सहायता" }
       ],
       monthlySlabs: [
         { hours: "1 से 1.5 घंटे / दिन", rate: "₹2,000 – ₹3,500 / माह", badge: "पार्ट-टाइम", note: "झाड़ू-पोछा या बर्तन मांजना" },
@@ -754,10 +748,10 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     equipmentNotice: "Please provide all necessary equipments, detergents, broom, mop, cooking ingredients and washing supplies.",
     pricingTerms: "These are all prices for a 50% maid 1 month salary one-time service charges with agreement of 3 months free replacement.",
     singleDayHourly: [
-      { hours: "2 Hours", rate: "₹399 – ₹499", badge: "Save ₹100", note: "Cleaning + Dishes / Cooking" },
-      { hours: "3 Hours", rate: "₹549 – ₹649", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes + Laundry" },
-      { hours: "4 Hours (Half Day)", rate: "₹649 – ₹749", badge: "Save ₹350", note: "Half-Day Multi-Task Help" },
-      { hours: "Full Day (8-9 hrs)", rate: "₹899 – ₹1,099", badge: "Save ₹1,000+", note: "Complete Home & Cooking Help" }
+      { hours: "2 Hours (Minimum Booking)", rate: "₹699", originalRate: "₹798", badge: "Save ₹100", note: "Cleaning + Dishes / Cooking (Min 2 hrs required)" },
+      { hours: "3 Hours", rate: "₹999", originalRate: "₹1,197", badge: "Save ₹200", note: "Cleaning + Cooking + Dishes + Laundry" },
+      { hours: "4 Hours (Half Day)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Half-Day Multi-Task Help" },
+      { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Complete Home & Cooking Help" }
     ],
     monthlySlabs: [
       { hours: "2 Hours / day", rate: "₹4,500 – ₹5,000 / month", badge: "Starter" },
@@ -788,10 +782,10 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       equipmentNotice: "कृपया बर्तन धोने का साबुन, वाशिंग पाउडर, झाड़ू, पोछा व राशन सामग्री उपलब्ध कराएं।",
       pricingTerms: "3 महीने के अनुबंध के साथ 50% एकमुश्त सेवा शुल्क व 3 महीने तक मुफ्त रिप्लेसमेंट।",
       singleDayHourly: [
-        { hours: "2 घंटे", rate: "₹399 – ₹499", badge: "₹100 छूट", note: "सफाई + बर्तन / कुकिंग" },
-        { hours: "3 घंटे", rate: "₹549 – ₹649", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन + कपड़े" },
-        { hours: "4 घंटे (हाफ-डे)", rate: "₹649 – ₹749", badge: "₹350 छूट", note: "हाफ-डे सभी काम" },
-        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹899 – ₹1,099", badge: "₹1,000+ छूट", note: "संपूर्ण घरेलू व कुकिंग सहायता" }
+        { hours: "2 घंटे (न्यूनतम बुकिंग)", rate: "₹699", originalRate: "₹798", badge: "₹100 छूट", note: "सफाई + बर्तन / कुकिंग (न्यूनतम 2 घंटे अनिवार्य)" },
+        { hours: "3 घंटे", rate: "₹999", originalRate: "₹1,197", badge: "₹200 छूट", note: "सफाई + खाना + बर्तन + कपड़े" },
+        { hours: "4 घंटे (हाफ-डे)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "हाफ-डे सभी काम" },
+        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "संपूर्ण घरेलू व कुकिंग सहायता" }
       ],
       monthlySlabs: [
         { hours: "2 घंटे / दिन", rate: "₹4,500 – ₹5,000 / माह", badge: "स्टार्टर" },
@@ -819,8 +813,8 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     equipmentNotice: "Please provide baby care products, diapers, feeding bottles and baby food supplies.",
     pricingTerms: "50% 1-month salary one-time service charges with agreement of 3 months free replacement.",
     singleDayHourly: [
-      { hours: "4 Hours (Half Day Nanny)", rate: "₹649 – ₹749", badge: "Save ₹350", note: "Emergency Babysitting" },
-      { hours: "Full Day (8-9 hrs)", rate: "₹899 – ₹1,099", badge: "Save ₹1,000+", note: "Daytime Child Support" }
+      { hours: "4 Hours (Half Day Nanny)", rate: "₹1,199", originalRate: "₹1,596", badge: "Save ₹400", note: "Emergency Babysitting" },
+      { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Daytime Child Support" }
     ],
     monthlySlabs: [
       { hours: "4 Hours / day (Part-time Nanny)", rate: "₹6,000 – ₹8,500 / month", note: "Half-Day Childcare & Play" },
@@ -842,8 +836,8 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       equipmentNotice: "कृपया शिशु के कपड़े, डायपर, फीडिंग बॉटल और आहार सामग्री उपलब्ध कराएं।",
       pricingTerms: "3 महीने के अनुबंध के साथ 50% एकमुश्त सेवा शुल्क व 3 महीने तक मुफ्त रिप्लेसमेंट।",
       singleDayHourly: [
-        { hours: "4 घंटे (हाफ डे नानी)", rate: "₹649 – ₹749", badge: "₹350 छूट", note: "इमरजेंसी बेबीसिटिंग" },
-        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹899 – ₹1,099", badge: "₹1,000+ छूट", note: "दिनभर शिशु देखभाल" }
+        { hours: "4 घंटे (हाफ डे नानी)", rate: "₹1,199", originalRate: "₹1,596", badge: "₹400 छूट", note: "इमरजेंसी बेबीसिटिंग" },
+        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "दिनभर शिशु देखभाल" }
       ],
       monthlySlabs: [
         { hours: "4 घंटे / दिन (पार्ट-टाइम नानी)", rate: "₹6,000 – ₹8,500 / माह", note: "हाफ-डे शिशु देखभाल व खेल" },
@@ -868,7 +862,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     equipmentNotice: "Please provide all patient medications, medical charts, and prescribed diet instructions.",
     pricingTerms: "50% 1-month salary one-time service charges with agreement of 3 months free replacement.",
     singleDayHourly: [
-      { hours: "Full Day (8-9 hrs)", rate: "₹899 – ₹1,099", badge: "Save ₹1,000+", note: "Bedside Attendant" }
+      { hours: "Full Day (8-9 hrs)", rate: "₹1,999", originalRate: "₹3,192", badge: "Save ₹1,200", note: "Bedside Attendant" }
     ],
     monthlySlabs: [
       { hours: "8 Hours / day (Day Shift)", rate: "₹10,000 to ₹14,000 / month", badge: "Day Shift", note: "Elderly Assistance & Walk Support" },
@@ -888,7 +882,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       equipmentNotice: "कृपया दवाइयां और डॉक्टर के निर्देश उपलब्ध कराएं।",
       pricingTerms: "3 महीने के अनुबंध के साथ 50% एकमुश्त सेवा शुल्क व 3 महीने तक मुफ्त रिप्लेसमेंट।",
       singleDayHourly: [
-        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹899 – ₹1,099", badge: "₹1,000+ छूट", note: "मरीज की देखरेख" }
+        { hours: "पूरा दिन (8-9 घंटे)", rate: "₹1,999", originalRate: "₹3,192", badge: "₹1,200 छूट", note: "मरीज की देखरेख" }
       ],
       monthlySlabs: [
         { hours: "8 घंटे / दिन (डे शिफ्ट)", rate: "₹10,000 से ₹14,000 / माह", badge: "डे शिफ्ट", note: "बुजुर्गों का सहारा व देखभाल" },
@@ -911,10 +905,10 @@ export const SERVICES_CATALOG: ServiceItem[] = [
     equipmentNotice: "All industrial vacuum cleaners, single-disc floor scrubbers, ladders, and eco-friendly certified chemicals are provided by MaidPro.",
     pricingTerms: "Fixed transparent home cleaning packages with 100% satisfaction guarantee. No hidden charges.",
     singleDayHourly: [
-      { hours: "1 BHK Full Home", rate: "₹1,499", badge: "Standard", subtext: "3-4 Hours • 2 Staff" },
-      { hours: "2 BHK Full Home", rate: "₹2,199", badge: "Most Popular", subtext: "4-5 Hours • 2-3 Staff" },
-      { hours: "3 BHK Full Home", rate: "₹2,999", badge: "Best Value", subtext: "5-6 Hours • 3-4 Staff" },
-      { hours: "4 BHK / Villa", rate: "₹3,999", subtext: "6-8 Hours • 4 Staff" },
+      { hours: "1 BHK Full Home", rate: "₹1,499", badge: "Standard", subtext: "3-4 Hours Complete Clean" },
+      { hours: "2 BHK Full Home", rate: "₹2,199", badge: "Most Popular", subtext: "4-5 Hours Complete Clean" },
+      { hours: "3 BHK Full Home", rate: "₹2,999", badge: "Best Value", subtext: "5-6 Hours Complete Clean" },
+      { hours: "4 BHK / Villa", rate: "₹3,999", subtext: "6-8 Hours Deep Villa Clean" },
       { hours: "Kitchen Deep Degrease", rate: "₹999", subtext: "Includes Chimney Scrub" },
       { hours: "Bathroom Tile Descaling", rate: "₹599 / bath", subtext: "Acid-free Stain Removal" }
     ],
@@ -1018,10 +1012,10 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       equipmentNotice: "सभी इंडस्ट्रियल वैक्यूम क्लीनर, फ्लोर मशीन, सीढ़ी और इको-फ्रेंडली केमिकल मेडप्रो टीम द्वारा उपलब्ध कराए जाते हैं।",
       pricingTerms: "100% संतुष्टि गारंटी के साथ निश्चित पारदर्शी होम क्लीनिंग पैकेज। कोई छुपा शुल्क नहीं।",
       singleDayHourly: [
-        { hours: "1 BHK पूरा घर", rate: "₹1,499", badge: "मानक", subtext: "3-4 घंटे • 2 स्टाफ" },
-        { hours: "2 BHK पूरा घर", rate: "₹2,199", badge: "सर्वाधिक लोकप्रिय", subtext: "4-5 घंटे • 2-3 स्टाफ" },
-        { hours: "3 BHK पूरा घर", rate: "₹2,999", badge: "बेस्ट वैल्यू", subtext: "5-6 घंटे • 3-4 स्टाफ" },
-        { hours: "4 BHK / विला", rate: "₹3,999", subtext: "6-8 घंटे • 4 स्टाफ" },
+        { hours: "1 BHK पूरा घर", rate: "₹1,499", badge: "मानक", subtext: "3-4 घंटे संपूर्ण सफाई" },
+        { hours: "2 BHK पूरा घर", rate: "₹2,199", badge: "सर्वाधिक लोकप्रिय", subtext: "4-5 घंटे संपूर्ण सफाई" },
+        { hours: "3 BHK पूरा घर", rate: "₹2,999", badge: "बेस्ट वैल्यू", subtext: "5-6 घंटे संपूर्ण सफाई" },
+        { hours: "4 BHK / विला", rate: "₹3,999", subtext: "6-8 घंटे संपूर्ण विला सफाई" },
         { hours: "किचन डीप डीग्रीसिंग", rate: "₹999", subtext: "चिमनी स्क्रब सहित" },
         { hours: "बाथरूम टाइल डीस्केलिंग", rate: "₹599 / बाथरूम", subtext: "दाग हटाने का ट्रीटमेंट" }
       ]
@@ -1044,7 +1038,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       { hours: "1 BHK Move-in", rate: "₹1,999", subtext: "Complete Handover Clean" },
       { hours: "2 BHK Move-in", rate: "₹2,799", badge: "Popular", subtext: "Paint Mark Removal" },
       { hours: "3 BHK Move-in", rate: "₹3,699", subtext: "All Rooms & Balconies" },
-      { hours: "4 BHK / Villa", rate: "₹4,799", subtext: "Deep Multi-Staff Service" }
+      { hours: "4 BHK / Villa", rate: "₹4,799", subtext: "Complete Deep Move-In Clean" }
     ],
     inclusionTabs: [
       {
@@ -1110,7 +1104,7 @@ export const SERVICES_CATALOG: ServiceItem[] = [
         { hours: "1 BHK मूव-इन", rate: "₹1,999", subtext: "पूरी हैंडओवर सफाई" },
         { hours: "2 BHK मूव-इन", rate: "₹2,799", badge: "लोकप्रिय", subtext: "पेंट के दाग हटाने सहित" },
         { hours: "3 BHK मूव-इन", rate: "₹3,699", subtext: "सभी कमरे व बालकनी" },
-        { hours: "4 BHK / विला", rate: "₹4,799", subtext: "मल्टी-स्टाफ सर्विस" }
+        { hours: "4 BHK / विला", rate: "₹4,799", subtext: "संपूर्ण डीप मूव-इन सफाई" }
       ]
     },
   },
