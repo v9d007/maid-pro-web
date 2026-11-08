@@ -77,21 +77,54 @@ function doPost(e) {
     }
     
     // =========================================================================
-    // CASE 2: REAL CUSTOMER LEAD INQUIRY (Appended to Main CRM Tab)
+    // CASE 2: REAL CUSTOMER LEAD INQUIRY (100% Automatic Monthly Rollover)
     // =========================================================================
-    // Auto-detect current month tab (e.g. "November 2026", "November", "Nov 2026", "Nov")
-    // If not found, falls back to "Inquiries" or the very first sheet on the left.
-    var monthNameLong = Utilities.formatDate(now, "Asia/Kolkata", "MMMM");       // e.g. "November"
-    var monthYear = Utilities.formatDate(now, "Asia/Kolkata", "MMMM yyyy");     // e.g. "November 2026"
-    var monthShortYear = Utilities.formatDate(now, "Asia/Kolkata", "MMM yyyy"); // e.g. "Nov 2026"
-    var monthShort = Utilities.formatDate(now, "Asia/Kolkata", "MMM");          // e.g. "Nov"
+    // Automatically generates tab name based on current date, e.g. "November 2026", "December 2026"
+    var currentMonthName = Utilities.formatDate(now, "Asia/Kolkata", "MMMM yyyy");
+    
+    // Check if the current month tab already exists
+    var leadSheet = doc.getSheetByName(currentMonthName);
 
-    var leadSheet = doc.getSheetByName(monthYear) ||
-                    doc.getSheetByName(monthNameLong) ||
-                    doc.getSheetByName(monthShortYear) ||
-                    doc.getSheetByName(monthShort) ||
-                    doc.getSheetByName("Inquiries") ||
-                    doc.getSheets()[0];
+    // If it's a new month and the tab doesn't exist yet, automatically create it!
+    if (!leadSheet) {
+      // 1. Insert new tab at index 0 (places it at the very first position on the far left)
+      leadSheet = doc.insertSheet(currentMonthName, 0);
+
+      // 2. Find previous month tab to copy headers and formatting from
+      var allSheets = doc.getSheets();
+      var prevSheet = null;
+      for (var i = 1; i < allSheets.length; i++) {
+        var sName = allSheets[i].getName();
+        if (sName !== "Service Interest & Clicks") {
+          prevSheet = allSheets[i];
+          break;
+        }
+      }
+
+      if (prevSheet && prevSheet.getLastColumn() > 0) {
+        var headers = prevSheet.getRange(1, 1, 1, prevSheet.getLastColumn()).getValues();
+        leadSheet.getRange(1, 1, 1, prevSheet.getLastColumn()).setValues(headers);
+        leadSheet.getRange(1, 1, 1, prevSheet.getLastColumn()).setFontWeight("bold");
+        leadSheet.setFrozenRows(1);
+      } else {
+        // Fallback standard headers
+        leadSheet.appendRow([
+          "Date & Exact Timestamp",
+          "Handled By",
+          "Status",
+          "Feedback / Additional Details",
+          "Client Name",
+          "Contact no.",
+          "City",
+          "Complete Address",
+          "Number of Family Members",
+          "⏰ Work Requirements | कार्य आवश्यकताएँ",
+          "Salary Details",
+          "Candidate Preference"
+        ]);
+        leadSheet.setFrozenRows(1);
+      }
+    }
 
     var clientCity = data.city ? String(data.city).trim() : "Agra";
     var fullAddress = data.locality ? String(data.locality).trim() : "";
