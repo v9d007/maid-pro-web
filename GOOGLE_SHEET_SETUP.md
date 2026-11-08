@@ -79,6 +79,20 @@ function doPost(e) {
     // =========================================================================
     // CASE 2: REAL CUSTOMER LEAD INQUIRY (Appended to Main CRM Tab)
     // =========================================================================
+    // Auto-detect current month tab (e.g. "November 2026", "November", "Nov 2026", "Nov")
+    // If not found, falls back to "Inquiries" or the very first sheet on the left.
+    var monthNameLong = Utilities.formatDate(now, "Asia/Kolkata", "MMMM");       // e.g. "November"
+    var monthYear = Utilities.formatDate(now, "Asia/Kolkata", "MMMM yyyy");     // e.g. "November 2026"
+    var monthShortYear = Utilities.formatDate(now, "Asia/Kolkata", "MMM yyyy"); // e.g. "Nov 2026"
+    var monthShort = Utilities.formatDate(now, "Asia/Kolkata", "MMM");          // e.g. "Nov"
+
+    var leadSheet = doc.getSheetByName(monthYear) ||
+                    doc.getSheetByName(monthNameLong) ||
+                    doc.getSheetByName(monthShortYear) ||
+                    doc.getSheetByName(monthShort) ||
+                    doc.getSheetByName("Inquiries") ||
+                    doc.getSheets()[0];
+
     var clientCity = data.city ? String(data.city).trim() : "Agra";
     var fullAddress = data.locality ? String(data.locality).trim() : "";
 
