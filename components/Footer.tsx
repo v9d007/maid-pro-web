@@ -26,8 +26,8 @@ export const Footer: React.FC = () => {
 
               <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed max-w-sm">
                 {language === "hi"
-                  ? "भारत के 9+ प्रमुख शहरों (आगरा, गाजियाबाद, मुंबई, जयपुर, ग्वालियर आदि) में 100% पुलिस-सत्यापित मेड, कुक, और डीप क्लीनिंग सेवाएं।"
-                  : "India's trusted platform for verified domestic helpers, cooks, and professional cleaning across Agra, Ghaziabad, Kalyan Mumbai, Jaipur, and 5+ cities."}
+                  ? "भारत के 10+ प्रमुख शहरों (आगरा, गाजियाबाद, मुंबई, जयपुर, इंदौर, ग्वालियर आदि) में 100% पुलिस-सत्यापित मेड, कुक, और डीप क्लीनिंग सेवाएं।"
+                  : "India's trusted platform for verified domestic helpers, cooks, and professional cleaning across Agra, Ghaziabad, Kalyan Mumbai, Jaipur, Indore, and 5+ cities."}
               </p>
 
               <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-semibold text-xs pt-0.5">

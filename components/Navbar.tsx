@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
                   <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200/90 dark:border-slate-700 p-2 z-50 animate-in fade-in-50 zoom-in-95 max-h-84 overflow-y-auto">
                     <div className="px-2.5 py-1.5 border-b border-slate-100 dark:border-slate-800 text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center justify-between">
                       <span>{language === "hi" ? "सर्विस शहर चुनें" : "Select Location"}</span>
-                      <span className="text-[9px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-semibold text-slate-500">9 Cities</span>
+                      <span className="text-[9px] bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-semibold text-slate-500">{allCities.length} Cities</span>
                     </div>
 
                     <div className="py-1 space-y-0.5">
@@ -329,7 +329,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
             <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 space-y-2">
               <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400">
                 <span>{language === "hi" ? "अपना शहर चुनें:" : "Select Your City:"}</span>
-                <span className="text-[10px] text-primary dark:text-emerald-400 font-semibold">9 Operational Cities</span>
+                <span className="text-[10px] text-primary dark:text-emerald-400 font-semibold">{allCities.length} Operational Cities</span>
               </div>
               <div className="grid grid-cols-2 gap-1.5 max-h-44 overflow-y-auto pr-0.5">
                 <Link

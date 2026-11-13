@@ -93,6 +93,11 @@ export function getCityTier(cityOrLocality?: string): CityTier {
     s.includes("sikandra") ||
     s.includes("kamla") ||
     s.includes("gwalior") ||
+    s.includes("indore") ||
+    s.includes("vijay nagar") ||
+    s.includes("palasia") ||
+    s.includes("saket") ||
+    s.includes("super corridor") ||
     s.includes("aligarh") ||
     s.includes("mathura") ||
     s.includes("vrindavan") ||

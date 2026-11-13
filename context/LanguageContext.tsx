@@ -131,7 +131,7 @@ const translations: Record<Language, Translations> = {
       headingLine1: "Spotless Homes,",
       headingLine2: "Absolute Peace of Mind.",
       subtitle:
-        "India's trusted platform for 100% police-verified domestic helpers, home cooks, and professional deep cleaning services delivered directly to your doorstep across 9+ operational cities.",
+        "India's trusted platform for 100% police-verified domestic helpers, home cooks, and professional deep cleaning services delivered directly to your doorstep across 10+ operational cities.",
       verifiedStaff: "Verified Staff",
       satisfactionGuaranteed: "Satisfaction Guaranteed",
       instantReplacement: "Free Instant Replacement",
@@ -204,7 +204,7 @@ const translations: Record<Language, Translations> = {
       addressLabel: "Bodla, Khandari Crossing, Sanjay Place, Agra, UP - 282002",
       phoneLabel: "+91 93210 34262",
       emailLabel: "maidprosolution@gmail.com",
-      serviceAreas: "Serving 9+ Cities Across India • Verified Domestic Staff & Deep Cleaning",
+      serviceAreas: "Serving 10+ Cities Across India • Verified Domestic Staff & Deep Cleaning",
       allRightsReserved: "All rights reserved. MaidPro.",
     },
     booking: {
@@ -248,7 +248,7 @@ const translations: Record<Language, Translations> = {
       headingLine1: "चमकता घर,",
       headingLine2: "पूरी मन की शांति।",
       subtitle:
-        "भारत के 9+ प्रमुख शहरों में 100% पुलिस-सत्यापित, भरोसेमंद और प्रशिक्षित मेड, कुक व सफाई सेवाएं सीधे आपके द्वार पर बिना किसी अग्रिम भुगतान के।",
+        "भारत के 10+ प्रमुख शहरों में 100% पुलिस-सत्यापित, भरोसेमंद और प्रशिक्षित मेड, कुक व सफाई सेवाएं सीधे आपके द्वार पर बिना किसी अग्रिम भुगतान के।",
       verifiedStaff: "सत्यापित स्टाफ",
       satisfactionGuaranteed: "संतुष्टि की गारंटी",
       instantReplacement: "मुफ्त तत्काल रिप्लेसमेंट",
@@ -276,7 +276,7 @@ const translations: Record<Language, Translations> = {
       badge: "ग्राहकों के अनुभव",
       title: "भारत के 2,500+ परिवारों का भरोसा",
       subtitle:
-        "जानिए हमारे 9+ शहरों के परिवार हमारे पुलिस-सत्यापित घरेलू स्टाफ के बारे में क्या कहते हैं।",
+        "जानिए हमारे 10+ शहरों के परिवार हमारे पुलिस-सत्यापित घरेलू स्टाफ के बारे में क्या कहते हैं।",
       verifiedResident: "सत्यापित ग्राहक",
     },
     about: {
@@ -321,7 +321,7 @@ const translations: Record<Language, Translations> = {
       addressLabel: "बोदला, खंदारी चौराहा, संजय प्लेस, आगरा, यूपी - 282002",
       phoneLabel: "+91 93210 34262",
       emailLabel: "maidprosolution@gmail.com",
-      serviceAreas: "भारत के 9+ प्रमुख शहरों में सेवारत • 100% पुलिस-सत्यापित व प्रशिक्षित स्टाफ",
+      serviceAreas: "भारत के 10+ प्रमुख शहरों में सेवारत • 100% पुलिस-सत्यापित व प्रशिक्षित स्टाफ",
       allRightsReserved: "सर्वाधिकार सुरक्षित। MaidPro.",
     },
     booking: {

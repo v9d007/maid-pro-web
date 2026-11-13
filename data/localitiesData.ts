@@ -83,7 +83,7 @@ function createLocalityInfo(
   };
 }
 
-// Master Record for all localities across 9 cities
+// Master Record for all localities across 10 cities
 export const ALL_LOCALITIES: LocalityInfo[] = [];
 
 // Populate from CITIES_DATA

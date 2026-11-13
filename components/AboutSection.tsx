@@ -76,8 +76,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ city }) => {
       title: language === "hi" ? "समर्पित ऑन-ग्राउंड सहायता" : "Dedicated Local Operations",
       desc:
         language === "hi"
-          ? "हमारे सभी 9+ सेवा शहरों में स्थानीय टीम सप्ताह के सातों दिन आपकी सुविधा व बैकअप के लिए तत्पर है।"
-          : "Dedicated on-ground operations across all 9+ cities available 7 days a week for immediate coordination.",
+          ? "हमारे सभी 10+ सेवा शहरों में स्थानीय टीम सप्ताह के सातों दिन आपकी सुविधा व बैकअप के लिए तत्पर है।"
+          : "Dedicated on-ground operations across all 10+ cities available 7 days a week for immediate coordination.",
     },
   ];
 
@@ -133,8 +133,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ city }) => {
 
                 <p>
                   {language === "hi"
-                    ? "हमने इस असंगठित व्यवस्था को एक आधुनिक, भरोसेमंद मंच में बदलकर परिवारों को प्रशिक्षित, 100% पुलिस-सत्यापित सहायक उपलब्ध कराए हैं — बिना किसी अग्रिम कमीशन के। आगरा, गाजियाबाद, मुंबई MMR, जयपुर, ग्वालियर सहित 9+ प्रमुख शहरों में हम अपने सहायकों को निष्पक्ष वेतन और परिवारों को 24 घंटे में मुफ्त रिप्लेसमेंट गारंटी प्रदान करते हैं।"
-                    : "We transformed this informal ecosystem into an organized pan-India platform where families receive thoroughly vetted, etiquette-trained helpers with zero advance fee. Operating across 9+ key hubs including Agra, Ghaziabad, Kalyan Mumbai, Jaipur, and Gwalior, we ensure fair living wages for staff and guaranteed 24-hour backup replacements for households."}
+                    ? "हमने इस असंगठित व्यवस्था को एक आधुनिक, भरोसेमंद मंच में बदलकर परिवारों को प्रशिक्षित, 100% पुलिस-सत्यापित सहायक उपलब्ध कराए हैं — बिना किसी अग्रिम कमीशन के। आगरा, गाजियाबाद, मुंबई MMR, जयपुर, इंदौर, ग्वालियर सहित 10+ प्रमुख शहरों में हम अपने सहायकों को निष्पक्ष वेतन और परिवारों को 24 घंटे में मुफ्त रिप्लेसमेंट गारंटी प्रदान करते हैं।"
+                    : "We transformed this informal ecosystem into an organized pan-India platform where families receive thoroughly vetted, etiquette-trained helpers with zero advance fee. Operating across 10+ key hubs including Agra, Ghaziabad, Kalyan Mumbai, Jaipur, Indore, and Gwalior, we ensure fair living wages for staff and guaranteed 24-hour backup replacements for households."}
                 </p>
               </div>
             </div>
@@ -161,7 +161,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ city }) => {
                   {language === "hi" ? "खुशहाल परिवार" : "Homes Served"}
                 </div>
                 <p className="hidden sm:block text-[11px] text-slate-600 dark:text-slate-300 font-medium">
-                  {language === "hi" ? "9+ प्रमुख शहरों में" : "Across 9+ cities"}
+                  {language === "hi" ? "10+ प्रमुख शहरों में" : "Across 10+ cities"}
                 </p>
               </div>
 
